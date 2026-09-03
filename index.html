@@ -14,11 +14,7 @@
 
   <link rel="manifest" href="./manifest.json" />
 
-  <!-- Icône iPhone / iPad -->
-
   <link rel="apple-touch-icon" href="./icon.PNG" />
-
-  <!-- Icône navigateur -->
 
   <link rel="icon" type="image/png" href="./icon.PNG" />
 
@@ -47,3 +43,3575 @@
       --info:#1d4ed8;
 
     }
+
+    *{box-sizing:border-box}
+
+    body{
+
+      margin:0;
+
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
+      background:var(--bg);
+
+      color:var(--text);
+
+    }
+
+    header{
+
+      position:sticky;
+
+      top:0;
+
+      z-index:10;
+
+      background:rgba(17,24,39,.97);
+
+      color:#fff;
+
+      padding:18px 16px 14px;
+
+      box-shadow:0 2px 10px rgba(0,0,0,.12);
+
+    }
+
+    header h1{
+
+      margin:0;
+
+      font-size:22px;
+
+    }
+
+    header p{
+
+      margin:4px 0 0;
+
+      color:#d1d5db;
+
+      font-size:13px;
+
+    }
+
+    .header-row{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:10px;
+
+    }
+
+    .header-actions button{
+
+      background:#374151;
+
+      padding:7px 9px;
+
+      font-size:12px;
+
+    }
+
+    main{
+
+      max-width:1100px;
+
+      margin:0 auto;
+
+      padding:16px;
+
+      padding-bottom:100px;
+
+    }
+
+    .grid{
+
+      display:grid;
+
+      gap:14px;
+
+    }
+
+    .two{
+
+      grid-template-columns:1fr 1fr;
+
+    }
+
+    .three{
+
+      grid-template-columns:repeat(3,1fr);
+
+    }
+
+    @media(max-width:760px){
+
+      .two,.three{
+
+        grid-template-columns:1fr;
+
+      }
+
+    }
+
+    .card{
+
+      background:var(--card);
+
+      border:1px solid var(--border);
+
+      border-radius:16px;
+
+      padding:16px;
+
+      box-shadow:0 2px 7px rgba(0,0,0,.04);
+
+    }
+
+    h2{
+
+      font-size:18px;
+
+      margin:0 0 12px;
+
+    }
+
+    .small{
+
+      font-size:12px;
+
+      color:var(--muted);
+
+    }
+
+    label{
+
+      display:block;
+
+      font-size:13px;
+
+      font-weight:600;
+
+      margin:8px 0 5px;
+
+    }
+
+    .row{
+
+      display:flex;
+
+      gap:8px;
+
+      align-items:center;
+
+      flex-wrap:wrap;
+
+    }
+
+    input,select,button{
+
+      font:inherit;
+
+    }
+
+    input,select{
+
+      width:100%;
+
+      padding:10px 11px;
+
+      border:1px solid #d1d5db;
+
+      border-radius:10px;
+
+      background:#fff;
+
+    }
+
+    button{
+
+      border:0;
+
+      border-radius:10px;
+
+      padding:10px 12px;
+
+      background:var(--accent);
+
+      color:#fff;
+
+      font-weight:700;
+
+      cursor:pointer;
+
+    }
+
+    button.secondary{
+
+      background:#e5e7eb;
+
+      color:#111827;
+
+    }
+
+    button.danger{
+
+      background:#991b1b;
+
+    }
+
+    button.info{
+
+      background:var(--info);
+
+    }
+
+    button:disabled{
+
+      opacity:.55;
+
+      cursor:not-allowed;
+
+    }
+
+    .tabs{
+
+      display:flex;
+
+      gap:8px;
+
+      overflow-x:auto;
+
+      margin-bottom:14px;
+
+      padding-bottom:2px;
+
+      scrollbar-width:none;
+
+    }
+
+    .tabs::-webkit-scrollbar{
+
+      display:none;
+
+    }
+
+    .tab{
+
+      white-space:nowrap;
+
+      background:#e5e7eb;
+
+      color:#111827;
+
+    }
+
+    .tab.active{
+
+      background:#111827;
+
+      color:#fff;
+
+    }
+
+    .hidden{
+
+      display:none!important;
+
+    }
+
+    .kpi{
+
+      font-size:28px;
+
+      font-weight:800;
+
+    }
+
+    .ok{
+
+      color:var(--ok);
+
+    }
+
+    .warn{
+
+      color:var(--warn);
+
+    }
+
+    table{
+
+      width:100%;
+
+      border-collapse:collapse;
+
+      font-size:13px;
+
+    }
+
+    th,td{
+
+      padding:9px 7px;
+
+      border-bottom:1px solid var(--border);
+
+      text-align:left;
+
+      vertical-align:top;
+
+    }
+
+    th{
+
+      color:#4b5563;
+
+      font-size:12px;
+
+    }
+
+    .pill{
+
+      display:inline-block;
+
+      padding:4px 8px;
+
+      border-radius:999px;
+
+      background:#eef2ff;
+
+      font-size:12px;
+
+      margin:2px;
+
+    }
+
+    .pill.ok{
+
+      background:#dcfce7;
+
+      color:#166534;
+
+    }
+
+    .pill.no{
+
+      background:#fee2e2;
+
+      color:#991b1b;
+
+    }
+
+    .pill.draft{
+
+      background:#fef3c7;
+
+      color:#92400e;
+
+    }
+
+    .employee-card{
+
+      border:1px solid var(--border);
+
+      border-radius:12px;
+
+      padding:12px;
+
+      margin-bottom:10px;
+
+    }
+
+    .employee-card strong{
+
+      display:block;
+
+      margin-bottom:5px;
+
+    }
+
+    .bar{
+
+      height:10px;
+
+      background:#e5e7eb;
+
+      border-radius:999px;
+
+      overflow:hidden;
+
+    }
+
+    .bar>div{
+
+      height:100%;
+
+      background:#111827;
+
+    }
+
+    .day{
+
+      border:1px solid var(--border);
+
+      border-radius:13px;
+
+      padding:12px;
+
+      margin-bottom:10px;
+
+    }
+
+    .day h3{
+
+      margin:0 0 8px;
+
+      font-size:15px;
+
+    }
+
+    .shift{
+
+      padding:8px;
+
+      border-radius:10px;
+
+      background:#f9fafb;
+
+      border:1px solid var(--border);
+
+      margin-top:7px;
+
+    }
+
+    .shift .actions{
+
+      float:right;
+
+      display:flex;
+
+      gap:6px;
+
+    }
+
+    .shift button{
+
+      padding:5px 7px;
+
+      font-size:11px;
+
+    }
+
+    nav.bottom{
+
+      position:fixed;
+
+      bottom:0;
+
+      left:0;
+
+      right:0;
+
+      z-index:20;
+
+      background:#fff;
+
+      border-top:1px solid var(--border);
+
+      display:flex;
+
+      justify-content:space-around;
+
+      padding:8px max(8px,env(safe-area-inset-right))
+
+        calc(8px + env(safe-area-inset-bottom));
+
+    }
+
+    nav.bottom button{
+
+      background:transparent;
+
+      color:#374151;
+
+      font-size:11px;
+
+      padding:6px;
+
+    }
+
+    .notice{
+
+      padding:10px;
+
+      border-radius:10px;
+
+      background:#fff7ed;
+
+      color:#9a3412;
+
+      font-size:13px;
+
+    }
+
+    .notice.okbox{
+
+      background:#ecfdf5;
+
+      color:#166534;
+
+    }
+
+    .notice.infobox{
+
+      background:#eff6ff;
+
+      color:#1e40af;
+
+    }
+
+    .login-screen{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:100;
+
+      background:var(--bg);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:20px;
+
+      overflow:auto;
+
+    }
+
+    .login-box{
+
+      max-width:520px;
+
+      width:100%;
+
+    }
+
+    .role-badge{
+
+      display:inline-block;
+
+      padding:4px 8px;
+
+      border-radius:999px;
+
+      background:#374151;
+
+      color:#fff;
+
+      font-size:12px;
+
+      margin-left:8px;
+
+    }
+
+    .manager-only,.employee-only{
+
+      display:none;
+
+    }
+
+    .personal-card{
+
+      border-left:4px solid #111827;
+
+    }
+
+    .spinner{
+
+      display:inline-block;
+
+      width:16px;
+
+      height:16px;
+
+      border:2px solid #ddd;
+
+      border-top-color:#111827;
+
+      border-radius:50%;
+
+      animation:spin .7s linear infinite;
+
+      vertical-align:-3px;
+
+      margin-right:6px;
+
+    }
+
+    @keyframes spin{
+
+      to{transform:rotate(360deg)}
+
+    }
+
+    .team-hours{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:8px;
+
+      margin:12px 0;
+
+    }
+
+    .team-hours>div{
+
+      background:#f9fafb;
+
+      border:1px solid var(--border);
+
+      border-radius:10px;
+
+      padding:10px;
+
+    }
+
+    .team-hours .number{
+
+      font-size:20px;
+
+      font-weight:800;
+
+      margin-top:3px;
+
+    }
+
+    .team-actions{
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:8px;
+
+      margin-top:10px;
+
+    }
+
+    .auth-switch{
+
+      text-align:center;
+
+      margin-top:16px;
+
+    }
+
+    .auth-link{
+
+      border:0;
+
+      padding:0;
+
+      background:transparent;
+
+      color:#1d4ed8;
+
+      font-weight:800;
+
+      font-size:inherit;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-row">
+
+    <div>
+
+      <h1>
+
+        Planning Bar
+
+        <span id="roleBadge" class="role-badge">Non connecté</span>
+
+      </h1>
+
+      <p id="headerSub">Planning synchronisé</p>
+
+    </div>
+
+    <div class="header-actions">
+
+      <button id="logoutBtn" class="hidden">Déconnexion</button>
+
+    </div>
+
+  </div>
+
+</header>
+
+<div id="loginScreen" class="login-screen">
+
+  <div class="card login-box">
+
+    <div id="loginForm">
+
+      <h2>Connexion Planning Bar</h2>
+
+      <p class="small">
+
+        Connecte-toi avec ton adresse e-mail et ton mot de passe.
+
+      </p>
+
+      <label>E-mail</label>
+
+      <input
+
+        id="loginEmail"
+
+        type="email"
+
+        autocomplete="username"
+
+        placeholder="prenom@email.com"
+
+      >
+
+      <label>Mot de passe</label>
+
+      <input
+
+        id="loginPassword"
+
+        type="password"
+
+        autocomplete="current-password"
+
+        placeholder="••••••••"
+
+      >
+
+      <button id="loginBtn" style="width:100%;margin-top:14px">
+
+        Se connecter
+
+      </button>
+
+      <div id="loginMessage" class="small" style="margin-top:12px"></div>
+
+      <div class="auth-switch">
+
+        Pas encore de compte ?
+
+        <button id="showSignupBtn" class="auth-link">
+
+          Créer un compte
+
+        </button>
+
+      </div>
+
+      <div class="notice infobox" style="margin-top:14px">
+
+        Les nouveaux comptes ne peuvent pas devenir gérants eux-mêmes.
+
+        Le gérant valide leur accès depuis l'onglet <strong>Équipe</strong>.
+
+      </div>
+
+    </div>
+
+    <div id="signupForm" class="hidden">
+
+      <h2>Créer un compte</h2>
+
+      <p class="small">
+
+        Ton compte sera créé comme <strong>employé</strong> et devra être
+
+        validé par le gérant.
+
+      </p>
+
+      <label>Nom complet</label>
+
+      <input id="signupName" type="text" placeholder="Prénom Nom">
+
+      <label>E-mail</label>
+
+      <input id="signupEmail" type="email" placeholder="prenom@email.com">
+
+      <label>Mot de passe</label>
+
+      <input
+
+        id="signupPassword"
+
+        type="password"
+
+        placeholder="8 caractères minimum"
+
+      >
+
+      <label>Confirmer le mot de passe</label>
+
+      <input
+
+        id="signupPassword2"
+
+        type="password"
+
+        placeholder="••••••••"
+
+      >
+
+      <button id="signupBtn" style="width:100%;margin-top:14px">
+
+        Créer mon compte
+
+      </button>
+
+      <div id="signupMessage" class="small" style="margin-top:12px"></div>
+
+      <div class="auth-switch">
+
+        Déjà un compte ?
+
+        <button id="showLoginBtn" class="auth-link">
+
+          Se connecter
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<main id="appMain" class="hidden">
+
+  <div class="tabs">
+
+    <button class="tab active" data-view="dashboard">
+
+      Tableau de bord
+
+    </button>
+
+    <button class="tab" data-view="availability">
+
+      Disponibilités
+
+    </button>
+
+    <button class="tab" data-view="planning">
+
+      Planning
+
+    </button>
+
+    <button class="tab" data-view="monthly">
+
+      Mois
+
+    </button>
+
+    <button class="tab manager-only" data-view="team">
+
+      Équipe
+
+    </button>
+
+  </div>
+
+  <!-- TABLEAU DE BORD -->
+
+  <section id="dashboard" class="view">
+
+    <div class="grid three">
+
+      <div class="card">
+
+        <div class="small">Mes heures cette semaine</div>
+
+        <div id="myWeek" class="kpi">0 h</div>
+
+        <div id="myWeekStatus" class="small"></div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="small">Mes heures ce mois</div>
+
+        <div id="myMonth" class="kpi">0 h</div>
+
+      </div>
+
+      <div class="card manager-only">
+
+        <div class="small">Total équipe ce mois</div>
+
+        <div id="teamMonth" class="kpi">0 h</div>
+
+      </div>
+
+    </div>
+
+    <div class="card manager-only" style="margin-top:14px">
+
+      <h2>Résumé par personne</h2>
+
+      <div id="summary"></div>
+
+    </div>
+
+    <div
+
+      class="card employee-only personal-card"
+
+      style="margin-top:14px"
+
+    >
+
+      <h2>Mon espace</h2>
+
+      <div class="small">
+
+        Tu peux encoder tes disponibilités et consulter tes horaires.
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DISPONIBILITES -->
+
+  <section id="availability" class="view hidden">
+
+    <div class="card">
+
+      <h2>Encoder une disponibilité</h2>
+
+      <div class="grid two">
+
+        <div class="manager-only">
+
+          <label>Personne</label>
+
+          <select id="avPerson"></select>
+
+        </div>
+
+        <div>
+
+          <label>Date</label>
+
+          <input id="avDate" type="date">
+
+        </div>
+
+        <div>
+
+          <label>Disponible à partir de</label>
+
+          <input id="avStart" type="time" value="14:00">
+
+        </div>
+
+        <div>
+
+          <label>Disponible jusqu'à</label>
+
+          <input id="avEnd" type="time" value="01:00">
+
+        </div>
+
+      </div>
+
+      <label>Statut</label>
+
+      <select id="avStatus">
+
+        <option value="yes">Disponible</option>
+
+        <option value="no">Indisponible</option>
+
+      </select>
+
+      <div style="margin-top:12px">
+
+        <button id="saveAvailability">Enregistrer</button>
+
+      </div>
+
+      <div class="small" style="margin-top:8px">
+
+        Une fin après minuit est gérée automatiquement.
+
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+
+      <div class="row" style="justify-content:space-between">
+
+        <h2 style="margin:0">Disponibilités enregistrées</h2>
+
+        <button id="refreshAvailability" class="secondary">
+
+          Actualiser
+
+        </button>
+
+      </div>
+
+      <div id="availabilityList" style="margin-top:10px"></div>
+
+    </div>
+
+  </section>
+
+  <!-- PLANNING -->
+
+  <section id="planning" class="view hidden">
+
+    <div class="card manager-only">
+
+      <h2>Ajouter un service</h2>
+
+      <div class="grid two">
+
+        <div>
+
+          <label>Personne</label>
+
+          <select id="shiftPerson"></select>
+
+        </div>
+
+        <div>
+
+          <label>Date</label>
+
+          <input id="shiftDate" type="date">
+
+        </div>
+
+        <div>
+
+          <label>Début</label>
+
+          <input id="shiftStart" type="time" value="14:00">
+
+        </div>
+
+        <div>
+
+          <label>Fin</label>
+
+          <input id="shiftEnd" type="time" value="01:00">
+
+        </div>
+
+      </div>
+
+      <label
+
+        style="display:flex;gap:8px;align-items:center;margin-top:12px"
+
+      >
+
+        <input
+
+          id="shiftPublished"
+
+          type="checkbox"
+
+          checked
+
+          style="width:auto"
+
+        >
+
+        Publier immédiatement pour l'employé
+
+      </label>
+
+      <div style="margin-top:12px">
+
+        <button id="addShift">Ajouter au planning</button>
+
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+
+      <div class="row" style="justify-content:space-between">
+
+        <h2 style="margin:0">Planning</h2>
+
+        <button id="refreshPlanning" class="secondary">
+
+          Actualiser
+
+        </button>
+
+      </div>
+
+      <div id="planningList" style="margin-top:10px"></div>
+
+    </div>
+
+  </section>
+
+  <!-- MOIS -->
+
+  <section id="monthly" class="view hidden">
+
+    <div class="card">
+
+      <h2>Récapitulatif mensuel</h2>
+
+      <div class="grid two">
+
+        <div>
+
+          <label>Mois</label>
+
+          <input id="monthPicker" type="month">
+
+        </div>
+
+        <div>
+
+          <label>Total affiché</label>
+
+          <div id="selectedMonthTotal" class="kpi">0 h</div>
+
+        </div>
+
+      </div>
+
+      <div class="small" style="margin-top:8px">
+
+        Touchez une personne pour voir son détail jour par jour.
+
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:14px">
+
+      <h2>Heures par personne</h2>
+
+      <div id="monthlySummary"></div>
+
+    </div>
+
+    <div
+
+      class="card hidden"
+
+      id="monthDetailCard"
+
+      style="margin-top:14px"
+
+    >
+
+      <h2 id="monthDetailTitle">Détail</h2>
+
+      <div id="monthDetail"></div>
+
+    </div>
+
+  </section>
+
+  <!-- EQUIPE -->
+
+  <section id="team" class="view hidden manager-only">
+
+    <div class="card">
+
+      <div class="row" style="justify-content:space-between">
+
+        <h2 style="margin:0">Équipe</h2>
+
+        <button id="refreshTeam" class="secondary">
+
+          Actualiser
+
+        </button>
+
+      </div>
+
+      <div id="teamList" style="margin-top:14px"></div>
+
+    </div>
+
+    <div class="notice infobox" style="margin-top:14px">
+
+      Les nouveaux comptes créés depuis l'application apparaissent ici.
+
+      Le gérant peut activer ou désactiver leur accès.
+
+    </div>
+
+  </section>
+
+</main>
+
+<nav id="bottomNav" class="bottom hidden">
+
+  <button data-go="dashboard">
+
+    🏠<br>Accueil
+
+  </button>
+
+  <button data-go="availability">
+
+    🟢<br>Dispos
+
+  </button>
+
+  <button data-go="planning">
+
+    📅<br>Planning
+
+  </button>
+
+  <button data-go="monthly">
+
+    📊<br>Mois
+
+  </button>
+
+  <button class="manager-only" data-go="team">
+
+    👥<br>Équipe
+
+  </button>
+
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+
+  'https://nzekencekmieysxpdzgo.supabase.co';
+
+const SUPABASE_KEY =
+
+  'sb_publishable_YDUmGd6SY-1bZdYci3j4yw_fvcueFN9';
+
+const sb = supabase.createClient(
+
+  SUPABASE_URL,
+
+  SUPABASE_KEY,
+
+  {
+
+    auth:{
+
+      persistSession:true,
+
+      autoRefreshToken:true,
+
+      detectSessionInUrl:true
+
+    }
+
+  }
+
+);
+
+const $ = id => document.getElementById(id);
+
+let me = null;
+
+let profiles = [];
+
+let availabilities = [];
+
+let shifts = [];
+
+const esc = s =>
+
+  String(s ?? '').replace(
+
+    /[&<>'"]/g,
+
+    c => ({
+
+      '&':'&amp;',
+
+      '<':'&lt;',
+
+      '>':'&gt;',
+
+      "'":'&#39;',
+
+      '"':'&quot;'
+
+    }[c])
+
+  );
+
+const isManager = () => me?.role === 'manager';
+
+const fmtH = n =>
+
+  (Math.round((Number(n)||0)*100)/100)
+
+    .toString()
+
+    .replace('.',',') + ' h';
+
+const dt = v => new Date(v);
+
+const dateKey = v => String(v).slice(0,10);
+
+const timeKey = v => String(v).slice(11,16);
+
+function localStamp(date,time){
+
+  return `${date}T${time}:00`;
+
+}
+
+function endStamp(date,start,end){
+
+  const s = new Date(localStamp(date,start));
+
+  const e = new Date(localStamp(date,end));
+
+  if(e <= s){
+
+    e.setDate(e.getDate()+1);
+
+  }
+
+  return (
+
+    `${e.getFullYear()}-` +
+
+    `${String(e.getMonth()+1).padStart(2,'0')}-` +
+
+    `${String(e.getDate()).padStart(2,'0')}T` +
+
+    `${String(e.getHours()).padStart(2,'0')}:` +
+
+    `${String(e.getMinutes()).padStart(2,'0')}:00`
+
+  );
+
+}
+
+function hoursBetween(a,b){
+
+  return Math.max(0,(dt(b)-dt(a))/3600000);
+
+}
+
+function startOfWeek(d=new Date()){
+
+  const x = new Date(d);
+
+  x.setHours(0,0,0,0);
+
+  const day = (x.getDay()+6)%7;
+
+  x.setDate(x.getDate()-day);
+
+  return x;
+
+}
+
+function inCurrentWeek(v){
+
+  const d = dt(v);
+
+  const a = startOfWeek();
+
+  const b = new Date(a);
+
+  b.setDate(b.getDate()+7);
+
+  return d>=a && d<b;
+
+}
+
+function inCurrentMonth(v){
+
+  const d = dt(v);
+
+  const n = new Date();
+
+  return (
+
+    d.getFullYear()===n.getFullYear() &&
+
+    d.getMonth()===n.getMonth()
+
+  );
+
+}
+
+function inMonth(v,key){
+
+  return String(v).slice(0,7)===key;
+
+}
+
+function shiftHours(list){
+
+  return list.reduce(
+
+    (t,s)=>t+hoursBetween(s.start_at,s.end_at),
+
+    0
+
+  );
+
+}
+
+function personName(id){
+
+  return profiles.find(p=>p.id===id)?.full_name || 'Employé';
+
+}
+
+function formatDateFr(v){
+
+  return dt(v).toLocaleDateString(
+
+    'fr-BE',
+
+    {
+
+      weekday:'short',
+
+      day:'2-digit',
+
+      month:'2-digit'
+
+    }
+
+  );
+
+}
+
+function statusUnavailable(a){
+
+  return (a.note||'').startsWith('[INDISPONIBLE]');
+
+}
+
+function setBusy(btn,busy,label){
+
+  btn.disabled=busy;
+
+  btn.innerHTML = busy
+
+    ? '<span class="spinner"></span>Chargement…'
+
+    : label;
+
+}
+
+function msg(el,text,ok=false){
+
+  el.textContent=text;
+
+  el.style.color=ok ? '#15803d' : '#b91c1c';
+
+}
+
+/* =========================
+
+   AUTHENTIFICATION
+
+========================= */
+
+async function login(){
+
+  const btn=$('loginBtn');
+
+  setBusy(btn,true,'Se connecter');
+
+  msg($('loginMessage'),'');
+
+  const email=$('loginEmail').value.trim();
+
+  const password=$('loginPassword').value;
+
+  const {error}=await sb.auth.signInWithPassword({
+
+    email,
+
+    password
+
+  });
+
+  setBusy(btn,false,'Se connecter');
+
+  if(error){
+
+    return msg(
+
+      $('loginMessage'),
+
+      'Connexion impossible : '+error.message
+
+    );
+
+  }
+
+  await boot();
+
+}
+
+async function signup(){
+
+  const name=$('signupName').value.trim();
+
+  const email=$('signupEmail').value.trim();
+
+  const password=$('signupPassword').value;
+
+  const password2=$('signupPassword2').value;
+
+  if(!name){
+
+    return msg(
+
+      $('signupMessage'),
+
+      'Entre ton nom complet.'
+
+    );
+
+  }
+
+  if(!email){
+
+    return msg(
+
+      $('signupMessage'),
+
+      'Entre ton adresse e-mail.'
+
+    );
+
+  }
+
+  if(password.length<8){
+
+    return msg(
+
+      $('signupMessage'),
+
+      'Le mot de passe doit contenir au moins 8 caractères.'
+
+    );
+
+  }
+
+  if(password!==password2){
+
+    return msg(
+
+      $('signupMessage'),
+
+      'Les deux mots de passe ne correspondent pas.'
+
+    );
+
+  }
+
+  const btn=$('signupBtn');
+
+  setBusy(btn,true,'Créer mon compte');
+
+  msg($('signupMessage'),'');
+
+  const {data,error}=await sb.auth.signUp({
+
+    email,
+
+    password,
+
+    options:{
+
+      data:{
+
+        full_name:name
+
+      }
+
+    }
+
+  });
+
+  setBusy(btn,false,'Créer mon compte');
+
+  if(error){
+
+    return msg(
+
+      $('signupMessage'),
+
+      'Impossible de créer le compte : '+error.message
+
+    );
+
+  }
+
+  msg(
+
+    $('signupMessage'),
+
+    'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation du gérant.',
+
+    true
+
+  );
+
+}
+
+async function logout(){
+
+  await sb.auth.signOut();
+
+  location.reload();
+
+}
+
+/* =========================
+
+   DONNEES
+
+========================= */
+
+async function getMyProfile(){
+
+  const {
+
+    data:{user}
+
+  }=await sb.auth.getUser();
+
+  if(!user){
+
+    return null;
+
+  }
+
+  const {data,error}=await sb
+
+    .from('profiles')
+
+    .select('id,full_name,role,active')
+
+    .eq('id',user.id)
+
+    .single();
+
+  if(error){
+
+    throw error;
+
+  }
+
+  if(!data.active){
+
+    throw new Error(
+
+      'Ton compte est en attente de validation ou a été désactivé.'
+
+    );
+
+  }
+
+  return data;
+
+}
+
+async function loadAll(){
+
+  const [p,a,s]=await Promise.all([
+
+    sb
+
+      .from('profiles')
+
+      .select('id,full_name,role,active')
+
+      .order('full_name'),
+
+    sb
+
+      .from('availabilities')
+
+      .select(
+
+        'id,employee_id,start_at,end_at,note,created_at'
+
+      )
+
+      .order('start_at'),
+
+    sb
+
+      .from('shifts')
+
+      .select(
+
+        'id,employee_id,start_at,end_at,note,published,created_at,updated_at'
+
+      )
+
+      .order('start_at')
+
+  ]);
+
+  if(p.error) throw p.error;
+
+  if(a.error) throw a.error;
+
+  if(s.error) throw s.error;
+
+  profiles=p.data||[];
+
+  availabilities=a.data||[];
+
+  shifts=s.data||[];
+
+}
+
+/* =========================
+
+   DEMARRAGE
+
+========================= */
+
+async function boot(){
+
+  try{
+
+    const {
+
+      data:{session}
+
+    }=await sb.auth.getSession();
+
+    if(!session){
+
+      showLogin();
+
+      return;
+
+    }
+
+    me=await getMyProfile();
+
+    await loadAll();
+
+    showApp();
+
+    renderAll();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert('Erreur : '+e.message);
+
+    await sb.auth.signOut();
+
+    showLogin();
+
+  }
+
+}
+
+function showLogin(){
+
+  $('loginScreen').classList.remove('hidden');
+
+  $('appMain').classList.add('hidden');
+
+  $('bottomNav').classList.add('hidden');
+
+  $('logoutBtn').classList.add('hidden');
+
+}
+
+function showApp(){
+
+  $('loginScreen').classList.add('hidden');
+
+  $('appMain').classList.remove('hidden');
+
+  $('bottomNav').classList.remove('hidden');
+
+  $('logoutBtn').classList.remove('hidden');
+
+  applyRole();
+
+}
+
+function applyRole(){
+
+  document
+
+    .querySelectorAll('.manager-only')
+
+    .forEach(el=>{
+
+      el.style.display=isManager()?'':'none';
+
+    });
+
+  document
+
+    .querySelectorAll('.employee-only')
+
+    .forEach(el=>{
+
+      el.style.display=!isManager()?'':'none';
+
+    });
+
+  $('roleBadge').textContent=
+
+    isManager()
+
+      ? 'Gérant'
+
+      : (me?.full_name||'Employé');
+
+  $('headerSub').textContent=
+
+    isManager()
+
+      ? 'Gestion du planning synchronisé'
+
+      : 'Mes disponibilités et mon planning';
+
+}
+
+/* =========================
+
+   AFFICHAGE
+
+========================= */
+
+function renderSelects(){
+
+  const opts=profiles
+
+    .filter(p=>p.active)
+
+    .map(
+
+      p=>
+
+        `<option value="${esc(p.id)}">`+
+
+        `${esc(p.full_name)}`+
+
+        `</option>`
+
+    )
+
+    .join('');
+
+  $('avPerson').innerHTML=opts;
+
+  $('shiftPerson').innerHTML=opts;
+
+}
+
+function myShifts(){
+
+  return shifts.filter(
+
+    s=>s.employee_id===me.id
+
+  );
+
+}
+
+function renderDashboard(){
+
+  const mine=myShifts();
+
+  const w=shiftHours(
+
+    mine.filter(
+
+      s=>inCurrentWeek(s.start_at)
+
+    )
+
+  );
+
+  const m=shiftHours(
+
+    mine.filter(
+
+      s=>inCurrentMonth(s.start_at)
+
+    )
+
+  );
+
+  $('myWeek').textContent=fmtH(w);
+
+  $('myMonth').textContent=fmtH(m);
+
+  if(isManager()){
+
+    $('myWeek').className=
+
+      'kpi '+(w>=38?'ok':'warn');
+
+    $('myWeekStatus').textContent=
+
+      w>=38
+
+        ? `Minimum 38 h atteint (+${fmtH(w-38)})`
+
+        : `Il manque ${fmtH(38-w)} pour atteindre 38 h`;
+
+    const tm=shiftHours(
+
+      shifts.filter(
+
+        s=>inCurrentMonth(s.start_at)
+
+      )
+
+    );
+
+    $('teamMonth').textContent=fmtH(tm);
+
+    $('summary').innerHTML=
+
+      profiles
+
+        .filter(p=>p.active)
+
+        .map(p=>{
+
+          const ps=shifts.filter(
+
+            s=>s.employee_id===p.id
+
+          );
+
+          const pw=shiftHours(
+
+            ps.filter(
+
+              s=>inCurrentWeek(s.start_at)
+
+            )
+
+          );
+
+          const pm=shiftHours(
+
+            ps.filter(
+
+              s=>inCurrentMonth(s.start_at)
+
+            )
+
+          );
+
+          const pct=
+
+            p.id===me.id
+
+              ? Math.min(100,pw/38*100)
+
+              : Math.min(100,pw/40*100);
+
+          return `
+
+            <div class="employee-card">
+
+              <strong>${esc(p.full_name)}</strong>
+
+              <div class="row">
+
+                <span>Semaine : ${fmtH(pw)}</span>
+
+                <span>• Mois : ${fmtH(pm)}</span>
+
+              </div>
+
+              <div class="bar" style="margin-top:7px">
+
+                <div style="width:${pct}%"></div>
+
+              </div>
+
+            </div>
+
+          `;
+
+        })
+
+        .join('')
+
+        ||
+
+        '<div class="small">Aucun employé.</div>';
+
+  }else{
+
+    $('myWeek').className='kpi';
+
+    $('myWeekStatus').textContent='';
+
+  }
+
+}
+
+function renderAvailability(){
+
+  let rows=[...availabilities];
+
+  if(!isManager()){
+
+    rows=rows.filter(
+
+      a=>a.employee_id===me.id
+
+    );
+
+  }
+
+  $('availabilityList').innerHTML=
+
+    rows.length
+
+      ? `
+
+        <table>
+
+          <tr>
+
+            <th>Date</th>
+
+            <th>Personne</th>
+
+            <th>Disponibilité</th>
+
+            <th></th>
+
+          </tr>
+
+          ${rows.map(a=>`
+
+            <tr>
+
+              <td>
+
+                ${formatDateFr(a.start_at)}
+
+              </td>
+
+              <td>
+
+                ${esc(personName(a.employee_id))}
+
+              </td>
+
+              <td>
+
+                ${
+
+                  statusUnavailable(a)
+
+                    ? '<span class="pill no">Indisponible</span>'
+
+                    : `<span class="pill ok">
+
+                        ${timeKey(a.start_at)}–${timeKey(a.end_at)}
+
+                       </span>`
+
+                }
+
+              </td>
+
+              <td>
+
+                <button
+
+                  class="danger"
+
+                  onclick="deleteAvailability('${a.id}')"
+
+                >
+
+                  X
+
+                </button>
+
+              </td>
+
+            </tr>
+
+          `).join('')}
+
+        </table>
+
+      `
+
+      :
+
+      '<div class="small">Aucune disponibilité encodée.</div>';
+
+}
+
+function visibleShifts(){
+
+  if(isManager()){
+
+    return shifts;
+
+  }
+
+  return shifts.filter(
+
+    s=>
+
+      s.employee_id===me.id &&
+
+      s.published
+
+  );
+
+}
+
+function renderPlanning(){
+
+  const groups={};
+
+  visibleShifts().forEach(s=>{
+
+    const key=dateKey(s.start_at);
+
+    if(!groups[key]){
+
+      groups[key]=[];
+
+    }
+
+    groups[key].push(s);
+
+  });
+
+  let html='';
+
+  Object
+
+    .keys(groups)
+
+    .sort()
+
+    .forEach(date=>{
+
+      html+=`
+
+        <div class="day">
+
+          <h3>
+
+            ${
+
+              new Date(date+'T12:00:00')
+
+                .toLocaleDateString(
+
+                  'fr-BE',
+
+                  {
+
+                    weekday:'long',
+
+                    day:'2-digit',
+
+                    month:'2-digit'
+
+                  }
+
+                )
+
+            }
+
+          </h3>
+
+      `;
+
+      html+=groups[date]
+
+        .map(s=>`
+
+          <div class="shift">
+
+            ${
+
+              isManager()
+
+                ? `
+
+                  <span class="actions">
+
+                    <button
+
+                      onclick="editShift('${s.id}')"
+
+                    >
+
+                      Modifier
+
+                    </button>
+
+                    <button
+
+                      class="danger"
+
+                      onclick="deleteShift('${s.id}')"
+
+                    >
+
+                      Suppr.
+
+                    </button>
+
+                  </span>
+
+                `
+
+                : ''
+
+            }
+
+            <strong>
+
+              ${esc(personName(s.employee_id))}
+
+            </strong>
+
+            ${
+
+              isManager() && !s.published
+
+                ? '<span class="pill draft">Brouillon</span>'
+
+                : ''
+
+            }
+
+            <br>
+
+            <span class="small">
+
+              ${timeKey(s.start_at)}–${timeKey(s.end_at)}
+
+              •
+
+              ${fmtH(hoursBetween(s.start_at,s.end_at))}
+
+            </span>
+
+          </div>
+
+        `)
+
+        .join('');
+
+      html+='</div>';
+
+    });
+
+  $('planningList').innerHTML=
+
+    html ||
+
+    '<div class="small">Aucun service au planning.</div>';
+
+}
+
+function renderMonthly(){
+
+  const key=
+
+    $('monthPicker').value ||
+
+    new Date().toISOString().slice(0,7);
+
+  const people=
+
+    isManager()
+
+      ? profiles.filter(p=>p.active)
+
+      : profiles.filter(p=>p.id===me.id);
+
+  let rel=shifts.filter(
+
+    s=>inMonth(s.start_at,key)
+
+  );
+
+  if(!isManager()){
+
+    rel=rel.filter(
+
+      s=>
+
+        s.employee_id===me.id &&
+
+        s.published
+
+    );
+
+  }
+
+  $('selectedMonthTotal').textContent=
+
+    fmtH(shiftHours(rel));
+
+  $('monthlySummary').innerHTML=
+
+    people
+
+      .map(p=>{
+
+        const ps=rel.filter(
+
+          s=>s.employee_id===p.id
+
+        );
+
+        const h=shiftHours(ps);
+
+        return `
+
+          <div
+
+            class="employee-card"
+
+            onclick="showMonthDetail('${p.id}')"
+
+            style="cursor:pointer"
+
+          >
+
+            <strong>${esc(p.full_name)}</strong>
+
+            <div class="row">
+
+              <span>${fmtH(h)}</span>
+
+              <span class="small">
+
+                • ${ps.length}
+
+                service${ps.length>1?'s':''}
+
+              </span>
+
+            </div>
+
+          </div>
+
+        `;
+
+      })
+
+      .join('')
+
+      ||
+
+      '<div class="small">Aucune donnée.</div>';
+
+  $('monthDetailCard').classList.add('hidden');
+
+}
+
+function showMonthDetail(id){
+
+  const p=profiles.find(
+
+    x=>x.id===id
+
+  );
+
+  if(!p){
+
+    return;
+
+  }
+
+  if(!isManager() && id!==me.id){
+
+    return;
+
+  }
+
+  const key=
+
+    $('monthPicker').value ||
+
+    new Date().toISOString().slice(0,7);
+
+  let ps=shifts.filter(
+
+    s=>
+
+      s.employee_id===id &&
+
+      inMonth(s.start_at,key)
+
+  );
+
+  if(!isManager()){
+
+    ps=ps.filter(
+
+      s=>s.published
+
+    );
+
+  }
+
+  const total=shiftHours(ps);
+
+  const label=
+
+    new Date(key+'-01T12:00:00')
+
+      .toLocaleDateString(
+
+        'fr-BE',
+
+        {
+
+          month:'long',
+
+          year:'numeric'
+
+        }
+
+      );
+
+  $('monthDetailTitle').textContent=
+
+    `${p.full_name} — `+
+
+    `${label.charAt(0).toUpperCase()+label.slice(1)}`;
+
+  $('monthDetail').innerHTML=
+
+    ps.length
+
+      ? `
+
+        <table>
+
+          <tr>
+
+            <th>Date</th>
+
+            <th>Horaire</th>
+
+            <th>Heures</th>
+
+          </tr>
+
+          ${ps.map(s=>`
+
+            <tr>
+
+              <td>${formatDateFr(s.start_at)}</td>
+
+              <td>
+
+                ${timeKey(s.start_at)}–${timeKey(s.end_at)}
+
+              </td>
+
+              <td>
+
+                ${fmtH(hoursBetween(s.start_at,s.end_at))}
+
+              </td>
+
+            </tr>
+
+          `).join('')}
+
+          <tr>
+
+            <th colspan="2">Total</th>
+
+            <th>${fmtH(total)}</th>
+
+          </tr>
+
+        </table>
+
+      `
+
+      :
+
+      '<div class="small">Aucun service ce mois-ci.</div>';
+
+  $('monthDetailCard').classList.remove('hidden');
+
+  $('monthDetailCard').scrollIntoView({
+
+    behavior:'smooth',
+
+    block:'start'
+
+  });
+
+}
+
+/* =========================
+
+   EQUIPE V5.2
+
+========================= */
+
+function renderTeam(){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  $('teamList').innerHTML=
+
+    profiles
+
+      .map(p=>{
+
+        const ps=shifts.filter(
+
+          s=>s.employee_id===p.id
+
+        );
+
+        const week=shiftHours(
+
+          ps.filter(
+
+            s=>inCurrentWeek(s.start_at)
+
+          )
+
+        );
+
+        const month=shiftHours(
+
+          ps.filter(
+
+            s=>inCurrentMonth(s.start_at)
+
+          )
+
+        );
+
+        const isMe=p.id===me.id;
+
+        return `
+
+          <div class="employee-card">
+
+            <strong>${esc(p.full_name)}</strong>
+
+            <span class="small">
+
+              ${p.role==='manager'?'Gérant':'Employé'}
+
+            </span>
+
+            ${
+
+              p.active
+
+                ? '<span class="pill ok">Actif</span>'
+
+                : '<span class="pill no">Désactivé</span>'
+
+            }
+
+            <div class="team-hours">
+
+              <div>
+
+                <div class="small">Cette semaine</div>
+
+                <div class="number">${fmtH(week)}</div>
+
+              </div>
+
+              <div>
+
+                <div class="small">Ce mois</div>
+
+                <div class="number">${fmtH(month)}</div>
+
+              </div>
+
+            </div>
+
+            <div class="team-actions">
+
+              <button
+
+                class="secondary"
+
+                onclick="teamHours('${p.id}')"
+
+              >
+
+                Voir ${isMe?'mes':'les'} heures
+
+              </button>
+
+              ${
+
+                !isMe && p.role!=='manager'
+
+                  ? (
+
+                      p.active
+
+                        ? `
+
+                          <button
+
+                            class="danger"
+
+                            onclick="setEmployeeActive('${p.id}',false)"
+
+                          >
+
+                            Désactiver
+
+                          </button>
+
+                        `
+
+                        : `
+
+                          <button
+
+                            onclick="setEmployeeActive('${p.id}',true)"
+
+                          >
+
+                            Activer
+
+                          </button>
+
+                        `
+
+                    )
+
+                  : ''
+
+              }
+
+              ${
+
+                !isMe && p.role!=='manager'
+
+                  ? `
+
+                    <button
+
+                      class="danger"
+
+                      onclick="deleteEmployee('${p.id}')"
+
+                    >
+
+                      Supprimer le compte
+
+                    </button>
+
+                  `
+
+                  : ''
+
+              }
+
+            </div>
+
+          </div>
+
+        `;
+
+      })
+
+      .join('')
+
+      ||
+
+      '<div class="small">Aucun profil.</div>';
+
+}
+
+function teamHours(id){
+
+  $('monthPicker').value=
+
+    new Date().toISOString().slice(0,7);
+
+  show('monthly');
+
+  setTimeout(
+
+    ()=>showMonthDetail(id),
+
+    100
+
+  );
+
+}
+
+/* =========================
+
+   ACTIONS
+
+========================= */
+
+async function refresh(){
+
+  try{
+
+    await loadAll();
+
+    renderAll();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert('Erreur : '+e.message);
+
+  }
+
+}
+
+async function saveAvailability(){
+
+  if(!$('avDate').value){
+
+    return alert('Choisis une date.');
+
+  }
+
+  const employee_id=
+
+    isManager()
+
+      ? $('avPerson').value
+
+      : me.id;
+
+  const status=$('avStatus').value;
+
+  const date=$('avDate').value;
+
+  let start_at;
+
+  let end_at;
+
+  let note=null;
+
+  if(status==='no'){
+
+    start_at=localStamp(
+
+      date,
+
+      '00:00'
+
+    );
+
+    end_at=localStamp(
+
+      date,
+
+      '23:59'
+
+    );
+
+    note='[INDISPONIBLE]';
+
+  }else{
+
+    start_at=localStamp(
+
+      date,
+
+      $('avStart').value
+
+    );
+
+    end_at=endStamp(
+
+      date,
+
+      $('avStart').value,
+
+      $('avEnd').value
+
+    );
+
+  }
+
+  const {error}=await sb
+
+    .from('availabilities')
+
+    .insert({
+
+      employee_id,
+
+      start_at,
+
+      end_at,
+
+      note
+
+    });
+
+  if(error){
+
+    return alert(error.message);
+
+  }
+
+  await refresh();
+
+}
+
+async function deleteAvailability(id){
+
+  if(!confirm(
+
+    'Supprimer cette disponibilité ?'
+
+  )){
+
+    return;
+
+  }
+
+  const {error}=await sb
+
+    .from('availabilities')
+
+    .delete()
+
+    .eq('id',id);
+
+  if(error){
+
+    return alert(error.message);
+
+  }
+
+  await refresh();
+
+}
+
+async function addShift(){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  if(!$('shiftDate').value){
+
+    return alert('Choisis une date.');
+
+  }
+
+  const date=$('shiftDate').value;
+
+  const start=$('shiftStart').value;
+
+  const end=$('shiftEnd').value;
+
+  const {error}=await sb
+
+    .from('shifts')
+
+    .insert({
+
+      employee_id:
+
+        $('shiftPerson').value,
+
+      start_at:
+
+        localStamp(date,start),
+
+      end_at:
+
+        endStamp(date,start,end),
+
+      published:
+
+        $('shiftPublished').checked,
+
+      created_by:
+
+        me.id
+
+    });
+
+  if(error){
+
+    return alert(error.message);
+
+  }
+
+  await refresh();
+
+}
+
+async function deleteShift(id){
+
+  if(
+
+    !isManager() ||
+
+    !confirm('Supprimer ce service ?')
+
+  ){
+
+    return;
+
+  }
+
+  const {error}=await sb
+
+    .from('shifts')
+
+    .delete()
+
+    .eq('id',id);
+
+  if(error){
+
+    return alert(error.message);
+
+  }
+
+  await refresh();
+
+}
+
+async function editShift(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const s=shifts.find(
+
+    x=>String(x.id)===String(id)
+
+  );
+
+  if(!s){
+
+    return;
+
+  }
+
+  const date=prompt(
+
+    'Date AAAA-MM-JJ',
+
+    dateKey(s.start_at)
+
+  );
+
+  if(!date){
+
+    return;
+
+  }
+
+  const start=prompt(
+
+    'Début HH:MM',
+
+    timeKey(s.start_at)
+
+  );
+
+  if(!start){
+
+    return;
+
+  }
+
+  const end=prompt(
+
+    'Fin HH:MM',
+
+    timeKey(s.end_at)
+
+  );
+
+  if(!end){
+
+    return;
+
+  }
+
+  const pub=confirm(
+
+    'OK = publié pour l’employé\nAnnuler = brouillon'
+
+  );
+
+  const {error}=await sb
+
+    .from('shifts')
+
+    .update({
+
+      start_at:
+
+        localStamp(date,start),
+
+      end_at:
+
+        endStamp(date,start,end),
+
+      published:
+
+        pub,
+
+      updated_at:
+
+        new Date().toISOString()
+
+    })
+
+    .eq('id',id);
+
+  if(error){
+
+    return alert(error.message);
+
+  }
+
+  await refresh();
+
+}
+
+async function setEmployeeActive(id,active){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const p=profiles.find(
+
+    x=>x.id===id
+
+  );
+
+  if(!p){
+
+    return;
+
+  }
+
+  const action=
+
+    active
+
+      ? 'activer'
+
+      : 'désactiver';
+
+  if(!confirm(
+
+    `${action.charAt(0).toUpperCase()+action.slice(1)} le compte de ${p.full_name} ?`
+
+  )){
+
+    return;
+
+  }
+
+  const {error}=await sb
+
+    .from('profiles')
+
+    .update({
+
+      active
+
+    })
+
+    .eq('id',id);
+
+  if(error){
+
+    return alert(
+
+      'Impossible de modifier le compte : '+error.message
+
+    );
+
+  }
+
+  await refresh();
+
+}
+
+async function deleteEmployee(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  if(id===me.id){
+
+    return alert(
+
+      'Tu ne peux pas supprimer ton propre compte gérant.'
+
+    );
+
+  }
+
+  const p=profiles.find(
+
+    x=>x.id===id
+
+  );
+
+  if(!p){
+
+    return;
+
+  }
+
+  const first=confirm(
+
+    `Supprimer définitivement le compte de ${p.full_name} ?`
+
+  );
+
+  if(!first){
+
+    return;
+
+  }
+
+  const second=confirm(
+
+    `ATTENTION : suppression définitive de ${p.full_name}.\n\nContinuer ?`
+
+  );
+
+  if(!second){
+
+    return;
+
+  }
+
+  const {error}=await sb.rpc(
+
+    'delete_employee_account',
+
+    {
+
+      target_user:id
+
+    }
+
+  );
+
+  if(error){
+
+    return alert(
+
+      'Suppression impossible : '+error.message
+
+    );
+
+  }
+
+  alert(
+
+    `Le compte de ${p.full_name} a été supprimé.`
+
+  );
+
+  await refresh();
+
+}
+
+/* =========================
+
+   RENDU GLOBAL
+
+========================= */
+
+function renderAll(){
+
+  applyRole();
+
+  renderSelects();
+
+  renderDashboard();
+
+  renderAvailability();
+
+  renderPlanning();
+
+  renderMonthly();
+
+  renderTeam();
+
+}
+
+/* =========================
+
+   NAVIGATION
+
+========================= */
+
+function show(id){
+
+  document
+
+    .querySelectorAll('.view')
+
+    .forEach(
+
+      v=>v.classList.add('hidden')
+
+    );
+
+  const target=$(id);
+
+  if(target){
+
+    target.classList.remove('hidden');
+
+  }
+
+  document
+
+    .querySelectorAll('.tab')
+
+    .forEach(
+
+      b=>
+
+        b.classList.toggle(
+
+          'active',
+
+          b.dataset.view===id
+
+        )
+
+    );
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:'smooth'
+
+  });
+
+}
+
+/* =========================
+
+   BOUTONS
+
+========================= */
+
+$('loginBtn').onclick=login;
+
+$('loginPassword')
+
+  .addEventListener(
+
+    'keydown',
+
+    e=>{
+
+      if(e.key==='Enter'){
+
+        login();
+
+      }
+
+    }
+
+  );
+
+$('signupBtn').onclick=signup;
+
+$('showSignupBtn').onclick=()=>{
+
+  $('loginForm').classList.add('hidden');
+
+  $('signupForm').classList.remove('hidden');
+
+};
+
+$('showLoginBtn').onclick=()=>{
+
+  $('signupForm').classList.add('hidden');
+
+  $('loginForm').classList.remove('hidden');
+
+};
+
+$('logoutBtn').onclick=logout;
+
+$('saveAvailability').onclick=
+
+  saveAvailability;
+
+$('addShift').onclick=
+
+  addShift;
+
+$('refreshAvailability').onclick=
+
+  refresh;
+
+$('refreshPlanning').onclick=
+
+  refresh;
+
+$('refreshTeam').onclick=
+
+  refresh;
+
+$('monthPicker').onchange=
+
+  renderMonthly;
+
+document
+
+  .querySelectorAll('.tab')
+
+  .forEach(
+
+    b=>
+
+      b.onclick=
+
+        ()=>show(b.dataset.view)
+
+  );
+
+document
+
+  .querySelectorAll('[data-go]')
+
+  .forEach(
+
+    b=>
+
+      b.onclick=
+
+        ()=>show(b.dataset.go)
+
+  );
+
+/* =========================
+
+   FONCTIONS GLOBALES
+
+========================= */
+
+window.deleteAvailability=
+
+  deleteAvailability;
+
+window.deleteShift=
+
+  deleteShift;
+
+window.editShift=
+
+  editShift;
+
+window.showMonthDetail=
+
+  showMonthDetail;
+
+window.teamHours=
+
+  teamHours;
+
+window.setEmployeeActive=
+
+  setEmployeeActive;
+
+window.deleteEmployee=
+
+  deleteEmployee;
+
+/* =========================
+
+   DATES PAR DEFAUT
+
+========================= */
+
+const today=
+
+  new Date()
+
+    .toISOString()
+
+    .slice(0,10);
+
+$('avDate').value=today;
+
+$('shiftDate').value=today;
+
+$('monthPicker').value=
+
+  today.slice(0,7);
+
+/* =========================
+
+   SESSION
+
+========================= */
+
+sb.auth.onAuthStateChange(
+
+  event=>{
+
+    if(event==='SIGNED_OUT'){
+
+      showLogin();
+
+    }
+
+  }
+
+);
+
+/* =========================
+
+   LANCEMENT
+
+========================= */
+
+boot();
+
+/* =========================
+
+   SERVICE WORKER
+
+========================= */
+
+if('serviceWorker' in navigator){
+
+  window.addEventListener(
+
+    'load',
+
+    ()=>{
+
+      navigator.serviceWorker
+
+        .register('./sw.js')
+
+        .catch(
+
+          err=>
+
+            console.log(
+
+              'Service Worker :',
+
+              err
+
+            )
+
+        );
+
+    }
+
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>
