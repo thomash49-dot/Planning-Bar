@@ -2,7 +2,9 @@
 
   "name": "Planning Bar",
 
-  "short_name": "Planning",
+  "short_name": "Planning Bar",
+
+  "description": "Application de gestion du planning du bar",
 
   "start_url": "./",
 
@@ -20,11 +22,23 @@
 
       "src": "./icon.PNG",
 
-      "sizes": "512x512",
+      "sizes": "any",
 
       "type": "image/png",
 
       "purpose": "any"
+
+    },
+
+    {
+
+      "src": "./icon.PNG",
+
+      "sizes": "any",
+
+      "type": "image/png",
+
+      "purpose": "maskable"
 
     }
 
