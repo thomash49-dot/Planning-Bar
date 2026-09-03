@@ -4,549 +4,609 @@
 
 <head>
 
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <meta name="theme-color" content="#111827" />
+<meta name="theme-color" content="#111827">
 
-  <title>Planning Bar</title>
+<title>Planning Bar V5.1</title>
 
-  <link rel="manifest" href="manifest.json" />
+<link rel="manifest" href="manifest.json">
 
-  <style>
+<style>
 
-    :root{
+:root{
 
-      --bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#6b7280;
+  --bg:#f3f4f6;
 
-      --border:#e5e7eb;--accent:#111827;--ok:#15803d;
+  --card:#fff;
 
-      --warn:#b45309;--danger:#b91c1c;--info:#1d4ed8
+  --text:#111827;
 
-    }
+  --muted:#6b7280;
 
-    *{box-sizing:border-box}
+  --border:#e5e7eb;
 
-    body{
+  --accent:#111827;
 
-      margin:0;
+  --ok:#15803d;
 
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --warn:#b45309;
 
-      background:var(--bg);
+  --danger:#b91c1c;
 
-      color:var(--text)
+  --info:#1d4ed8
 
-    }
+}
 
-    header{
+*{box-sizing:border-box}
 
-      position:sticky;top:0;z-index:10;
+body{
 
-      background:rgba(17,24,39,.97);
+  margin:0;
 
-      color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 
-      padding:18px 16px 14px;
+  background:var(--bg);
 
-      box-shadow:0 2px 10px rgba(0,0,0,.12)
+  color:var(--text)
 
-    }
+}
 
-    header h1{margin:0;font-size:22px}
+header{
 
-    header p{margin:4px 0 0;color:#d1d5db;font-size:13px}
+  position:sticky;
 
-    .header-row{
+  top:0;
 
-      display:flex;
+  z-index:10;
 
-      align-items:center;
+  background:#111827;
 
-      justify-content:space-between;
+  color:white;
 
-      gap:10px
+  padding:18px 16px 14px
 
-    }
+}
 
-    .header-actions button{
+header h1{
 
-      background:#374151;
+  margin:0;
 
-      padding:7px 9px;
+  font-size:22px
 
-      font-size:12px
+}
 
-    }
+header p{
 
-    main{
+  margin:4px 0 0;
 
-      max-width:1100px;
+  color:#d1d5db;
 
-      margin:0 auto;
+  font-size:13px
 
-      padding:16px;
+}
 
-      padding-bottom:96px
+.header-row{
 
-    }
+  display:flex;
 
-    .grid{display:grid;gap:14px}
+  justify-content:space-between;
 
-    .two{grid-template-columns:1fr 1fr}
+  align-items:center;
 
-    .three{grid-template-columns:repeat(3,1fr)}
+  gap:10px
 
-    @media(max-width:760px){
+}
 
-      .two,.three{grid-template-columns:1fr}
+.header-actions button{
 
-    }
+  background:#374151;
 
-    .card{
+  padding:8px 10px
 
-      background:var(--card);
+}
 
-      border:1px solid var(--border);
+main{
 
-      border-radius:16px;
+  max-width:1100px;
 
-      padding:16px;
+  margin:auto;
 
-      box-shadow:0 2px 7px rgba(0,0,0,.04)
+  padding:16px 16px 100px
 
-    }
+}
 
-    h2{font-size:18px;margin:0 0 12px}
+.grid{
 
-    .small{font-size:12px;color:var(--muted)}
+  display:grid;
 
-    label{
+  gap:14px
 
-      display:block;
+}
 
-      font-size:13px;
+.two{
 
-      font-weight:600;
+  grid-template-columns:1fr 1fr
 
-      margin:8px 0 5px
+}
 
-    }
+.three{
 
-    .row{
+  grid-template-columns:repeat(3,1fr)
 
-      display:flex;
+}
 
-      gap:8px;
+@media(max-width:760px){
 
-      align-items:center;
+  .two,.three{
 
-      flex-wrap:wrap
+    grid-template-columns:1fr
 
-    }
+  }
 
-    input,select,button{font:inherit}
+}
 
-    input,select{
+.card{
 
-      width:100%;
+  background:white;
 
-      padding:10px 11px;
+  border:1px solid var(--border);
 
-      border:1px solid #d1d5db;
+  border-radius:16px;
 
-      border-radius:10px;
+  padding:16px;
 
-      background:#fff
+  box-shadow:0 2px 7px rgba(0,0,0,.04)
 
-    }
+}
 
-    button{
+h2{
 
-      border:0;
+  font-size:18px;
 
-      border-radius:10px;
+  margin:0 0 12px
 
-      padding:10px 12px;
+}
 
-      background:var(--accent);
+.small{
 
-      color:#fff;
+  font-size:12px;
 
-      font-weight:700;
+  color:var(--muted)
 
-      cursor:pointer
+}
 
-    }
+label{
 
-    button.secondary{background:#e5e7eb;color:#111827}
+  display:block;
 
-    button.danger{background:#991b1b}
+  font-size:13px;
 
-    button.info{background:var(--info)}
+  font-weight:600;
 
-    button:disabled{opacity:.55;cursor:not-allowed}
+  margin:8px 0 5px
 
-    .tabs{
+}
 
-      display:flex;
+input,select{
 
-      gap:8px;
+  width:100%;
 
-      overflow:auto;
+  padding:10px 11px;
 
-      margin-bottom:14px
+  border:1px solid #d1d5db;
 
-    }
+  border-radius:10px;
 
-    .tab{
+  font:inherit;
 
-      white-space:nowrap;
+  background:white
 
-      background:#e5e7eb;
+}
 
-      color:#111827
+button{
 
-    }
+  border:0;
 
-    .tab.active{background:#111827;color:#fff}
+  border-radius:10px;
 
-    .hidden{display:none!important}
+  padding:10px 12px;
 
-    .kpi{
+  font:inherit;
 
-      font-size:28px;
+  background:#111827;
 
-      font-weight:800
+  color:white;
 
-    }
+  font-weight:700
 
-    .ok{color:var(--ok)}
+}
 
-    .warn{color:var(--warn)}
+button.secondary{
 
-    table{
+  background:#e5e7eb;
 
-      width:100%;
+  color:#111827
 
-      border-collapse:collapse;
+}
 
-      font-size:13px
+button.danger{
 
-    }
+  background:#991b1b
 
-    th,td{
+}
 
-      padding:9px 7px;
+button.info{
 
-      border-bottom:1px solid var(--border);
+  background:#1d4ed8
 
-      text-align:left;
+}
 
-      vertical-align:top
+button:disabled{
 
-    }
+  opacity:.55
 
-    th{
+}
 
-      color:#4b5563;
+.row{
 
-      font-size:12px
+  display:flex;
 
-    }
+  gap:8px;
 
-    .pill{
+  align-items:center;
 
-      display:inline-block;
+  flex-wrap:wrap
 
-      padding:4px 8px;
+}
 
-      border-radius:999px;
+.tabs{
 
-      background:#eef2ff;
+  display:flex;
 
-      font-size:12px;
+  gap:8px;
 
-      margin:2px
+  overflow-x:auto;
 
-    }
+  margin-bottom:14px
 
-    .pill.ok{background:#dcfce7;color:#166534}
+}
 
-    .pill.no{background:#fee2e2;color:#991b1b}
+.tab{
 
-    .pill.draft{background:#fef3c7;color:#92400e}
+  white-space:nowrap;
 
-    .employee-card{
+  background:#e5e7eb;
 
-      border:1px solid var(--border);
+  color:#111827
 
-      border-radius:12px;
+}
 
-      padding:10px;
+.tab.active{
 
-      margin-bottom:8px
+  background:#111827;
 
-    }
+  color:white
 
-    .employee-card strong{
+}
 
-      display:block;
+.hidden{
 
-      margin-bottom:3px
+  display:none!important
 
-    }
+}
 
-    .bar{
+.kpi{
 
-      height:10px;
+  font-size:28px;
 
-      background:#e5e7eb;
+  font-weight:800
 
-      border-radius:999px;
+}
 
-      overflow:hidden
+.ok{
 
-    }
+  color:#15803d
 
-    .bar>div{
+}
 
-      height:100%;
+.warn{
 
-      background:#111827
+  color:#b45309
 
-    }
+}
 
-    .day{
+table{
 
-      border:1px solid var(--border);
+  width:100%;
 
-      border-radius:13px;
+  border-collapse:collapse;
 
-      padding:12px;
+  font-size:13px
 
-      margin-bottom:10px
+}
 
-    }
+th,td{
 
-    .day h3{
+  padding:9px 7px;
 
-      margin:0 0 8px;
+  border-bottom:1px solid #e5e7eb;
 
-      font-size:15px
+  text-align:left
 
-    }
+}
 
-    .shift{
+.pill{
 
-      padding:8px;
+  display:inline-block;
 
-      border-radius:10px;
+  padding:4px 8px;
 
-      background:#f9fafb;
+  border-radius:999px;
 
-      border:1px solid var(--border);
+  font-size:12px
 
-      margin-top:7px
+}
 
-    }
+.pill.ok{
 
-    .shift .actions{
+  background:#dcfce7;
 
-      float:right;
+  color:#166534
 
-      display:flex;
+}
 
-      gap:6px
+.pill.no{
 
-    }
+  background:#fee2e2;
 
-    .shift button{
+  color:#991b1b
 
-      padding:5px 7px;
+}
 
-      font-size:11px
+.pill.draft{
 
-    }
+  background:#fef3c7;
 
-    nav.bottom{
+  color:#92400e
 
-      position:fixed;
+}
 
-      bottom:0;
+.employee-card{
 
-      left:0;
+  border:1px solid #e5e7eb;
 
-      right:0;
+  border-radius:12px;
 
-      z-index:20;
+  padding:10px;
 
-      background:#fff;
+  margin-bottom:8px
 
-      border-top:1px solid var(--border);
+}
 
-      display:flex;
+.employee-card strong{
 
-      justify-content:space-around;
+  display:block;
 
-      padding:8px max(8px,env(safe-area-inset-right))
+  margin-bottom:4px
 
-      calc(8px + env(safe-area-inset-bottom))
+}
 
-    }
+.pending{
 
-    nav.bottom button{
+  border-left:4px solid #b45309
 
-      background:transparent;
+}
 
-      color:#374151;
+.bar{
 
-      font-size:11px;
+  height:10px;
 
-      padding:6px
+  background:#e5e7eb;
 
-    }
+  border-radius:999px;
 
-    .notice{
+  overflow:hidden
 
-      padding:10px;
+}
 
-      border-radius:10px;
+.bar>div{
 
-      background:#fff7ed;
+  height:100%;
 
-      color:#9a3412;
+  background:#111827
 
-      font-size:13px
+}
 
-    }
+.day{
 
-    .notice.okbox{
+  border:1px solid #e5e7eb;
 
-      background:#ecfdf5;
+  border-radius:13px;
 
-      color:#166534
+  padding:12px;
 
-    }
+  margin-bottom:10px
 
-    .notice.infobox{
+}
 
-      background:#eff6ff;
+.day h3{
 
-      color:#1e40af
+  margin:0 0 8px;
 
-    }
+  font-size:15px
 
-    .login-screen{
+}
 
-      position:fixed;
+.shift{
 
-      inset:0;
+  padding:8px;
 
-      z-index:100;
+  border:1px solid #e5e7eb;
 
-      background:var(--bg);
+  border-radius:10px;
 
-      display:flex;
+  background:#f9fafb;
 
-      align-items:center;
+  margin-top:7px
 
-      justify-content:center;
+}
 
-      padding:20px;
+.shift .actions{
 
-      overflow:auto
+  float:right;
 
-    }
+  display:flex;
 
-    .login-box{
+  gap:6px
 
-      max-width:520px;
+}
 
-      width:100%
+.shift button{
 
-    }
+  padding:5px 7px;
 
-    .role-badge{
+  font-size:11px
 
-      display:inline-block;
+}
 
-      padding:4px 8px;
+.notice{
 
-      border-radius:999px;
+  padding:10px;
 
-      background:#374151;
+  border-radius:10px;
 
-      color:#fff;
+  font-size:13px
 
-      font-size:12px;
+}
 
-      margin-left:8px
+.notice.infobox{
 
-    }
+  background:#eff6ff;
 
-    .manager-only,.employee-only{display:none}
+  color:#1e40af
 
-    .personal-card{
+}
 
-      border-left:4px solid #111827
+.login-screen{
 
-    }
+  position:fixed;
 
-    .spinner{
+  inset:0;
 
-      display:inline-block;
+  z-index:100;
 
-      width:16px;
+  background:#f3f4f6;
 
-      height:16px;
+  display:flex;
 
-      border:2px solid #ddd;
+  align-items:center;
 
-      border-top-color:#111827;
+  justify-content:center;
 
-      border-radius:50%;
+  padding:20px;
 
-      animation:spin .7s linear infinite;
+  overflow:auto
 
-      vertical-align:-3px;
+}
 
-      margin-right:6px
+.login-box{
 
-    }
+  width:100%;
 
-    @keyframes spin{
+  max-width:520px
 
-      to{transform:rotate(360deg)}
+}
 
-    }
+.role-badge{
 
-    .auth-switch{
+  display:inline-block;
 
-      text-align:center;
+  padding:4px 8px;
 
-      margin-top:14px
+  border-radius:999px;
 
-    }
+  background:#374151;
 
-    .auth-switch button{
+  color:white;
 
-      background:transparent;
+  font-size:12px;
 
-      color:var(--info);
+  margin-left:8px
 
-      padding:4px 6px
+}
 
-    }
+.manager-only,
 
-    .pending{
+.employee-only{
 
-      border-left:4px solid #b45309
+  display:none
 
-    }
+}
 
-  </style>
+.auth-switch{
+
+  text-align:center;
+
+  margin-top:14px
+
+}
+
+.auth-switch button{
+
+  background:transparent;
+
+  color:#1d4ed8;
+
+  padding:4px
+
+}
+
+.personal-card{
+
+  border-left:4px solid #111827
+
+}
+
+nav.bottom{
+
+  position:fixed;
+
+  bottom:0;
+
+  left:0;
+
+  right:0;
+
+  z-index:20;
+
+  background:white;
+
+  border-top:1px solid #e5e7eb;
+
+  display:flex;
+
+  justify-content:space-around;
+
+  padding:8px 8px calc(8px + env(safe-area-inset-bottom))
+
+}
+
+nav.bottom button{
+
+  background:transparent;
+
+  color:#374151;
+
+  font-size:11px;
+
+  padding:6px
+
+}
+
+</style>
 
 </head>
 
@@ -596,79 +656,33 @@
 
       <label>E-mail</label>
 
-      <input
-
-        id="loginEmail"
-
-        type="email"
-
-        autocomplete="username"
-
-        placeholder="prenom@email.com"
-
-      >
+      <input id="loginEmail" type="email" placeholder="prenom@email.com">
 
       <label>Mot de passe</label>
 
-      <input
+      <input id="loginPassword" type="password" placeholder="••••••••">
 
-        id="loginPassword"
-
-        type="password"
-
-        autocomplete="current-password"
-
-        placeholder="••••••••"
-
-      >
-
-      <button
-
-        id="loginBtn"
-
-        style="width:100%;margin-top:14px"
-
-      >
+      <button id="loginBtn" style="width:100%;margin-top:14px">
 
         Se connecter
 
       </button>
 
-      <div
-
-        id="loginMessage"
-
-        class="small"
-
-        style="margin-top:12px"
-
-      ></div>
+      <div id="loginMessage" class="small" style="margin-top:12px"></div>
 
       <div class="auth-switch">
 
         Pas encore de compte ?
 
-        <button id="showSignupBtn" type="button">
-
-          Créer un compte
-
-        </button>
+        <button id="showSignupBtn">Créer un compte</button>
 
       </div>
 
-      <div
-
-        class="notice infobox"
-
-        style="margin-top:14px"
-
-      >
+      <div class="notice infobox" style="margin-top:14px">
 
         Les nouveaux comptes ne peuvent pas devenir gérants eux-mêmes.
 
-        Le gérant valide leur accès depuis l'onglet
-
-        <strong>Équipe</strong>.
+        Le gérant valide leur accès depuis l'onglet <strong>Équipe</strong>.
 
       </div>
 
@@ -688,91 +702,33 @@
 
       <label>Nom complet</label>
 
-      <input
-
-        id="signupName"
-
-        type="text"
-
-        autocomplete="name"
-
-        placeholder="Prénom Nom"
-
-      >
+      <input id="signupName" type="text" placeholder="Prénom Nom">
 
       <label>E-mail</label>
 
-      <input
-
-        id="signupEmail"
-
-        type="email"
-
-        autocomplete="email"
-
-        placeholder="prenom@email.com"
-
-      >
+      <input id="signupEmail" type="email" placeholder="prenom@email.com">
 
       <label>Mot de passe</label>
 
-      <input
-
-        id="signupPassword"
-
-        type="password"
-
-        autocomplete="new-password"
-
-        placeholder="8 caractères minimum"
-
-      >
+      <input id="signupPassword" type="password" placeholder="8 caractères minimum">
 
       <label>Confirmer le mot de passe</label>
 
-      <input
+      <input id="signupPassword2" type="password" placeholder="••••••••">
 
-        id="signupPassword2"
-
-        type="password"
-
-        autocomplete="new-password"
-
-        placeholder="••••••••"
-
-      >
-
-      <button
-
-        id="signupBtn"
-
-        style="width:100%;margin-top:14px"
-
-      >
+      <button id="signupBtn" style="width:100%;margin-top:14px">
 
         Créer mon compte
 
       </button>
 
-      <div
-
-        id="signupMessage"
-
-        class="small"
-
-        style="margin-top:12px"
-
-      ></div>
+      <div id="signupMessage" class="small" style="margin-top:12px"></div>
 
       <div class="auth-switch">
 
         Déjà un compte ?
 
-        <button id="showLoginBtn" type="button">
-
-          Se connecter
-
-        </button>
+        <button id="showLoginBtn">Se connecter</button>
 
       </div>
 
@@ -786,41 +742,15 @@
 
   <div class="tabs">
 
-    <button class="tab active" data-view="dashboard">
+    <button class="tab active" data-view="dashboard">Tableau de bord</button>
 
-      Tableau de bord
+    <button class="tab" data-view="availability">Disponibilités</button>
 
-    </button>
+    <button class="tab" data-view="planning">Planning</button>
 
-    <button class="tab" data-view="availability">
+    <button class="tab" data-view="monthly">Mois</button>
 
-      Disponibilités
-
-    </button>
-
-    <button class="tab" data-view="planning">
-
-      Planning
-
-    </button>
-
-    <button class="tab" data-view="monthly">
-
-      Mois
-
-    </button>
-
-    <button
-
-      class="tab manager-only"
-
-      data-view="team"
-
-    >
-
-      Équipe
-
-    </button>
+    <button class="tab manager-only" data-view="team">Équipe</button>
 
   </div>
 
@@ -830,69 +760,33 @@
 
       <div class="card">
 
-        <div class="small">
+        <div class="small">Mes heures cette semaine</div>
 
-          Mes heures cette semaine
+        <div id="myWeek" class="kpi">0 h</div>
 
-        </div>
-
-        <div id="myWeek" class="kpi">
-
-          0 h
-
-        </div>
-
-        <div
-
-          id="myWeekStatus"
-
-          class="small"
-
-        ></div>
+        <div id="myWeekStatus" class="small"></div>
 
       </div>
 
       <div class="card">
 
-        <div class="small">
+        <div class="small">Mes heures ce mois</div>
 
-          Mes heures ce mois
-
-        </div>
-
-        <div id="myMonth" class="kpi">
-
-          0 h
-
-        </div>
+        <div id="myMonth" class="kpi">0 h</div>
 
       </div>
 
       <div class="card manager-only">
 
-        <div class="small">
+        <div class="small">Total équipe ce mois</div>
 
-          Total équipe ce mois
-
-        </div>
-
-        <div id="teamMonth" class="kpi">
-
-          0 h
-
-        </div>
+        <div id="teamMonth" class="kpi">0 h</div>
 
       </div>
 
     </div>
 
-    <div
-
-      class="card manager-only"
-
-      style="margin-top:14px"
-
-    >
+    <div class="card manager-only" style="margin-top:14px">
 
       <h2>Résumé par personne</h2>
 
@@ -900,21 +794,13 @@
 
     </div>
 
-    <div
-
-      class="card employee-only personal-card"
-
-      style="margin-top:14px"
-
-    >
+    <div class="card employee-only personal-card" style="margin-top:14px">
 
       <h2>Mon espace</h2>
 
       <div class="small">
 
-        Tu peux encoder tes disponibilités et consulter
-
-        uniquement tes horaires publiés.
+        Tu peux encoder tes disponibilités et consulter uniquement tes horaires publiés.
 
       </div>
 
@@ -922,13 +808,7 @@
 
   </section>
 
-  <section
-
-    id="availability"
-
-    class="view hidden"
-
-  >
+  <section id="availability" class="view hidden">
 
     <div class="card">
 
@@ -956,15 +836,7 @@
 
           <label>Disponible à partir de</label>
 
-          <input
-
-            id="avStart"
-
-            type="time"
-
-            value="14:00"
-
-          >
+          <input id="avStart" type="time" value="14:00">
 
         </div>
 
@@ -972,15 +844,7 @@
 
           <label>Disponible jusqu'à</label>
 
-          <input
-
-            id="avEnd"
-
-            type="time"
-
-            value="01:00"
-
-          >
+          <input id="avEnd" type="time" value="01:00">
 
         </div>
 
@@ -998,21 +862,11 @@
 
       <div style="margin-top:12px">
 
-        <button id="saveAvailability">
-
-          Enregistrer
-
-        </button>
+        <button id="saveAvailability">Enregistrer</button>
 
       </div>
 
-      <div
-
-        class="small"
-
-        style="margin-top:8px"
-
-      >
+      <div class="small" style="margin-top:8px">
 
         Une fin après minuit est gérée automatiquement.
 
@@ -1020,61 +874,23 @@
 
     </div>
 
-    <div
+    <div class="card" style="margin-top:14px">
 
-      class="card"
+      <div class="row" style="justify-content:space-between">
 
-      style="margin-top:14px"
+        <h2 style="margin:0">Disponibilités enregistrées</h2>
 
-    >
-
-      <div
-
-        class="row"
-
-        style="justify-content:space-between"
-
-      >
-
-        <h2 style="margin:0">
-
-          Disponibilités enregistrées
-
-        </h2>
-
-        <button
-
-          id="refreshAvailability"
-
-          class="secondary"
-
-        >
-
-          Actualiser
-
-        </button>
+        <button id="refreshAvailability" class="secondary">Actualiser</button>
 
       </div>
 
-      <div
-
-        id="availabilityList"
-
-        style="margin-top:10px"
-
-      ></div>
+      <div id="availabilityList" style="margin-top:10px"></div>
 
     </div>
 
   </section>
 
-  <section
-
-    id="planning"
-
-    class="view hidden"
-
-  >
+  <section id="planning" class="view hidden">
 
     <div class="card manager-only">
 
@@ -1102,15 +918,7 @@
 
           <label>Début</label>
 
-          <input
-
-            id="shiftStart"
-
-            type="time"
-
-            value="14:00"
-
-          >
+          <input id="shiftStart" type="time" value="14:00">
 
         </div>
 
@@ -1118,37 +926,15 @@
 
           <label>Fin</label>
 
-          <input
-
-            id="shiftEnd"
-
-            type="time"
-
-            value="01:00"
-
-          >
+          <input id="shiftEnd" type="time" value="01:00">
 
         </div>
 
       </div>
 
-      <label
+      <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
 
-        style="display:flex;gap:8px;align-items:center;margin-top:12px"
-
-      >
-
-        <input
-
-          id="shiftPublished"
-
-          type="checkbox"
-
-          checked
-
-          style="width:auto"
-
-        >
+        <input id="shiftPublished" type="checkbox" checked style="width:auto">
 
         Publier immédiatement pour l'employé
 
@@ -1156,71 +942,29 @@
 
       <div style="margin-top:12px">
 
-        <button id="addShift">
-
-          Ajouter au planning
-
-        </button>
+        <button id="addShift">Ajouter au planning</button>
 
       </div>
 
     </div>
 
-    <div
+    <div class="card" style="margin-top:14px">
 
-      class="card"
+      <div class="row" style="justify-content:space-between">
 
-      style="margin-top:14px"
+        <h2 style="margin:0">Planning</h2>
 
-    >
-
-      <div
-
-        class="row"
-
-        style="justify-content:space-between"
-
-      >
-
-        <h2 style="margin:0">
-
-          Planning
-
-        </h2>
-
-        <button
-
-          id="refreshPlanning"
-
-          class="secondary"
-
-        >
-
-          Actualiser
-
-        </button>
+        <button id="refreshPlanning" class="secondary">Actualiser</button>
 
       </div>
 
-      <div
-
-        id="planningList"
-
-        style="margin-top:10px"
-
-      ></div>
+      <div id="planningList" style="margin-top:10px"></div>
 
     </div>
 
   </section>
 
-  <section
-
-    id="monthly"
-
-    class="view hidden"
-
-  >
+  <section id="monthly" class="view hidden">
 
     <div class="card">
 
@@ -1232,13 +976,7 @@
 
           <label>Mois</label>
 
-          <input
-
-            id="monthPicker"
-
-            type="month"
-
-          >
+          <input id="monthPicker" type="month">
 
         </div>
 
@@ -1246,29 +984,13 @@
 
           <label>Total affiché</label>
 
-          <div
-
-            id="selectedMonthTotal"
-
-            class="kpi"
-
-          >
-
-            0 h
-
-          </div>
+          <div id="selectedMonthTotal" class="kpi">0 h</div>
 
         </div>
 
       </div>
 
-      <div
-
-        class="small"
-
-        style="margin-top:8px"
-
-      >
+      <div class="small" style="margin-top:8px">
 
         Touchez une personne pour voir son détail jour par jour.
 
@@ -1276,13 +998,7 @@
 
     </div>
 
-    <div
-
-      class="card"
-
-      style="margin-top:14px"
-
-    >
+    <div class="card" style="margin-top:14px">
 
       <h2>Heures par personne</h2>
 
@@ -1290,21 +1006,9 @@
 
     </div>
 
-    <div
+    <div class="card hidden" id="monthDetailCard" style="margin-top:14px">
 
-      class="card hidden"
-
-      id="monthDetailCard"
-
-      style="margin-top:14px"
-
-    >
-
-      <h2 id="monthDetailTitle">
-
-        Détail
-
-      </h2>
+      <h2 id="monthDetailTitle">Détail</h2>
 
       <div id="monthDetail"></div>
 
@@ -1312,65 +1016,27 @@
 
   </section>
 
-  <section
-
-    id="team"
-
-    class="view hidden manager-only"
-
-  >
+  <section id="team" class="view hidden manager-only">
 
     <div class="card">
 
-      <div
+      <div class="row" style="justify-content:space-between">
 
-        class="row"
+        <h2 style="margin:0">Équipe</h2>
 
-        style="justify-content:space-between"
-
-      >
-
-        <h2 style="margin:0">
-
-          Équipe
-
-        </h2>
-
-        <button
-
-          id="refreshTeam"
-
-          class="secondary"
-
-        >
-
-          Actualiser
-
-        </button>
+        <button id="refreshTeam" class="secondary">Actualiser</button>
 
       </div>
 
-      <div
-
-        id="teamList"
-
-        style="margin-top:12px"
-
-      ></div>
+      <div id="teamList" style="margin-top:12px"></div>
 
     </div>
 
-    <div
+    <div class="notice infobox" style="margin-top:14px">
 
-      class="notice infobox"
+      Les nouveaux comptes créés depuis l'application apparaissent ici en
 
-      style="margin-top:14px"
-
-    >
-
-      Les nouveaux comptes créés depuis l'application
-
-      apparaissent ici en <strong>attente</strong>.
+      <strong>attente</strong>.
 
       Valide-les pour autoriser l'accès.
 
@@ -1380,13 +1046,7 @@
 
 </main>
 
-<nav
-
-  id="bottomNav"
-
-  class="bottom hidden"
-
->
+<nav id="bottomNav" class="bottom hidden">
 
   <button data-go="dashboard">
 
@@ -1412,13 +1072,7 @@
 
   </button>
 
-  <button
-
-    class="manager-only"
-
-    data-go="team"
-
-  >
+  <button class="manager-only" data-go="team">
 
     👥<br>Équipe
 
@@ -1430,15 +1084,11 @@
 
 <script>
 
-const SUPABASE_URL =
+const SUPABASE_URL='https://nzekencekmieysxpdzgo.supabase.co';
 
-'https://nzekencekmieysxpdzgo.supabase.co';
+const SUPABASE_KEY='sb_publishable_YDUmGd6SY-1bZdYci3j4yw_fvcueFN9';
 
-const SUPABASE_KEY =
-
-'sb_publishable_YDUmGd6SY-1bZdYci3j4yw_fvcueFN9';
-
-const sb = supabase.createClient(
+const sb=supabase.createClient(
 
   SUPABASE_URL,
 
@@ -1460,67 +1110,49 @@ const sb = supabase.createClient(
 
 );
 
-const $ = id =>
+const $=id=>document.getElementById(id);
 
-  document.getElementById(id);
+let me=null;
 
-let me = null;
+let profiles=[];
 
-let profiles = [];
+let availabilities=[];
 
-let availabilities = [];
+let shifts=[];
 
-let shifts = [];
+const esc=s=>String(s??'').replace(
 
-const esc = s =>
+  /[&<>'"]/g,
 
-  String(s ?? '').replace(
+  c=>({
 
-    /[&<>'"]/g,
+    '&':'&amp;',
 
-    c => ({
+    '<':'&lt;',
 
-      '&':'&amp;',
+    '>':'&gt;',
 
-      '<':'&lt;',
+    "'":'&#39;',
 
-      '>':'&gt;',
+    '"':'&quot;'
 
-      "'":'&#39;',
+  }[c])
 
-      '"':'&quot;'
+);
 
-    }[c])
+const isManager=()=>me?.role==='manager';
 
-  );
+const fmtH=n=>(
 
-const isManager = () =>
+  Math.round((Number(n)||0)*100)/100
 
-  me?.role === 'manager';
+).toString().replace('.',',')+' h';
 
-const fmtH = n =>
+const dt=v=>new Date(v);
 
-  (
+const dateKey=v=>String(v).slice(0,10);
 
-    Math.round((Number(n) || 0) * 100) / 100
-
-  )
-
-  .toString()
-
-  .replace('.',',') + ' h';
-
-const dt = v =>
-
-  new Date(v);
-
-const dateKey = v =>
-
-  String(v).slice(0,10);
-
-const timeKey = v =>
-
-  String(v).slice(11,16);
+const timeKey=v=>String(v).slice(11,16);
 
 function localStamp(date,time){
 
@@ -1530,33 +1162,29 @@ function localStamp(date,time){
 
 function endStamp(date,start,end){
 
-  let s =
+  let s=new Date(
 
-    new Date(localStamp(date,start));
+    localStamp(date,start)
 
-  let e =
+  );
 
-    new Date(localStamp(date,end));
+  let e=new Date(
 
-  if(e <= s){
+    localStamp(date,end)
 
-    e.setDate(e.getDate()+1);
+  );
+
+  if(e<=s){
+
+    e.setDate(
+
+      e.getDate()+1
+
+    );
 
   }
 
-  return (
-
-    `${e.getFullYear()}-` +
-
-    `${String(e.getMonth()+1).padStart(2,'0')}-` +
-
-    `${String(e.getDate()).padStart(2,'0')}T` +
-
-    `${String(e.getHours()).padStart(2,'0')}:` +
-
-    `${String(e.getMinutes()).padStart(2,'0')}:00`
-
-  );
+  return `${e.getFullYear()}-${String(e.getMonth()+1).padStart(2,'0')}-${String(e.getDate()).padStart(2,'0')}T${String(e.getHours()).padStart(2,'0')}:${String(e.getMinutes()).padStart(2,'0')}:00`;
 
 }
 
@@ -1574,13 +1202,11 @@ function hoursBetween(a,b){
 
 function startOfWeek(d=new Date()){
 
-  let x = new Date(d);
+  let x=new Date(d);
 
   x.setHours(0,0,0,0);
 
-  let day =
-
-    (x.getDay()+6)%7;
+  let day=(x.getDay()+6)%7;
 
   x.setDate(
 
@@ -1594,15 +1220,11 @@ function startOfWeek(d=new Date()){
 
 function inCurrentWeek(v){
 
-  let d = dt(v);
+  let d=dt(v);
 
-  let a =
+  let a=startOfWeek();
 
-    startOfWeek();
-
-  let b =
-
-    new Date(a);
+  let b=new Date(a);
 
   b.setDate(
 
@@ -1610,21 +1232,23 @@ function inCurrentWeek(v){
 
   );
 
-  return d >= a && d < b;
+  return d>=a && d<b;
 
 }
 
 function inCurrentMonth(v){
 
-  let d = dt(v);
+  let d=dt(v);
 
-  let n = new Date();
+  let n=new Date();
 
   return (
 
-    d.getFullYear() === n.getFullYear() &&
+    d.getFullYear()===n.getFullYear()
 
-    d.getMonth() === n.getMonth()
+    &&
+
+    d.getMonth()===n.getMonth()
 
   );
 
@@ -1632,9 +1256,7 @@ function inCurrentMonth(v){
 
 function inMonth(v,key){
 
-  return String(v)
-
-    .slice(0,7) === key;
+  return String(v).slice(0,7)===key;
 
 }
 
@@ -1642,15 +1264,13 @@ function shiftHours(list){
 
   return list.reduce(
 
-    (t,s) =>
+    (t,s)=>t+hoursBetween(
 
-      t + hoursBetween(
+      s.start_at,
 
-        s.start_at,
+      s.end_at
 
-        s.end_at
-
-      ),
+    ),
 
     0
 
@@ -1660,187 +1280,79 @@ function shiftHours(list){
 
 function personName(id){
 
-  return (
+  return profiles.find(
 
-    profiles.find(
+    p=>p.id===id
 
-      p => p.id === id
-
-    )?.full_name
-
-    ||
-
-    'Employé'
-
-  );
+  )?.full_name || 'Employé';
 
 }
 
 function formatDateFr(v){
 
-  return dt(v)
+  return dt(v).toLocaleDateString(
 
-    .toLocaleDateString(
+    'fr-BE',
 
-      'fr-BE',
+    {
 
-      {
+      weekday:'short',
 
-        weekday:'short',
+      day:'2-digit',
 
-        day:'2-digit',
+      month:'2-digit'
 
-        month:'2-digit'
+    }
 
-      }
-
-    );
+  );
 
 }
 
 function statusUnavailable(a){
 
-  return (
-
-    a.note || ''
-
-  ).startsWith(
-
-    '[INDISPONIBLE]'
-
-  );
+  return (a.note||'').startsWith('[INDISPONIBLE]');
 
 }
 
-function setBusy(
+function msg(el,text,ok=false){
 
-  btn,
+  el.textContent=text;
 
-  busy,
-
-  label
-
-){
-
-  btn.disabled = busy;
-
-  btn.innerHTML =
-
-    busy
-
-      ? '<span class="spinner"></span>Chargement…'
-
-      : label;
-
-}
-
-function msg(
-
-  el,
-
-  text,
-
-  ok=false
-
-){
-
-  el.textContent = text;
-
-  el.style.color =
-
-    ok
-
-      ? '#15803d'
-
-      : '#b91c1c';
+  el.style.color=ok?'#15803d':'#b91c1c';
 
 }
 
 function showSignup(){
 
-  $('loginPanel')
+  $('loginPanel').classList.add('hidden');
 
-    .classList
+  $('signupPanel').classList.remove('hidden');
 
-    .add('hidden');
-
-  $('signupPanel')
-
-    .classList
-
-    .remove('hidden');
-
-  $('signupMessage')
-
-    .textContent = '';
+  $('signupMessage').textContent='';
 
 }
 
 function showLoginPanel(){
 
-  $('signupPanel')
+  $('signupPanel').classList.add('hidden');
 
-    .classList
+  $('loginPanel').classList.remove('hidden');
 
-    .add('hidden');
-
-  $('loginPanel')
-
-    .classList
-
-    .remove('hidden');
-
-  $('loginMessage')
-
-    .textContent = '';
+  $('loginMessage').textContent='';
 
 }
 
 async function signup(){
 
-  const btn =
+  const full_name=$('signupName').value.trim();
 
-    $('signupBtn');
+  const email=$('signupEmail').value.trim().toLowerCase();
 
-  msg(
+  const password=$('signupPassword').value;
 
-    $('signupMessage'),
+  const password2=$('signupPassword2').value;
 
-    ''
-
-  );
-
-  const full_name =
-
-    $('signupName')
-
-      .value
-
-      .trim();
-
-  const email =
-
-    $('signupEmail')
-
-      .value
-
-      .trim()
-
-      .toLowerCase();
-
-  const password =
-
-    $('signupPassword')
-
-      .value;
-
-  const password2 =
-
-    $('signupPassword2')
-
-      .value;
-
-  if(full_name.length < 2){
+  if(full_name.length<2){
 
     return msg(
 
@@ -1864,7 +1376,7 @@ async function signup(){
 
   }
 
-  if(password.length < 8){
+  if(password.length<8){
 
     return msg(
 
@@ -1876,7 +1388,7 @@ async function signup(){
 
   }
 
-  if(password !== password2){
+  if(password!==password2){
 
     return msg(
 
@@ -1888,45 +1400,23 @@ async function signup(){
 
   }
 
-  setBusy(
+  const {data,error}=await sb.auth.signUp({
 
-    btn,
+    email,
 
-    true,
+    password,
 
-    'Créer mon compte'
+    options:{
 
-  );
+      data:{
 
-  const {data,error} =
-
-    await sb.auth.signUp({
-
-      email,
-
-      password,
-
-      options:{
-
-        data:{
-
-          full_name
-
-        }
+        full_name
 
       }
 
-    });
+    }
 
-  setBusy(
-
-    btn,
-
-    false,
-
-    'Créer mon compte'
-
-  );
+  });
 
   if(error){
 
@@ -1934,9 +1424,7 @@ async function signup(){
 
       $('signupMessage'),
 
-      'Inscription impossible : ' +
-
-      error.message
+      'Inscription impossible : '+error.message
 
     );
 
@@ -1946,51 +1434,25 @@ async function signup(){
 
     await sb.auth.signOut();
 
-    msg(
-
-      $('signupMessage'),
-
-      'Compte créé ✅ Ton accès est maintenant en attente de validation par le gérant.',
-
-      true
-
-    );
-
-  }else{
-
-    msg(
-
-      $('signupMessage'),
-
-      'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation du gérant.',
-
-      true
-
-    );
-
   }
 
-  $('signupPassword').value = '';
+  msg(
 
-  $('signupPassword2').value = '';
+    $('signupMessage'),
+
+    'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation du gérant.',
+
+    true
+
+  );
+
+  $('signupPassword').value='';
+
+  $('signupPassword2').value='';
 
 }
 
 async function login(){
-
-  const btn =
-
-    $('loginBtn');
-
-  setBusy(
-
-    btn,
-
-    true,
-
-    'Se connecter'
-
-  );
 
   msg(
 
@@ -2000,51 +1462,25 @@ async function login(){
 
   );
 
-  const email =
+  const email=$('loginEmail').value.trim();
 
-    $('loginEmail')
+  const password=$('loginPassword').value;
 
-      .value
+  const {error}=await sb.auth.signInWithPassword({
 
-      .trim();
+    email,
 
-  const password =
+    password
 
-    $('loginPassword')
-
-      .value;
-
-  const {error} =
-
-    await sb.auth
-
-      .signInWithPassword({
-
-        email,
-
-        password
-
-      });
+  });
 
   if(error){
-
-    setBusy(
-
-      btn,
-
-      false,
-
-      'Se connecter'
-
-    );
 
     return msg(
 
       $('loginMessage'),
 
-      'Connexion impossible : ' +
-
-      error.message
+      'Connexion impossible : '+error.message
 
     );
 
@@ -2052,29 +1488,17 @@ async function login(){
 
   try{
 
-    me =
-
-      await getMyProfile();
+    me=await getMyProfile();
 
     if(!me.active){
 
       await sb.auth.signOut();
 
-      setBusy(
-
-        btn,
-
-        false,
-
-        'Se connecter'
-
-      );
-
       return msg(
 
         $('loginMessage'),
 
-        'Ton compte est bien créé, mais il est encore en attente de validation par le gérant.'
+        'Ton compte est encore en attente de validation par le gérant.'
 
       );
 
@@ -2090,23 +1514,11 @@ async function login(){
 
     await sb.auth.signOut();
 
-    setBusy(
-
-      btn,
-
-      false,
-
-      'Se connecter'
-
-    );
-
     msg(
 
       $('loginMessage'),
 
-      'Connexion impossible : ' +
-
-      e.message
+      'Connexion impossible : '+e.message
 
     );
 
@@ -2128,9 +1540,7 @@ async function getMyProfile(){
 
     data:{user}
 
-  } =
-
-    await sb.auth.getUser();
+  }=await sb.auth.getUser();
 
   if(!user){
 
@@ -2138,33 +1548,15 @@ async function getMyProfile(){
 
   }
 
-  const {
+  const {data,error}=await sb
 
-    data,
+    .from('profiles')
 
-    error
+    .select('id,full_name,role,active')
 
-  } =
+    .eq('id',user.id)
 
-    await sb
-
-      .from('profiles')
-
-      .select(
-
-        'id,full_name,role,active'
-
-      )
-
-      .eq(
-
-        'id',
-
-        user.id
-
-      )
-
-      .single();
+    .single();
 
   if(error){
 
@@ -2178,77 +1570,45 @@ async function getMyProfile(){
 
 async function loadAll(){
 
-  const [p,a,s] =
+  const [p,a,s]=await Promise.all([
 
-    await Promise.all([
+    sb
 
-      sb
+      .from('profiles')
 
-        .from('profiles')
+      .select('id,full_name,role,active')
 
-        .select(
+      .order('full_name'),
 
-          'id,full_name,role,active'
+    sb
 
-        )
+      .from('availabilities')
 
-        .order('full_name'),
+      .select('id,employee_id,start_at,end_at,note,created_at')
 
-      sb
+      .order('start_at'),
 
-        .from('availabilities')
+    sb
 
-        .select(
+      .from('shifts')
 
-          'id,employee_id,start_at,end_at,note,created_at'
+      .select('id,employee_id,start_at,end_at,note,published,created_at,updated_at')
 
-        )
+      .order('start_at')
 
-        .order('start_at'),
+  ]);
 
-      sb
+  if(p.error)throw p.error;
 
-        .from('shifts')
+  if(a.error)throw a.error;
 
-        .select(
+  if(s.error)throw s.error;
 
-          'id,employee_id,start_at,end_at,note,published,created_at,updated_at'
+  profiles=p.data||[];
 
-        )
+  availabilities=a.data||[];
 
-        .order('start_at')
-
-    ]);
-
-  if(p.error){
-
-    throw p.error;
-
-  }
-
-  if(a.error){
-
-    throw a.error;
-
-  }
-
-  if(s.error){
-
-    throw s.error;
-
-  }
-
-  profiles =
-
-    p.data || [];
-
-  availabilities =
-
-    a.data || [];
-
-  shifts =
-
-    s.data || [];
+  shifts=s.data||[];
 
 }
 
@@ -2260,11 +1620,7 @@ async function boot(){
 
       data:{session}
 
-    } =
-
-      await sb.auth
-
-        .getSession();
+    }=await sb.auth.getSession();
 
     if(!session){
 
@@ -2274,9 +1630,7 @@ async function boot(){
 
     }
 
-    me =
-
-      await getMyProfile();
+    me=await getMyProfile();
 
     if(!me?.active){
 
@@ -2314,9 +1668,7 @@ async function boot(){
 
       $('loginMessage'),
 
-      'Erreur : ' +
-
-      e.message
+      'Erreur : '+e.message
 
     );
 
@@ -2326,169 +1678,113 @@ async function boot(){
 
 function showLogin(){
 
-  $('loginScreen')
+  $('loginScreen').classList.remove('hidden');
 
-    .classList
+  $('appMain').classList.add('hidden');
 
-    .remove('hidden');
+  $('bottomNav').classList.add('hidden');
 
-  $('appMain')
-
-    .classList
-
-    .add('hidden');
-
-  $('bottomNav')
-
-    .classList
-
-    .add('hidden');
-
-  $('logoutBtn')
-
-    .classList
-
-    .add('hidden');
+  $('logoutBtn').classList.add('hidden');
 
 }
 
 function showApp(){
 
-  $('loginScreen')
+  $('loginScreen').classList.add('hidden');
 
-    .classList
+  $('appMain').classList.remove('hidden');
 
-    .add('hidden');
+  $('bottomNav').classList.remove('hidden');
 
-  $('appMain')
-
-    .classList
-
-    .remove('hidden');
-
-  $('bottomNav')
-
-    .classList
-
-    .remove('hidden');
-
-  $('logoutBtn')
-
-    .classList
-
-    .remove('hidden');
+  $('logoutBtn').classList.remove('hidden');
 
   applyRole();
 
 }
 
+/* CORRECTION V5.1 */
+
 function applyRole(){
 
-  document
+  document.querySelectorAll('.manager-only').forEach(el=>{
 
-    .querySelectorAll(
+    if(isManager()){
 
-      '.manager-only'
+      if(el.tagName==='BUTTON'){
 
-    )
+        el.style.display='inline-block';
 
-    .forEach(
+      }else{
 
-      el =>
+        el.style.display='block';
 
-        el.style.display =
+      }
 
-          isManager()
+    }else{
 
-            ? ''
+      el.style.display='none';
 
-            : 'none'
+    }
 
-    );
+  });
 
-  document
+  document.querySelectorAll('.employee-only').forEach(el=>{
 
-    .querySelectorAll(
+    if(!isManager()){
 
-      '.employee-only'
+      if(el.tagName==='BUTTON'){
 
-    )
+        el.style.display='inline-block';
 
-    .forEach(
+      }else{
 
-      el =>
+        el.style.display='block';
 
-        el.style.display =
+      }
 
-          !isManager()
+    }else{
 
-            ? ''
+      el.style.display='none';
 
-            : 'none'
+    }
 
-    );
+  });
 
-  $('roleBadge')
+  $('roleBadge').textContent=
 
-    .textContent =
+    isManager()
 
-      isManager()
+      ?'Gérant'
 
-        ? 'Gérant'
+      :(me?.full_name||'Employé');
 
-        : (
+  $('headerSub').textContent=
 
-            me?.full_name ||
+    isManager()
 
-            'Employé'
+      ?'Gestion du planning synchronisé'
 
-          );
-
-  $('headerSub')
-
-    .textContent =
-
-      isManager()
-
-        ? 'Gestion du planning synchronisé'
-
-        : 'Mes disponibilités et mon planning';
+      :'Mes disponibilités et mon planning';
 
 }
 
 function renderSelects(){
 
-  const opts =
+  const opts=profiles
 
-    profiles
+    .filter(p=>p.active)
 
-      .filter(
+    .map(
 
-        p => p.active
+      p=>`<option value="${esc(p.id)}">${esc(p.full_name)}</option>`
 
-      )
+    )
 
-      .map(
+    .join('');
 
-        p =>
+  $('avPerson').innerHTML=opts;
 
-          `<option value="${esc(p.id)}">${esc(p.full_name)}</option>`
-
-      )
-
-      .join('');
-
-  $('avPerson')
-
-    .innerHTML =
-
-      opts;
-
-  $('shiftPerson')
-
-    .innerHTML =
-
-      opts;
+  $('shiftPerson').innerHTML=opts;
 
 }
 
@@ -2496,11 +1792,7 @@ function myShifts(){
 
   return shifts.filter(
 
-    s =>
-
-      s.employee_id ===
-
-      me.id
+    s=>s.employee_id===me.id
 
   );
 
@@ -2508,265 +1800,133 @@ function myShifts(){
 
 function renderDashboard(){
 
-  const mine =
+  const mine=myShifts();
 
-    myShifts();
+  const w=shiftHours(
 
-  const w =
+    mine.filter(
 
-    shiftHours(
+      s=>inCurrentWeek(s.start_at)
 
-      mine.filter(
+    )
 
-        s =>
+  );
 
-          inCurrentWeek(
+  const m=shiftHours(
 
-            s.start_at
+    mine.filter(
 
-          )
+      s=>inCurrentMonth(s.start_at)
 
-      )
+    )
 
-    );
+  );
 
-  const m =
+  $('myWeek').textContent=fmtH(w);
 
-    shiftHours(
-
-      mine.filter(
-
-        s =>
-
-          inCurrentMonth(
-
-            s.start_at
-
-          )
-
-      )
-
-    );
-
-  $('myWeek')
-
-    .textContent =
-
-      fmtH(w);
-
-  $('myMonth')
-
-    .textContent =
-
-      fmtH(m);
+  $('myMonth').textContent=fmtH(m);
 
   if(isManager()){
 
-    $('myWeek')
+    $('myWeek').className=
 
-      .className =
+      'kpi '+(w>=38?'ok':'warn');
 
-        'kpi ' +
+    $('myWeekStatus').textContent=
 
-        (
+      w>=38
 
-          w >= 38
+        ?`Minimum 38 h atteint (+${fmtH(w-38)})`
 
-            ? 'ok'
+        :`Il manque ${fmtH(38-w)} pour atteindre 38 h`;
 
-            : 'warn'
-
-        );
-
-    $('myWeekStatus')
-
-      .textContent =
-
-        w >= 38
-
-          ? `Minimum 38 h atteint (+${fmtH(w-38)})`
-
-          : `Il manque ${fmtH(38-w)} pour atteindre 38 h`;
-
-    const tm =
+    $('teamMonth').textContent=fmtH(
 
       shiftHours(
 
         shifts.filter(
 
-          s =>
-
-            inCurrentMonth(
-
-              s.start_at
-
-            )
+          s=>inCurrentMonth(s.start_at)
 
         )
 
-      );
+      )
 
-    $('teamMonth')
+    );
 
-      .textContent =
+    $('summary').innerHTML=profiles
 
-        fmtH(tm);
+      .filter(p=>p.active)
 
-    $('summary')
+      .map(p=>{
 
-      .innerHTML =
+        const ps=shifts.filter(
 
-        profiles
+          s=>s.employee_id===p.id
 
-          .filter(
+        );
 
-            p =>
+        const pw=shiftHours(
 
-              p.active
+          ps.filter(
+
+            s=>inCurrentWeek(s.start_at)
 
           )
 
-          .map(p=>{
+        );
 
-            const ps =
+        const pm=shiftHours(
 
-              shifts.filter(
+          ps.filter(
 
-                s =>
+            s=>inCurrentMonth(s.start_at)
 
-                  s.employee_id ===
+          )
 
-                  p.id
+        );
 
-              );
+        const pct=
 
-            const pw =
+          p.id===me.id
 
-              shiftHours(
+            ?Math.min(100,pw/38*100)
 
-                ps.filter(
+            :Math.min(100,pw/40*100);
 
-                  s =>
+        return `
 
-                    inCurrentWeek(
+          <div class="employee-card">
 
-                      s.start_at
+            <strong>${esc(p.full_name)}</strong>
 
-                    )
+            <div class="row">
 
-                )
+              <span>Semaine : ${fmtH(pw)}</span>
 
-              );
+              <span>• Mois : ${fmtH(pm)}</span>
 
-            const pm =
+            </div>
 
-              shiftHours(
+            <div class="bar" style="margin-top:7px">
 
-                ps.filter(
+              <div style="width:${pct}%"></div>
 
-                  s =>
+            </div>
 
-                    inCurrentMonth(
+          </div>
 
-                      s.start_at
+        `;
 
-                    )
+      })
 
-                )
-
-              );
-
-            const pct =
-
-              p.id === me.id
-
-                ? Math.min(
-
-                    100,
-
-                    pw / 38 * 100
-
-                  )
-
-                : Math.min(
-
-                    100,
-
-                    pw / 40 * 100
-
-                  );
-
-            return `
-
-              <div class="employee-card">
-
-                <strong>
-
-                  ${esc(p.full_name)}
-
-                </strong>
-
-                <div class="row">
-
-                  <span>
-
-                    Semaine :
-
-                    ${fmtH(pw)}
-
-                  </span>
-
-                  <span>
-
-                    • Mois :
-
-                    ${fmtH(pm)}
-
-                  </span>
-
-                </div>
-
-                <div
-
-                  class="bar"
-
-                  style="margin-top:7px"
-
-                >
-
-                  <div
-
-                    style="width:${pct}%"
-
-                  ></div>
-
-                </div>
-
-              </div>
-
-            `;
-
-          })
-
-          .join('')
-
-        ||
-
-        '<div class="small">Aucun employé.</div>';
+      .join('');
 
   }else{
 
-    $('myWeek')
+    $('myWeek').className='kpi';
 
-      .className =
-
-        'kpi';
-
-    $('myWeekStatus')
-
-      .textContent =
-
-        '';
+    $('myWeekStatus').textContent='';
 
   }
 
@@ -2774,157 +1934,115 @@ function renderDashboard(){
 
 function renderAvailability(){
 
-  let rows =
-
-    [...availabilities];
+  let rows=[...availabilities];
 
   if(!isManager()){
 
-    rows =
+    rows=rows.filter(
 
-      rows.filter(
+      a=>a.employee_id===me.id
 
-        a =>
-
-          a.employee_id ===
-
-          me.id
-
-      );
+    );
 
   }
 
-  $('availabilityList')
+  $('availabilityList').innerHTML=
 
-    .innerHTML =
+    rows.length
 
-      rows.length
+      ?`
 
-        ?
+      <table>
 
-        `
+        <tr>
 
-        <table>
+          <th>Date</th>
+
+          <th>Personne</th>
+
+          <th>Disponibilité</th>
+
+          <th></th>
+
+        </tr>
+
+        ${rows.map(a=>`
 
           <tr>
 
-            <th>Date</th>
+            <td>${formatDateFr(a.start_at)}</td>
 
-            <th>Personne</th>
+            <td>${esc(personName(a.employee_id))}</td>
 
-            <th>Disponibilité</th>
+            <td>
 
-            <th></th>
+              ${
+
+                statusUnavailable(a)
+
+                  ?'<span class="pill no">Indisponible</span>'
+
+                  :`<span class="pill ok">${timeKey(a.start_at)}–${timeKey(a.end_at)}</span>`
+
+              }
+
+            </td>
+
+            <td>
+
+              <button
+
+                class="danger"
+
+                onclick="deleteAvailability(${a.id})"
+
+              >
+
+                X
+
+              </button>
+
+            </td>
 
           </tr>
 
-          ${rows.map(a=>`
+        `).join('')}
 
-            <tr>
+      </table>
 
-              <td>
+      `
 
-                ${formatDateFr(a.start_at)}
-
-              </td>
-
-              <td>
-
-                ${esc(personName(a.employee_id))}
-
-              </td>
-
-              <td>
-
-                ${
-
-                  statusUnavailable(a)
-
-                    ?
-
-                    '<span class="pill no">Indisponible</span>'
-
-                    :
-
-                    `<span class="pill ok">${timeKey(a.start_at)}–${timeKey(a.end_at)}</span>`
-
-                }
-
-              </td>
-
-              <td>
-
-                <button
-
-                  class="danger"
-
-                  onclick="deleteAvailability(${a.id})"
-
-                >
-
-                  X
-
-                </button>
-
-              </td>
-
-            </tr>
-
-          `).join('')}
-
-        </table>
-
-        `
-
-        :
-
-        '<div class="small">Aucune disponibilité encodée.</div>';
+      :'<div class="small">Aucune disponibilité encodée.</div>';
 
 }
 
 function renderPlanning(){
 
-  let groups = {};
+  let groups={};
 
-  [...shifts]
+  shifts.forEach(s=>{
 
-    .forEach(
+    (
 
-      s =>
+      groups[
 
-        (
+        dateKey(s.start_at)
 
-          groups[
+      ]??=[]
 
-            dateKey(
+    ).push(s);
 
-              s.start_at
+  });
 
-            )
+  let html='';
 
-          ]
-
-          ??=[]
-
-        )
-
-        .push(s)
-
-    );
-
-  let html = '';
-
-  Object
-
-    .keys(groups)
+  Object.keys(groups)
 
     .sort()
 
     .forEach(date=>{
 
-      html +=
-
-        `
+      html+=`
 
         <div class="day">
 
@@ -2932,29 +2050,23 @@ function renderPlanning(){
 
             ${
 
-              new Date(
+              new Date(date+'T12:00:00')
 
-                date +
+                .toLocaleDateString(
 
-                'T12:00:00'
+                  'fr-BE',
 
-              )
+                  {
 
-              .toLocaleDateString(
+                    weekday:'long',
 
-                'fr-BE',
+                    day:'2-digit',
 
-                {
+                    month:'2-digit'
 
-                  weekday:'long',
+                  }
 
-                  day:'2-digit',
-
-                  month:'2-digit'
-
-                }
-
-              )
+                )
 
             }
 
@@ -2972,17 +2084,11 @@ function renderPlanning(){
 
                     isManager()
 
-                      ?
-
-                      `
+                      ?`
 
                       <span class="actions">
 
-                        <button
-
-                          onclick="editShift(${s.id})"
-
-                        >
+                        <button onclick="editShift(${s.id})">
 
                           Modifier
 
@@ -3004,9 +2110,7 @@ function renderPlanning(){
 
                       `
 
-                      :
-
-                      ''
+                      :''
 
                   }
 
@@ -3018,17 +2122,11 @@ function renderPlanning(){
 
                   ${
 
-                    isManager() &&
+                    isManager()&&!s.published
 
-                    !s.published
+                      ?'<span class="pill draft">Brouillon</span>'
 
-                      ?
-
-                      '<span class="pill draft">Brouillon</span>'
-
-                      :
-
-                      ''
+                      :''
 
                   }
 
@@ -3044,17 +2142,7 @@ function renderPlanning(){
 
                     •
 
-                    ${fmtH(
-
-                      hoursBetween(
-
-                        s.start_at,
-
-                        s.end_at
-
-                      )
-
-                    )}
+                    ${fmtH(hoursBetween(s.start_at,s.end_at))}
 
                   </span>
 
@@ -3068,367 +2156,193 @@ function renderPlanning(){
 
         </div>
 
-        `;
+      `;
 
     });
 
-  $('planningList')
+  $('planningList').innerHTML=
 
-    .innerHTML =
+    html||
 
-      html
-
-      ||
-
-      '<div class="small">Aucun service au planning.</div>';
+    '<div class="small">Aucun service au planning.</div>';
 
 }
 
 function renderMonthly(){
 
-  const key =
+  const key=
 
-    $('monthPicker').value
+    $('monthPicker').value||
 
-    ||
+    new Date().toISOString().slice(0,7);
 
-    new Date()
-
-      .toISOString()
-
-      .slice(0,7);
-
-  const people =
+  const people=
 
     isManager()
 
-      ?
+      ?profiles.filter(p=>p.active)
 
-      profiles.filter(
+      :profiles.filter(p=>p.id===me.id);
 
-        p =>
+  const rel=shifts.filter(
 
-          p.active
+    s=>inMonth(s.start_at,key)
 
-      )
+  );
 
-      :
+  $('selectedMonthTotal').textContent=
 
-      profiles.filter(
+    fmtH(
 
-        p =>
-
-          p.id === me.id
-
-      );
-
-  const rel =
-
-    shifts.filter(
-
-      s =>
-
-        inMonth(
-
-          s.start_at,
-
-          key
-
-        )
+      shiftHours(rel)
 
     );
 
-  $('selectedMonthTotal')
+  $('monthlySummary').innerHTML=
 
-    .textContent =
+    people
 
-      fmtH(
+      .map(p=>{
 
-        shiftHours(rel)
+        const ps=rel.filter(
 
-      );
+          s=>s.employee_id===p.id
 
-  $('monthlySummary')
+        );
 
-    .innerHTML =
+        const h=shiftHours(ps);
 
-      people
+        return `
 
-        .map(p=>{
+          <div
 
-          const ps =
+            class="employee-card"
 
-            rel.filter(
+            onclick="showMonthDetail('${p.id}')"
 
-              s =>
+          >
 
-                s.employee_id ===
+            <strong>${esc(p.full_name)}</strong>
 
-                p.id
+            <div class="row">
 
-            );
+              <span>${fmtH(h)}</span>
 
-          const h =
+              <span class="small">
 
-            shiftHours(ps);
+                • ${ps.length} service${ps.length>1?'s':''}
 
-          return `
-
-            <div
-
-              class="employee-card"
-
-              onclick="showMonthDetail('${p.id}')"
-
-              style="cursor:pointer"
-
-            >
-
-              <strong>
-
-                ${esc(p.full_name)}
-
-              </strong>
-
-              <div class="row">
-
-                <span>
-
-                  ${fmtH(h)}
-
-                </span>
-
-                <span class="small">
-
-                  • ${ps.length}
-
-                  service${ps.length>1?'s':''}
-
-                </span>
-
-              </div>
+              </span>
 
             </div>
 
-          `;
+          </div>
 
-        })
+        `;
 
-        .join('')
+      })
 
-      ||
-
-      '<div class="small">Aucune donnée.</div>';
-
-  $('monthDetailCard')
-
-    .classList
-
-    .add('hidden');
+      .join('');
 
 }
 
 function showMonthDetail(id){
 
-  const p =
+  const p=profiles.find(
 
-    profiles.find(
+    x=>x.id===id
 
-      x =>
+  );
 
-        x.id === id
+  if(!p)return;
 
-    );
+  const key=
 
-  if(!p){
+    $('monthPicker').value||
 
-    return;
+    new Date().toISOString().slice(0,7);
 
-  }
+  const ps=shifts.filter(
 
-  const key =
+    s=>
 
-    $('monthPicker').value
+      s.employee_id===id
 
-    ||
+      &&
 
-    new Date()
+      inMonth(s.start_at,key)
 
-      .toISOString()
+  );
 
-      .slice(0,7);
+  const total=shiftHours(ps);
 
-  const ps =
+  $('monthDetailTitle').textContent=
 
-    shifts.filter(
+    p.full_name;
 
-      s =>
+  $('monthDetail').innerHTML=
 
-        s.employee_id === id
+    ps.length
 
-        &&
+      ?`
 
-        inMonth(
+      <table>
 
-          s.start_at,
+        <tr>
 
-          key
+          <th>Date</th>
 
-        )
+          <th>Horaire</th>
 
-    );
+          <th>Heures</th>
 
-  const total =
+        </tr>
 
-    shiftHours(ps);
+        ${
 
-  const label =
+          ps.map(s=>`
 
-    new Date(
+            <tr>
 
-      key +
+              <td>${formatDateFr(s.start_at)}</td>
 
-      '-01T12:00:00'
+              <td>
 
-    )
+                ${timeKey(s.start_at)}
 
-    .toLocaleDateString(
+                –
 
-      'fr-BE',
+                ${timeKey(s.end_at)}
 
-      {
+              </td>
 
-        month:'long',
+              <td>
 
-        year:'numeric'
+                ${fmtH(hoursBetween(s.start_at,s.end_at))}
 
-      }
+              </td>
 
-    );
+            </tr>
 
-  $('monthDetailTitle')
+          `).join('')
 
-    .textContent =
+        }
 
-      `${p.full_name} — ${
+        <tr>
 
-        label
+          <th colspan="2">Total</th>
 
-          .charAt(0)
+          <th>${fmtH(total)}</th>
 
-          .toUpperCase()
+        </tr>
 
-        +
+      </table>
 
-        label.slice(1)
+      `
 
-      }`;
+      :'<div class="small">Aucun service ce mois-ci.</div>';
 
-  $('monthDetail')
-
-    .innerHTML =
-
-      ps.length
-
-        ?
-
-        `
-
-        <table>
-
-          <tr>
-
-            <th>Date</th>
-
-            <th>Horaire</th>
-
-            <th>Heures</th>
-
-          </tr>
-
-          ${
-
-            ps.map(s=>`
-
-              <tr>
-
-                <td>
-
-                  ${formatDateFr(s.start_at)}
-
-                </td>
-
-                <td>
-
-                  ${timeKey(s.start_at)}
-
-                  –
-
-                  ${timeKey(s.end_at)}
-
-                </td>
-
-                <td>
-
-                  ${fmtH(
-
-                    hoursBetween(
-
-                      s.start_at,
-
-                      s.end_at
-
-                    )
-
-                  )}
-
-                </td>
-
-              </tr>
-
-            `).join('')
-
-          }
-
-          <tr>
-
-            <th colspan="2">
-
-              Total
-
-            </th>
-
-            <th>
-
-              ${fmtH(total)}
-
-            </th>
-
-          </tr>
-
-        </table>
-
-        `
-
-        :
-
-        '<div class="small">Aucun service ce mois-ci.</div>';
-
-  $('monthDetailCard')
-
-    .classList
-
-    .remove('hidden');
-
-  $('monthDetailCard')
-
-    .scrollIntoView({
-
-      behavior:'smooth',
-
-      block:'start'
-
-    });
+  $('monthDetailCard').classList.remove('hidden');
 
 }
 
@@ -3440,149 +2354,111 @@ function renderTeam(){
 
   }
 
-  $('teamList')
+  $('teamList').innerHTML=
 
-    .innerHTML =
+    profiles
 
-      profiles
+      .map(p=>{
 
-        .map(p=>{
+        const manager=
 
-          const manager =
+          p.role==='manager';
 
-            p.role ===
+        const status=
 
-            'manager';
+          p.active
 
-          const status =
+            ?'<span class="pill ok">Actif</span>'
 
-            p.active
+            :'<span class="pill draft">En attente</span>';
 
-              ?
+        let action='';
 
-              '<span class="pill ok">Actif</span>'
+        if(!manager){
 
-              :
+          if(p.active){
 
-              '<span class="pill draft">En attente</span>';
+            action=`
 
-          let actions = '';
+              <button
 
-          if(!manager){
+                class="danger"
 
-            actions =
+                onclick="setProfileActive('${p.id}',false)"
 
-              p.active
+              >
 
-                ?
+                Désactiver
 
-                `
+              </button>
 
-                <button
+            `;
 
-                  class="danger"
+          }else{
 
-                  onclick="setProfileActive('${p.id}',false)"
+            action=`
 
-                >
+              <button
 
-                  Désactiver
+                class="info"
 
-                </button>
+                onclick="setProfileActive('${p.id}',true)"
 
-                `
+              >
 
-                :
+                Valider l'accès
 
-                `
+              </button>
 
-                <button
-
-                  class="info"
-
-                  onclick="setProfileActive('${p.id}',true)"
-
-                >
-
-                  Valider l'accès
-
-                </button>
-
-                `;
+            `;
 
           }
 
-          return `
+        }
 
-            <div
+        return `
 
-              class="employee-card ${!p.active?'pending':''}"
+          <div
 
-            >
+            class="employee-card ${!p.active?'pending':''}"
 
-              <strong>
+          >
 
-                ${esc(p.full_name)}
+            <strong>
 
-              </strong>
+              ${esc(p.full_name)}
 
-              <div class="row">
+            </strong>
 
-                <span class="small">
+            <div class="row">
 
-                  ${
+              <span class="small">
 
-                    manager
+                ${manager?'Gérant':'Employé'}
 
-                      ?
+              </span>
 
-                      'Gérant'
-
-                      :
-
-                      'Employé'
-
-                  }
-
-                </span>
-
-                ${status}
-
-              </div>
-
-              ${
-
-                actions
-
-                  ?
-
-                  `
-
-                  <div style="margin-top:9px">
-
-                    ${actions}
-
-                  </div>
-
-                  `
-
-                  :
-
-                  ''
-
-              }
+              ${status}
 
             </div>
 
-          `;
+            ${
 
-        })
+              action
 
-        .join('')
+                ?`<div style="margin-top:9px">${action}</div>`
 
-      ||
+                :''
 
-      '<div class="small">Aucun profil.</div>';
+            }
+
+          </div>
+
+        `;
+
+      })
+
+      .join('');
 
 }
 
@@ -3616,121 +2492,89 @@ async function saveAvailability(){
 
   if(!$('avDate').value){
 
-    return alert(
-
-      'Choisis une date.'
-
-    );
+    return alert('Choisis une date.');
 
   }
 
-  const employee_id =
+  const employee_id=
 
     isManager()
 
-      ?
+      ?$('avPerson').value
 
-      $('avPerson').value
+      :me.id;
 
-      :
+  const status=$('avStatus').value;
 
-      me.id;
-
-  const status =
-
-    $('avStatus').value;
-
-  const date =
-
-    $('avDate').value;
+  const date=$('avDate').value;
 
   let start_at;
 
   let end_at;
 
-  let note = null;
+  let note=null;
 
-  if(status === 'no'){
+  if(status==='no'){
 
-    start_at =
+    start_at=localStamp(
 
-      localStamp(
+      date,
 
-        date,
+      '00:00'
 
-        '00:00'
+    );
 
-      );
+    end_at=localStamp(
 
-    end_at =
+      date,
 
-      localStamp(
+      '23:59'
 
-        date,
+    );
 
-        '23:59'
-
-      );
-
-    note =
-
-      '[INDISPONIBLE]';
+    note='[INDISPONIBLE]';
 
   }else{
 
-    start_at =
+    start_at=localStamp(
 
-      localStamp(
+      date,
 
-        date,
+      $('avStart').value
 
-        $('avStart').value
+    );
 
-      );
+    end_at=endStamp(
 
-    end_at =
+      date,
 
-      endStamp(
+      $('avStart').value,
 
-        date,
+      $('avEnd').value
 
-        $('avStart').value,
-
-        $('avEnd').value
-
-      );
+    );
 
   }
 
-  const {error} =
+  const {error}=await sb
 
-    await sb
+    .from('availabilities')
 
-      .from(
+    .insert({
 
-        'availabilities'
+      employee_id,
 
-      )
+      start_at,
 
-      .insert({
+      end_at,
 
-        employee_id,
+      note
 
-        start_at,
-
-        end_at,
-
-        note
-
-      });
+    });
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -3740,47 +2584,23 @@ async function saveAvailability(){
 
 async function deleteAvailability(id){
 
-  if(
-
-    !confirm(
-
-      'Supprimer cette disponibilité ?'
-
-    )
-
-  ){
+  if(!confirm('Supprimer cette disponibilité ?')){
 
     return;
 
   }
 
-  const {error} =
+  const {error}=await sb
 
-    await sb
+    .from('availabilities')
 
-      .from(
+    .delete()
 
-        'availabilities'
-
-      )
-
-      .delete()
-
-      .eq(
-
-        'id',
-
-        id
-
-      );
+    .eq('id',id);
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -3798,79 +2618,61 @@ async function addShift(){
 
   if(!$('shiftDate').value){
 
-    return alert(
-
-      'Choisis une date.'
-
-    );
+    return alert('Choisis une date.');
 
   }
 
-  const date =
+  const date=$('shiftDate').value;
 
-    $('shiftDate').value;
+  const start=$('shiftStart').value;
 
-  const start =
+  const end=$('shiftEnd').value;
 
-    $('shiftStart').value;
+  const {error}=await sb
 
-  const end =
+    .from('shifts')
 
-    $('shiftEnd').value;
+    .insert({
 
-  const {error} =
+      employee_id:
 
-    await sb
+        $('shiftPerson').value,
 
-      .from('shifts')
+      start_at:
 
-      .insert({
+        localStamp(
 
-        employee_id:
+          date,
 
-          $('shiftPerson').value,
+          start
 
-        start_at:
+        ),
 
-          localStamp(
+      end_at:
 
-            date,
+        endStamp(
 
-            start
+          date,
 
-          ),
+          start,
 
-        end_at:
+          end
 
-          endStamp(
+        ),
 
-            date,
+      published:
 
-            start,
+        $('shiftPublished').checked,
 
-            end
+      created_by:
 
-          ),
+        me.id
 
-        published:
-
-          $('shiftPublished')
-
-            .checked,
-
-        created_by:
-
-          me.id
-
-      });
+    });
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -3886,11 +2688,7 @@ async function deleteShift(id){
 
     ||
 
-    !confirm(
-
-      'Supprimer ce service ?'
-
-    )
+    !confirm('Supprimer ce service ?')
 
   ){
 
@@ -3898,29 +2696,17 @@ async function deleteShift(id){
 
   }
 
-  const {error} =
+  const {error}=await sb
 
-    await sb
+    .from('shifts')
 
-      .from('shifts')
+    .delete()
 
-      .delete()
-
-      .eq(
-
-        'id',
-
-        id
-
-      );
+    .eq('id',id);
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -3936,15 +2722,11 @@ async function editShift(id){
 
   }
 
-  const s =
+  const s=shifts.find(
 
-    shifts.find(
+    x=>x.id===id
 
-      x =>
-
-        x.id === id
-
-    );
+  );
 
   if(!s){
 
@@ -3952,131 +2734,85 @@ async function editShift(id){
 
   }
 
-  const date =
+  const date=prompt(
 
-    prompt(
+    'Date AAAA-MM-JJ',
 
-      'Date AAAA-MM-JJ',
+    dateKey(s.start_at)
 
-      dateKey(
+  );
 
-        s.start_at
+  if(!date)return;
 
-      )
+  const start=prompt(
 
-    );
+    'Début HH:MM',
 
-  if(!date){
+    timeKey(s.start_at)
 
-    return;
+  );
 
-  }
+  if(!start)return;
 
-  const start =
+  const end=prompt(
 
-    prompt(
+    'Fin HH:MM',
 
-      'Début HH:MM',
+    timeKey(s.end_at)
 
-      timeKey(
+  );
 
-        s.start_at
+  if(!end)return;
 
-      )
+  const pub=confirm(
 
-    );
+    'OK = publié pour l’employé\nAnnuler = brouillon'
 
-  if(!start){
+  );
 
-    return;
+  const {error}=await sb
 
-  }
+    .from('shifts')
 
-  const end =
+    .update({
 
-    prompt(
+      start_at:
 
-      'Fin HH:MM',
+        localStamp(
 
-      timeKey(
+          date,
 
-        s.end_at
+          start
 
-      )
+        ),
 
-    );
+      end_at:
 
-  if(!end){
+        endStamp(
 
-    return;
+          date,
 
-  }
+          start,
 
-  const pub =
+          end
 
-    confirm(
+        ),
 
-      'OK = publié pour l’employé\nAnnuler = brouillon'
+      published:
 
-    );
+        pub,
 
-  const {error} =
+      updated_at:
 
-    await sb
+        new Date().toISOString()
 
-      .from('shifts')
+    })
 
-      .update({
-
-        start_at:
-
-          localStamp(
-
-            date,
-
-            start
-
-          ),
-
-        end_at:
-
-          endStamp(
-
-            date,
-
-            start,
-
-            end
-
-          ),
-
-        published:
-
-          pub,
-
-        updated_at:
-
-          new Date()
-
-            .toISOString()
-
-      })
-
-      .eq(
-
-        'id',
-
-        id
-
-      );
+    .eq('id',id);
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -4084,13 +2820,7 @@ async function editShift(id){
 
 }
 
-async function setProfileActive(
-
-  id,
-
-  active
-
-){
+async function setProfileActive(id,active){
 
   if(!isManager()){
 
@@ -4098,15 +2828,11 @@ async function setProfileActive(
 
   }
 
-  const p =
+  const p=profiles.find(
 
-    profiles.find(
+    x=>x.id===id
 
-      x =>
-
-        x.id === id
-
-    );
+  );
 
   if(
 
@@ -4114,7 +2840,7 @@ async function setProfileActive(
 
     ||
 
-    p.role === 'manager'
+    p.role==='manager'
 
   ){
 
@@ -4122,51 +2848,39 @@ async function setProfileActive(
 
   }
 
-  const question =
+  if(
 
-    active
+    !confirm(
 
-      ?
+      active
 
-      `Valider l'accès de ${p.full_name} ?`
+        ?`Valider l'accès de ${p.full_name} ?`
 
-      :
+        :`Désactiver ${p.full_name} ?`
 
-      `Désactiver le compte de ${p.full_name} ?`;
+    )
 
-  if(!confirm(question)){
+  ){
 
     return;
 
   }
 
-  const {error} =
+  const {error}=await sb
 
-    await sb
+    .from('profiles')
 
-      .from('profiles')
+    .update({
 
-      .update({
+      active
 
-        active
+    })
 
-      })
-
-      .eq(
-
-        'id',
-
-        id
-
-      );
+    .eq('id',id);
 
   if(error){
 
-    return alert(
-
-      error.message
-
-    );
+    return alert(error.message);
 
   }
 
@@ -4174,73 +2888,39 @@ async function setProfileActive(
 
 }
 
-window.deleteAvailability =
+window.deleteAvailability=deleteAvailability;
 
-  deleteAvailability;
+window.deleteShift=deleteShift;
 
-window.deleteShift =
+window.editShift=editShift;
 
-  deleteShift;
+window.showMonthDetail=showMonthDetail;
 
-window.editShift =
-
-  editShift;
-
-window.showMonthDetail =
-
-  showMonthDetail;
-
-window.setProfileActive =
-
-  setProfileActive;
+window.setProfileActive=setProfileActive;
 
 function show(id){
 
-  document
-
-    .querySelectorAll(
-
-      '.view'
-
-    )
+  document.querySelectorAll('.view')
 
     .forEach(
 
-      v =>
-
-        v.classList
-
-          .add('hidden')
+      v=>v.classList.add('hidden')
 
     );
 
-  $(id)
+  $(id).classList.remove('hidden');
 
-    .classList
-
-    .remove('hidden');
-
-  document
-
-    .querySelectorAll(
-
-      '.tab'
-
-    )
+  document.querySelectorAll('.tab')
 
     .forEach(
 
-      b =>
+      b=>b.classList.toggle(
 
-        b.classList
+        'active',
 
-          .toggle(
+        b.dataset.view===id
 
-            'active',
-
-            b.dataset.view === id
-
-          )
+      )
 
     );
 
@@ -4254,157 +2934,89 @@ function show(id){
 
 }
 
-$('loginBtn')
+$('loginBtn').onclick=login;
 
-  .onclick =
+$('loginPassword').addEventListener(
 
-    login;
+  'keydown',
 
-$('loginPassword')
+  e=>{
 
-  .addEventListener(
+    if(e.key==='Enter'){
 
-    'keydown',
-
-    e=>{
-
-      if(e.key === 'Enter'){
-
-        login();
-
-      }
+      login();
 
     }
 
-  );
+  }
 
-$('showSignupBtn')
+);
 
-  .onclick =
+$('showSignupBtn').onclick=showSignup;
 
-    showSignup;
+$('showLoginBtn').onclick=showLoginPanel;
 
-$('showLoginBtn')
+$('signupBtn').onclick=signup;
 
-  .onclick =
+$('signupPassword2').addEventListener(
 
-    showLoginPanel;
+  'keydown',
 
-$('signupBtn')
+  e=>{
 
-  .onclick =
+    if(e.key==='Enter'){
 
-    signup;
-
-$('signupPassword2')
-
-  .addEventListener(
-
-    'keydown',
-
-    e=>{
-
-      if(e.key === 'Enter'){
-
-        signup();
-
-      }
+      signup();
 
     }
 
-  );
+  }
 
-$('logoutBtn')
+);
 
-  .onclick =
+$('logoutBtn').onclick=logout;
 
-    logout;
+$('saveAvailability').onclick=saveAvailability;
 
-$('saveAvailability')
+$('addShift').onclick=addShift;
 
-  .onclick =
+$('refreshAvailability').onclick=refresh;
 
-    saveAvailability;
+$('refreshPlanning').onclick=refresh;
 
-$('addShift')
+$('refreshTeam').onclick=refresh;
 
-  .onclick =
+$('monthPicker').onchange=renderMonthly;
 
-    addShift;
-
-$('refreshAvailability')
-
-  .onclick =
-
-    refresh;
-
-$('refreshPlanning')
-
-  .onclick =
-
-    refresh;
-
-$('refreshTeam')
-
-  .onclick =
-
-    refresh;
-
-$('monthPicker')
-
-  .onchange =
-
-    renderMonthly;
-
-document
-
-  .querySelectorAll(
-
-    '.tab'
-
-  )
+document.querySelectorAll('.tab')
 
   .forEach(
 
-    b =>
+    b=>b.onclick=
 
-      b.onclick =
+      ()=>show(
 
-        () =>
+        b.dataset.view
 
-          show(
-
-            b.dataset.view
-
-          )
+      )
 
   );
 
-document
-
-  .querySelectorAll(
-
-    '[data-go]'
-
-  )
+document.querySelectorAll('[data-go]')
 
   .forEach(
 
-    b =>
+    b=>b.onclick=
 
-      b.onclick =
+      ()=>show(
 
-        () =>
+        b.dataset.go
 
-          show(
-
-            b.dataset.go
-
-          )
+      )
 
   );
 
-const today =
+const today=
 
   new Date()
 
@@ -4412,53 +3024,33 @@ const today =
 
     .slice(0,10);
 
-$('avDate').value =
+$('avDate').value=today;
 
-  today;
+$('shiftDate').value=today;
 
-$('shiftDate').value =
-
-  today;
-
-$('monthPicker').value =
+$('monthPicker').value=
 
   today.slice(0,7);
 
-sb.auth
+sb.auth.onAuthStateChange(
 
-  .onAuthStateChange(
+  event=>{
 
-    event=>{
+    if(event==='SIGNED_OUT'){
 
-      if(
-
-        event ===
-
-        'SIGNED_OUT'
-
-      ){
-
-        showLogin();
-
-      }
+      showLogin();
 
     }
 
-  );
+  }
+
+);
 
 boot();
 
-if(
+if('serviceWorker' in navigator){
 
-  'serviceWorker'
-
-  in navigator
-
-){
-
-  navigator
-
-    .serviceWorker
+  navigator.serviceWorker
 
     .register('./sw.js')
 
