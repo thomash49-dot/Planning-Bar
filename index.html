@@ -44,7 +44,11 @@
 
     }
 
-    *{box-sizing:border-box}
+    *{
+
+      box-sizing:border-box;
+
+    }
 
     body{
 
@@ -150,7 +154,9 @@
 
     @media(max-width:760px){
 
-      .two,.three{
+      .two,
+
+      .three{
 
         grid-template-columns:1fr;
 
@@ -212,13 +218,19 @@
 
     }
 
-    input,select,button{
+    input,
+
+    select,
+
+    button{
 
       font:inherit;
 
     }
 
-    input,select{
+    input,
+
+    select{
 
       width:100%;
 
@@ -354,7 +366,9 @@
 
     }
 
-    th,td{
+    th,
+
+    td{
 
       padding:9px 7px;
 
@@ -622,7 +636,9 @@
 
     }
 
-    .manager-only,.employee-only{
+    .manager-only,
+
+    .employee-only{
 
       display:none;
 
@@ -658,7 +674,11 @@
 
     @keyframes spin{
 
-      to{transform:rotate(360deg)}
+      to{
+
+        transform:rotate(360deg);
+
+      }
 
     }
 
@@ -758,7 +778,11 @@
 
     <div class="header-actions">
 
-      <button id="logoutBtn" class="hidden">Déconnexion</button>
+      <button id="logoutBtn" class="hidden">
+
+        Déconnexion
+
+      </button>
 
     </div>
 
@@ -852,11 +876,27 @@
 
       <label>Nom complet</label>
 
-      <input id="signupName" type="text" placeholder="Prénom Nom">
+      <input
+
+        id="signupName"
+
+        type="text"
+
+        placeholder="Prénom Nom"
+
+      >
 
       <label>E-mail</label>
 
-      <input id="signupEmail" type="email" placeholder="prenom@email.com">
+      <input
+
+        id="signupEmail"
+
+        type="email"
+
+        placeholder="prenom@email.com"
+
+      >
 
       <label>Mot de passe</label>
 
@@ -952,9 +992,17 @@
 
       <div class="card">
 
-        <div class="small">Mes heures cette semaine</div>
+        <div class="small">
 
-        <div id="myWeek" class="kpi">0 h</div>
+          Mes heures cette semaine
+
+        </div>
+
+        <div id="myWeek" class="kpi">
+
+          0 h
+
+        </div>
 
         <div id="myWeekStatus" class="small"></div>
 
@@ -962,17 +1010,33 @@
 
       <div class="card">
 
-        <div class="small">Mes heures ce mois</div>
+        <div class="small">
 
-        <div id="myMonth" class="kpi">0 h</div>
+          Mes heures ce mois
+
+        </div>
+
+        <div id="myMonth" class="kpi">
+
+          0 h
+
+        </div>
 
       </div>
 
       <div class="card manager-only">
 
-        <div class="small">Total équipe ce mois</div>
+        <div class="small">
 
-        <div id="teamMonth" class="kpi">0 h</div>
+          Total équipe ce mois
+
+        </div>
+
+        <div id="teamMonth" class="kpi">
+
+          0 h
+
+        </div>
 
       </div>
 
@@ -1054,15 +1118,27 @@
 
       <select id="avStatus">
 
-        <option value="yes">Disponible</option>
+        <option value="yes">
 
-        <option value="no">Indisponible</option>
+          Disponible
+
+        </option>
+
+        <option value="no">
+
+          Indisponible
+
+        </option>
 
       </select>
 
       <div style="margin-top:12px">
 
-        <button id="saveAvailability">Enregistrer</button>
+        <button id="saveAvailability">
+
+          Enregistrer
+
+        </button>
 
       </div>
 
@@ -1078,7 +1154,11 @@
 
       <div class="row" style="justify-content:space-between">
 
-        <h2 style="margin:0">Disponibilités enregistrées</h2>
+        <h2 style="margin:0">
+
+          Disponibilités enregistrées
+
+        </h2>
 
         <button id="refreshAvailability" class="secondary">
 
@@ -1138,11 +1218,7 @@
 
       </div>
 
-      <label
-
-        style="display:flex;gap:8px;align-items:center;margin-top:12px"
-
-      >
+      <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
 
         <input
 
@@ -1162,7 +1238,11 @@
 
       <div style="margin-top:12px">
 
-        <button id="addShift">Ajouter au planning</button>
+        <button id="addShift">
+
+          Ajouter au planning
+
+        </button>
 
       </div>
 
@@ -1172,7 +1252,11 @@
 
       <div class="row" style="justify-content:space-between">
 
-        <h2 style="margin:0">Planning</h2>
+        <h2 style="margin:0">
+
+          Planning
+
+        </h2>
 
         <button id="refreshPlanning" class="secondary">
 
@@ -1210,7 +1294,11 @@
 
           <label>Total affiché</label>
 
-          <div id="selectedMonthTotal" class="kpi">0 h</div>
+          <div id="selectedMonthTotal" class="kpi">
+
+            0 h
+
+          </div>
 
         </div>
 
@@ -1242,7 +1330,11 @@
 
     >
 
-      <h2 id="monthDetailTitle">Détail</h2>
+      <h2 id="monthDetailTitle">
+
+        Détail
+
+      </h2>
 
       <div id="monthDetail"></div>
 
@@ -1258,7 +1350,11 @@
 
       <div class="row" style="justify-content:space-between">
 
-        <h2 style="margin:0">Équipe</h2>
+        <h2 style="margin:0">
+
+          Équipe
+
+        </h2>
 
         <button id="refreshTeam" class="secondary">
 
@@ -1352,7 +1448,9 @@ const sb = supabase.createClient(
 
 );
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+
+  document.getElementById(id);
 
 let me = null;
 
@@ -1384,7 +1482,9 @@ const esc = s =>
 
   );
 
-const isManager = () => me?.role === 'manager';
+const isManager = () =>
+
+  me?.role === 'manager';
 
 const fmtH = n =>
 
@@ -1394,11 +1494,17 @@ const fmtH = n =>
 
     .replace('.',',') + ' h';
 
-const dt = v => new Date(v);
+const dt = v =>
 
-const dateKey = v => String(v).slice(0,10);
+  new Date(v);
 
-const timeKey = v => String(v).slice(11,16);
+const dateKey = v =>
+
+  String(v).slice(0,10);
+
+const timeKey = v =>
+
+  String(v).slice(11,16);
 
 function localStamp(date,time){
 
@@ -1408,9 +1514,13 @@ function localStamp(date,time){
 
 function endStamp(date,start,end){
 
-  const s = new Date(localStamp(date,start));
+  const s =
 
-  const e = new Date(localStamp(date,end));
+    new Date(localStamp(date,start));
+
+  const e =
+
+    new Date(localStamp(date,end));
 
   if(e <= s){
 
@@ -1436,7 +1546,13 @@ function endStamp(date,start,end){
 
 function hoursBetween(a,b){
 
-  return Math.max(0,(dt(b)-dt(a))/3600000);
+  return Math.max(
+
+    0,
+
+    (dt(b)-dt(a))/3600000
+
+  );
 
 }
 
@@ -1446,9 +1562,15 @@ function startOfWeek(d=new Date()){
 
   x.setHours(0,0,0,0);
 
-  const day = (x.getDay()+6)%7;
+  const day =
 
-  x.setDate(x.getDate()-day);
+    (x.getDay()+6)%7;
+
+  x.setDate(
+
+    x.getDate()-day
+
+  );
 
   return x;
 
@@ -1458,11 +1580,19 @@ function inCurrentWeek(v){
 
   const d = dt(v);
 
-  const a = startOfWeek();
+  const a =
 
-  const b = new Date(a);
+    startOfWeek();
 
-  b.setDate(b.getDate()+7);
+  const b =
+
+    new Date(a);
+
+  b.setDate(
+
+    b.getDate()+7
+
+  );
 
   return d>=a && d<b;
 
@@ -1494,7 +1624,15 @@ function shiftHours(list){
 
   return list.reduce(
 
-    (t,s)=>t+hoursBetween(s.start_at,s.end_at),
+    (t,s)=>
+
+      t+hoursBetween(
+
+        s.start_at,
+
+        s.end_at
+
+      ),
 
     0
 
@@ -1504,7 +1642,11 @@ function shiftHours(list){
 
 function personName(id){
 
-  return profiles.find(p=>p.id===id)?.full_name || 'Employé';
+  return profiles.find(
+
+    p=>p.id===id
+
+  )?.full_name || 'Employé';
 
 }
 
@@ -1530,7 +1672,11 @@ function formatDateFr(v){
 
 function statusUnavailable(a){
 
-  return (a.note||'').startsWith('[INDISPONIBLE]');
+  return (a.note||'').startsWith(
+
+    '[INDISPONIBLE]'
+
+  );
 
 }
 
@@ -1538,11 +1684,13 @@ function setBusy(btn,busy,label){
 
   btn.disabled=busy;
 
-  btn.innerHTML = busy
+  btn.innerHTML =
 
-    ? '<span class="spinner"></span>Chargement…'
+    busy
 
-    : label;
+      ? '<span class="spinner"></span>Chargement…'
+
+      : label;
 
 }
 
@@ -1550,7 +1698,13 @@ function msg(el,text,ok=false){
 
   el.textContent=text;
 
-  el.style.color=ok ? '#15803d' : '#b91c1c';
+  el.style.color=
+
+    ok
+
+      ? '#15803d'
+
+      : '#b91c1c';
 
 }
 
@@ -1562,25 +1716,55 @@ function msg(el,text,ok=false){
 
 async function login(){
 
-  const btn=$('loginBtn');
+  const btn =
 
-  setBusy(btn,true,'Se connecter');
+    $('loginBtn');
 
-  msg($('loginMessage'),'');
+  setBusy(
 
-  const email=$('loginEmail').value.trim();
+    btn,
 
-  const password=$('loginPassword').value;
+    true,
 
-  const {error}=await sb.auth.signInWithPassword({
+    'Se connecter'
 
-    email,
+  );
 
-    password
+  msg(
 
-  });
+    $('loginMessage'),
 
-  setBusy(btn,false,'Se connecter');
+    ''
+
+  );
+
+  const email =
+
+    $('loginEmail').value.trim();
+
+  const password =
+
+    $('loginPassword').value;
+
+  const {error} =
+
+    await sb.auth.signInWithPassword({
+
+      email,
+
+      password
+
+    });
+
+  setBusy(
+
+    btn,
+
+    false,
+
+    'Se connecter'
+
+  );
 
   if(error){
 
@@ -1600,13 +1784,21 @@ async function login(){
 
 async function signup(){
 
-  const name=$('signupName').value.trim();
+  const name =
 
-  const email=$('signupEmail').value.trim();
+    $('signupName').value.trim();
 
-  const password=$('signupPassword').value;
+  const email =
 
-  const password2=$('signupPassword2').value;
+    $('signupEmail').value.trim();
+
+  const password =
+
+    $('signupPassword').value;
+
+  const password2 =
+
+    $('signupPassword2').value;
 
   if(!name){
 
@@ -1656,31 +1848,57 @@ async function signup(){
 
   }
 
-  const btn=$('signupBtn');
+  const btn =
 
-  setBusy(btn,true,'Créer mon compte');
+    $('signupBtn');
 
-  msg($('signupMessage'),'');
+  setBusy(
 
-  const {data,error}=await sb.auth.signUp({
+    btn,
 
-    email,
+    true,
 
-    password,
+    'Créer mon compte'
 
-    options:{
+  );
 
-      data:{
+  msg(
 
-        full_name:name
+    $('signupMessage'),
+
+    ''
+
+  );
+
+  const {data,error} =
+
+    await sb.auth.signUp({
+
+      email,
+
+      password,
+
+      options:{
+
+        data:{
+
+          full_name:name
+
+        }
 
       }
 
-    }
+    });
 
-  });
+  setBusy(
 
-  setBusy(btn,false,'Créer mon compte');
+    btn,
+
+    false,
+
+    'Créer mon compte'
+
+  );
 
   if(error){
 
@@ -1726,7 +1944,9 @@ async function getMyProfile(){
 
     data:{user}
 
-  }=await sb.auth.getUser();
+  } =
+
+    await sb.auth.getUser();
 
   if(!user){
 
@@ -1734,15 +1954,21 @@ async function getMyProfile(){
 
   }
 
-  const {data,error}=await sb
+  const {data,error} =
 
-    .from('profiles')
+    await sb
 
-    .select('id,full_name,role,active')
+      .from('profiles')
 
-    .eq('id',user.id)
+      .select(
 
-    .single();
+        'id,full_name,role,active'
+
+      )
+
+      .eq('id',user.id)
+
+      .single();
 
   if(error){
 
@@ -1766,41 +1992,47 @@ async function getMyProfile(){
 
 async function loadAll(){
 
-  const [p,a,s]=await Promise.all([
+  const [p,a,s] =
 
-    sb
+    await Promise.all([
 
-      .from('profiles')
+      sb
 
-      .select('id,full_name,role,active')
+        .from('profiles')
 
-      .order('full_name'),
+        .select(
 
-    sb
+          'id,full_name,role,active'
 
-      .from('availabilities')
+        )
 
-      .select(
+        .order('full_name'),
 
-        'id,employee_id,start_at,end_at,note,created_at'
+      sb
 
-      )
+        .from('availabilities')
 
-      .order('start_at'),
+        .select(
 
-    sb
+          'id,employee_id,start_at,end_at,note,created_at'
 
-      .from('shifts')
+        )
 
-      .select(
+        .order('start_at'),
 
-        'id,employee_id,start_at,end_at,note,published,created_at,updated_at'
+      sb
 
-      )
+        .from('shifts')
 
-      .order('start_at')
+        .select(
 
-  ]);
+          'id,employee_id,start_at,end_at,note,published,created_at,updated_at'
+
+        )
+
+        .order('start_at')
+
+    ]);
 
   if(p.error) throw p.error;
 
@@ -1808,11 +2040,17 @@ async function loadAll(){
 
   if(s.error) throw s.error;
 
-  profiles=p.data||[];
+  profiles =
 
-  availabilities=a.data||[];
+    p.data || [];
 
-  shifts=s.data||[];
+  availabilities =
+
+    a.data || [];
+
+  shifts =
+
+    s.data || [];
 
 }
 
@@ -1830,7 +2068,9 @@ async function boot(){
 
       data:{session}
 
-    }=await sb.auth.getSession();
+    } =
+
+      await sb.auth.getSession();
 
     if(!session){
 
@@ -1840,7 +2080,9 @@ async function boot(){
 
     }
 
-    me=await getMyProfile();
+    me =
+
+      await getMyProfile();
 
     await loadAll();
 
@@ -1852,7 +2094,11 @@ async function boot(){
 
     console.error(e);
 
-    alert('Erreur : '+e.message);
+    alert(
+
+      'Erreur : '+e.message
+
+    );
 
     await sb.auth.signOut();
 
@@ -1864,29 +2110,51 @@ async function boot(){
 
 function showLogin(){
 
-  $('loginScreen').classList.remove('hidden');
+  $('loginScreen')
 
-  $('appMain').classList.add('hidden');
+    .classList.remove('hidden');
 
-  $('bottomNav').classList.add('hidden');
+  $('appMain')
 
-  $('logoutBtn').classList.add('hidden');
+    .classList.add('hidden');
+
+  $('bottomNav')
+
+    .classList.add('hidden');
+
+  $('logoutBtn')
+
+    .classList.add('hidden');
 
 }
 
 function showApp(){
 
-  $('loginScreen').classList.add('hidden');
+  $('loginScreen')
 
-  $('appMain').classList.remove('hidden');
+    .classList.add('hidden');
 
-  $('bottomNav').classList.remove('hidden');
+  $('appMain')
 
-  $('logoutBtn').classList.remove('hidden');
+    .classList.remove('hidden');
+
+  $('bottomNav')
+
+    .classList.remove('hidden');
+
+  $('logoutBtn')
+
+    .classList.remove('hidden');
 
   applyRole();
 
 }
+
+/* =========================
+
+   CORRECTION AFFICHAGE ROLES
+
+========================= */
 
 function applyRole(){
 
@@ -1896,7 +2164,23 @@ function applyRole(){
 
     .forEach(el=>{
 
-      el.style.display=isManager()?'':'none';
+      if(isManager()){
+
+        if(el.tagName === 'BUTTON'){
+
+          el.style.display='inline-block';
+
+        }else{
+
+          el.style.display='block';
+
+        }
+
+      }else{
+
+        el.style.display='none';
+
+      }
 
     });
 
@@ -1906,11 +2190,27 @@ function applyRole(){
 
     .forEach(el=>{
 
-      el.style.display=!isManager()?'':'none';
+      if(!isManager()){
+
+        if(el.tagName === 'BUTTON'){
+
+          el.style.display='inline-block';
+
+        }else{
+
+          el.style.display='block';
+
+        }
+
+      }else{
+
+        el.style.display='none';
+
+      }
 
     });
 
-  $('roleBadge').textContent=
+  $('roleBadge').textContent =
 
     isManager()
 
@@ -1918,7 +2218,7 @@ function applyRole(){
 
       : (me?.full_name||'Employé');
 
-  $('headerSub').textContent=
+  $('headerSub').textContent =
 
     isManager()
 
@@ -1936,27 +2236,37 @@ function applyRole(){
 
 function renderSelects(){
 
-  const opts=profiles
+  const opts =
 
-    .filter(p=>p.active)
+    profiles
 
-    .map(
+      .filter(
 
-      p=>
+        p=>p.active
 
-        `<option value="${esc(p.id)}">`+
+      )
 
-        `${esc(p.full_name)}`+
+      .map(
 
-        `</option>`
+        p=>
 
-    )
+          `<option value="${esc(p.id)}">`+
 
-    .join('');
+          `${esc(p.full_name)}`+
 
-  $('avPerson').innerHTML=opts;
+          `</option>`
 
-  $('shiftPerson').innerHTML=opts;
+      )
+
+      .join('');
+
+  $('avPerson').innerHTML =
+
+    opts;
+
+  $('shiftPerson').innerHTML =
+
+    opts;
 
 }
 
@@ -1972,49 +2282,27 @@ function myShifts(){
 
 function renderDashboard(){
 
-  const mine=myShifts();
+  const mine =
 
-  const w=shiftHours(
+    myShifts();
 
-    mine.filter(
+  const w =
 
-      s=>inCurrentWeek(s.start_at)
+    shiftHours(
 
-    )
+      mine.filter(
 
-  );
+        s=>inCurrentWeek(s.start_at)
 
-  const m=shiftHours(
+      )
 
-    mine.filter(
+    );
 
-      s=>inCurrentMonth(s.start_at)
+  const m =
 
-    )
+    shiftHours(
 
-  );
-
-  $('myWeek').textContent=fmtH(w);
-
-  $('myMonth').textContent=fmtH(m);
-
-  if(isManager()){
-
-    $('myWeek').className=
-
-      'kpi '+(w>=38?'ok':'warn');
-
-    $('myWeekStatus').textContent=
-
-      w>=38
-
-        ? `Minimum 38 h atteint (+${fmtH(w-38)})`
-
-        : `Il manque ${fmtH(38-w)} pour atteindre 38 h`;
-
-    const tm=shiftHours(
-
-      shifts.filter(
+      mine.filter(
 
         s=>inCurrentMonth(s.start_at)
 
@@ -2022,61 +2310,131 @@ function renderDashboard(){
 
     );
 
-    $('teamMonth').textContent=fmtH(tm);
+  $('myWeek').textContent =
 
-    $('summary').innerHTML=
+    fmtH(w);
+
+  $('myMonth').textContent =
+
+    fmtH(m);
+
+  if(isManager()){
+
+    $('myWeek').className =
+
+      'kpi '+(w>=38?'ok':'warn');
+
+    $('myWeekStatus').textContent =
+
+      w>=38
+
+        ? `Minimum 38 h atteint (+${fmtH(w-38)})`
+
+        : `Il manque ${fmtH(38-w)} pour atteindre 38 h`;
+
+    const tm =
+
+      shiftHours(
+
+        shifts.filter(
+
+          s=>inCurrentMonth(s.start_at)
+
+        )
+
+      );
+
+    $('teamMonth').textContent =
+
+      fmtH(tm);
+
+    $('summary').innerHTML =
 
       profiles
 
-        .filter(p=>p.active)
+        .filter(
+
+          p=>p.active
+
+        )
 
         .map(p=>{
 
-          const ps=shifts.filter(
+          const ps =
 
-            s=>s.employee_id===p.id
+            shifts.filter(
 
-          );
+              s=>s.employee_id===p.id
 
-          const pw=shiftHours(
+            );
 
-            ps.filter(
+          const pw =
 
-              s=>inCurrentWeek(s.start_at)
+            shiftHours(
 
-            )
+              ps.filter(
 
-          );
+                s=>inCurrentWeek(s.start_at)
 
-          const pm=shiftHours(
+              )
 
-            ps.filter(
+            );
 
-              s=>inCurrentMonth(s.start_at)
+          const pm =
 
-            )
+            shiftHours(
 
-          );
+              ps.filter(
 
-          const pct=
+                s=>inCurrentMonth(s.start_at)
+
+              )
+
+            );
+
+          const pct =
 
             p.id===me.id
 
-              ? Math.min(100,pw/38*100)
+              ? Math.min(
 
-              : Math.min(100,pw/40*100);
+                  100,
+
+                  pw/38*100
+
+                )
+
+              : Math.min(
+
+                  100,
+
+                  pw/40*100
+
+                );
 
           return `
 
             <div class="employee-card">
 
-              <strong>${esc(p.full_name)}</strong>
+              <strong>
+
+                ${esc(p.full_name)}
+
+              </strong>
 
               <div class="row">
 
-                <span>Semaine : ${fmtH(pw)}</span>
+                <span>
 
-                <span>• Mois : ${fmtH(pm)}</span>
+                  Semaine : ${fmtH(pw)}
+
+                </span>
+
+                <span>
+
+                  • Mois : ${fmtH(pm)}
+
+                </span>
 
               </div>
 
@@ -2100,9 +2458,13 @@ function renderDashboard(){
 
   }else{
 
-    $('myWeek').className='kpi';
+    $('myWeek').className =
 
-    $('myWeekStatus').textContent='';
+      'kpi';
+
+    $('myWeekStatus').textContent =
+
+      '';
 
   }
 
@@ -2110,19 +2472,23 @@ function renderDashboard(){
 
 function renderAvailability(){
 
-  let rows=[...availabilities];
+  let rows =
+
+    [...availabilities];
 
   if(!isManager()){
 
-    rows=rows.filter(
+    rows =
 
-      a=>a.employee_id===me.id
+      rows.filter(
 
-    );
+        a=>a.employee_id===me.id
+
+      );
 
   }
 
-  $('availabilityList').innerHTML=
+  $('availabilityList').innerHTML =
 
     rows.length
 
@@ -2228,23 +2594,27 @@ function visibleShifts(){
 
 function renderPlanning(){
 
-  const groups={};
+  const groups = {};
 
-  visibleShifts().forEach(s=>{
+  visibleShifts()
 
-    const key=dateKey(s.start_at);
+    .forEach(s=>{
 
-    if(!groups[key]){
+      const key =
 
-      groups[key]=[];
+        dateKey(s.start_at);
 
-    }
+      if(!groups[key]){
 
-    groups[key].push(s);
+        groups[key] = [];
 
-  });
+      }
 
-  let html='';
+      groups[key].push(s);
+
+    });
+
+  let html = '';
 
   Object
 
@@ -2254,7 +2624,7 @@ function renderPlanning(){
 
     .forEach(date=>{
 
-      html+=`
+      html += `
 
         <div class="day">
 
@@ -2286,89 +2656,91 @@ function renderPlanning(){
 
       `;
 
-      html+=groups[date]
+      html +=
 
-        .map(s=>`
+        groups[date]
 
-          <div class="shift">
+          .map(s=>`
 
-            ${
+            <div class="shift">
 
-              isManager()
+              ${
 
-                ? `
+                isManager()
 
-                  <span class="actions">
+                  ? `
 
-                    <button
+                    <span class="actions">
 
-                      onclick="editShift('${s.id}')"
+                      <button
 
-                    >
+                        onclick="editShift('${s.id}')"
 
-                      Modifier
+                      >
 
-                    </button>
+                        Modifier
 
-                    <button
+                      </button>
 
-                      class="danger"
+                      <button
 
-                      onclick="deleteShift('${s.id}')"
+                        class="danger"
 
-                    >
+                        onclick="deleteShift('${s.id}')"
 
-                      Suppr.
+                      >
 
-                    </button>
+                        Suppr.
 
-                  </span>
+                      </button>
 
-                `
+                    </span>
 
-                : ''
+                  `
 
-            }
+                  : ''
 
-            <strong>
+              }
 
-              ${esc(personName(s.employee_id))}
+              <strong>
 
-            </strong>
+                ${esc(personName(s.employee_id))}
 
-            ${
+              </strong>
 
-              isManager() && !s.published
+              ${
 
-                ? '<span class="pill draft">Brouillon</span>'
+                isManager() && !s.published
 
-                : ''
+                  ? '<span class="pill draft">Brouillon</span>'
 
-            }
+                  : ''
 
-            <br>
+              }
 
-            <span class="small">
+              <br>
 
-              ${timeKey(s.start_at)}–${timeKey(s.end_at)}
+              <span class="small">
 
-              •
+                ${timeKey(s.start_at)}–${timeKey(s.end_at)}
 
-              ${fmtH(hoursBetween(s.start_at,s.end_at))}
+                •
 
-            </span>
+                ${fmtH(hoursBetween(s.start_at,s.end_at))}
 
-          </div>
+              </span>
 
-        `)
+            </div>
 
-        .join('');
+          `)
 
-      html+='</div>';
+          .join('');
+
+      html += '</div>';
 
     });
 
-  $('planningList').innerHTML=
+  $('planningList').innerHTML =
 
     html ||
 
@@ -2378,57 +2750,77 @@ function renderPlanning(){
 
 function renderMonthly(){
 
-  const key=
+  const key =
 
     $('monthPicker').value ||
 
     new Date().toISOString().slice(0,7);
 
-  const people=
+  const people =
 
     isManager()
 
-      ? profiles.filter(p=>p.active)
+      ? profiles.filter(
 
-      : profiles.filter(p=>p.id===me.id);
+          p=>p.active
 
-  let rel=shifts.filter(
+        )
 
-    s=>inMonth(s.start_at,key)
+      : profiles.filter(
 
-  );
+          p=>p.id===me.id
 
-  if(!isManager()){
+        );
 
-    rel=rel.filter(
+  let rel =
 
-      s=>
+    shifts.filter(
 
-        s.employee_id===me.id &&
-
-        s.published
+      s=>inMonth(s.start_at,key)
 
     );
 
+  if(!isManager()){
+
+    rel =
+
+      rel.filter(
+
+        s=>
+
+          s.employee_id===me.id &&
+
+          s.published
+
+      );
+
   }
 
-  $('selectedMonthTotal').textContent=
+  $('selectedMonthTotal').textContent =
 
-    fmtH(shiftHours(rel));
+    fmtH(
 
-  $('monthlySummary').innerHTML=
+      shiftHours(rel)
+
+    );
+
+  $('monthlySummary').innerHTML =
 
     people
 
       .map(p=>{
 
-        const ps=rel.filter(
+        const ps =
 
-          s=>s.employee_id===p.id
+          rel.filter(
 
-        );
+            s=>s.employee_id===p.id
 
-        const h=shiftHours(ps);
+          );
+
+        const h =
+
+          shiftHours(ps);
 
         return `
 
@@ -2442,11 +2834,19 @@ function renderMonthly(){
 
           >
 
-            <strong>${esc(p.full_name)}</strong>
+            <strong>
+
+              ${esc(p.full_name)}
+
+            </strong>
 
             <div class="row">
 
-              <span>${fmtH(h)}</span>
+              <span>
+
+                ${fmtH(h)}
+
+              </span>
 
               <span class="small">
 
@@ -2470,17 +2870,21 @@ function renderMonthly(){
 
       '<div class="small">Aucune donnée.</div>';
 
-  $('monthDetailCard').classList.add('hidden');
+  $('monthDetailCard')
+
+    .classList.add('hidden');
 
 }
 
 function showMonthDetail(id){
 
-  const p=profiles.find(
+  const p =
 
-    x=>x.id===id
+    profiles.find(
 
-  );
+      x=>x.id===id
+
+    );
 
   if(!p){
 
@@ -2494,35 +2898,41 @@ function showMonthDetail(id){
 
   }
 
-  const key=
+  const key =
 
     $('monthPicker').value ||
 
     new Date().toISOString().slice(0,7);
 
-  let ps=shifts.filter(
+  let ps =
 
-    s=>
+    shifts.filter(
 
-      s.employee_id===id &&
+      s=>
 
-      inMonth(s.start_at,key)
+        s.employee_id===id &&
 
-  );
-
-  if(!isManager()){
-
-    ps=ps.filter(
-
-      s=>s.published
+        inMonth(s.start_at,key)
 
     );
 
+  if(!isManager()){
+
+    ps =
+
+      ps.filter(
+
+        s=>s.published
+
+      );
+
   }
 
-  const total=shiftHours(ps);
+  const total =
 
-  const label=
+    shiftHours(ps);
+
+  const label =
 
     new Date(key+'-01T12:00:00')
 
@@ -2540,13 +2950,13 @@ function showMonthDetail(id){
 
       );
 
-  $('monthDetailTitle').textContent=
+  $('monthDetailTitle').textContent =
 
     `${p.full_name} — `+
 
     `${label.charAt(0).toUpperCase()+label.slice(1)}`;
 
-  $('monthDetail').innerHTML=
+  $('monthDetail').innerHTML =
 
     ps.length
 
@@ -2568,7 +2978,11 @@ function showMonthDetail(id){
 
             <tr>
 
-              <td>${formatDateFr(s.start_at)}</td>
+              <td>
+
+                ${formatDateFr(s.start_at)}
+
+              </td>
 
               <td>
 
@@ -2588,9 +3002,17 @@ function showMonthDetail(id){
 
           <tr>
 
-            <th colspan="2">Total</th>
+            <th colspan="2">
 
-            <th>${fmtH(total)}</th>
+              Total
+
+            </th>
+
+            <th>
+
+              ${fmtH(total)}
+
+            </th>
 
           </tr>
 
@@ -2602,15 +3024,19 @@ function showMonthDetail(id){
 
       '<div class="small">Aucun service ce mois-ci.</div>';
 
-  $('monthDetailCard').classList.remove('hidden');
+  $('monthDetailCard')
 
-  $('monthDetailCard').scrollIntoView({
+    .classList.remove('hidden');
 
-    behavior:'smooth',
+  $('monthDetailCard')
 
-    block:'start'
+    .scrollIntoView({
 
-  });
+      behavior:'smooth',
+
+      block:'start'
+
+    });
 
 }
 
@@ -2628,49 +3054,69 @@ function renderTeam(){
 
   }
 
-  $('teamList').innerHTML=
+  $('teamList').innerHTML =
 
     profiles
 
       .map(p=>{
 
-        const ps=shifts.filter(
+        const ps =
 
-          s=>s.employee_id===p.id
+          shifts.filter(
 
-        );
+            s=>s.employee_id===p.id
 
-        const week=shiftHours(
+          );
 
-          ps.filter(
+        const week =
 
-            s=>inCurrentWeek(s.start_at)
+          shiftHours(
 
-          )
+            ps.filter(
 
-        );
+              s=>inCurrentWeek(s.start_at)
 
-        const month=shiftHours(
+            )
 
-          ps.filter(
+          );
 
-            s=>inCurrentMonth(s.start_at)
+        const month =
 
-          )
+          shiftHours(
 
-        );
+            ps.filter(
 
-        const isMe=p.id===me.id;
+              s=>inCurrentMonth(s.start_at)
+
+            )
+
+          );
+
+        const isMe =
+
+          p.id===me.id;
 
         return `
 
           <div class="employee-card">
 
-            <strong>${esc(p.full_name)}</strong>
+            <strong>
+
+              ${esc(p.full_name)}
+
+            </strong>
 
             <span class="small">
 
-              ${p.role==='manager'?'Gérant':'Employé'}
+              ${
+
+                p.role==='manager'
+
+                  ? 'Gérant'
+
+                  : 'Employé'
+
+              }
 
             </span>
 
@@ -2688,17 +3134,33 @@ function renderTeam(){
 
               <div>
 
-                <div class="small">Cette semaine</div>
+                <div class="small">
 
-                <div class="number">${fmtH(week)}</div>
+                  Cette semaine
+
+                </div>
+
+                <div class="number">
+
+                  ${fmtH(week)}
+
+                </div>
 
               </div>
 
               <div>
 
-                <div class="small">Ce mois</div>
+                <div class="small">
 
-                <div class="number">${fmtH(month)}</div>
+                  Ce mois
+
+                </div>
+
+                <div class="number">
+
+                  ${fmtH(month)}
+
+                </div>
 
               </div>
 
@@ -2804,9 +3266,13 @@ function renderTeam(){
 
 function teamHours(id){
 
-  $('monthPicker').value=
+  $('monthPicker').value =
 
-    new Date().toISOString().slice(0,7);
+    new Date()
+
+      .toISOString()
+
+      .slice(0,7);
 
   show('monthly');
 
@@ -2838,7 +3304,11 @@ async function refresh(){
 
     console.error(e);
 
-    alert('Erreur : '+e.message);
+    alert(
+
+      'Erreur : '+e.message
+
+    );
 
   }
 
@@ -2848,11 +3318,15 @@ async function saveAvailability(){
 
   if(!$('avDate').value){
 
-    return alert('Choisis une date.');
+    return alert(
+
+      'Choisis une date.'
+
+    );
 
   }
 
-  const employee_id=
+  const employee_id =
 
     isManager()
 
@@ -2860,77 +3334,97 @@ async function saveAvailability(){
 
       : me.id;
 
-  const status=$('avStatus').value;
+  const status =
 
-  const date=$('avDate').value;
+    $('avStatus').value;
+
+  const date =
+
+    $('avDate').value;
 
   let start_at;
 
   let end_at;
 
-  let note=null;
+  let note = null;
 
   if(status==='no'){
 
-    start_at=localStamp(
+    start_at =
 
-      date,
+      localStamp(
 
-      '00:00'
+        date,
 
-    );
+        '00:00'
 
-    end_at=localStamp(
+      );
 
-      date,
+    end_at =
 
-      '23:59'
+      localStamp(
 
-    );
+        date,
 
-    note='[INDISPONIBLE]';
+        '23:59'
+
+      );
+
+    note =
+
+      '[INDISPONIBLE]';
 
   }else{
 
-    start_at=localStamp(
+    start_at =
 
-      date,
+      localStamp(
 
-      $('avStart').value
+        date,
 
-    );
+        $('avStart').value
 
-    end_at=endStamp(
+      );
 
-      date,
+    end_at =
 
-      $('avStart').value,
+      endStamp(
 
-      $('avEnd').value
+        date,
 
-    );
+        $('avStart').value,
+
+        $('avEnd').value
+
+      );
 
   }
 
-  const {error}=await sb
+  const {error} =
 
-    .from('availabilities')
+    await sb
 
-    .insert({
+      .from('availabilities')
 
-      employee_id,
+      .insert({
 
-      start_at,
+        employee_id,
 
-      end_at,
+        start_at,
 
-      note
+        end_at,
 
-    });
+        note
+
+      });
 
   if(error){
 
-    return alert(error.message);
+    return alert(
+
+      error.message
+
+    );
 
   }
 
@@ -2950,17 +3444,23 @@ async function deleteAvailability(id){
 
   }
 
-  const {error}=await sb
+  const {error} =
 
-    .from('availabilities')
+    await sb
 
-    .delete()
+      .from('availabilities')
 
-    .eq('id',id);
+      .delete()
+
+      .eq('id',id);
 
   if(error){
 
-    return alert(error.message);
+    return alert(
+
+      error.message
+
+    );
 
   }
 
@@ -2978,47 +3478,63 @@ async function addShift(){
 
   if(!$('shiftDate').value){
 
-    return alert('Choisis une date.');
+    return alert(
+
+      'Choisis une date.'
+
+    );
 
   }
 
-  const date=$('shiftDate').value;
+  const date =
 
-  const start=$('shiftStart').value;
+    $('shiftDate').value;
 
-  const end=$('shiftEnd').value;
+  const start =
 
-  const {error}=await sb
+    $('shiftStart').value;
 
-    .from('shifts')
+  const end =
 
-    .insert({
+    $('shiftEnd').value;
 
-      employee_id:
+  const {error} =
 
-        $('shiftPerson').value,
+    await sb
 
-      start_at:
+      .from('shifts')
 
-        localStamp(date,start),
+      .insert({
 
-      end_at:
+        employee_id:
 
-        endStamp(date,start,end),
+          $('shiftPerson').value,
 
-      published:
+        start_at:
 
-        $('shiftPublished').checked,
+          localStamp(date,start),
 
-      created_by:
+        end_at:
 
-        me.id
+          endStamp(date,start,end),
 
-    });
+        published:
+
+          $('shiftPublished').checked,
+
+        created_by:
+
+          me.id
+
+      });
 
   if(error){
 
-    return alert(error.message);
+    return alert(
+
+      error.message
+
+    );
 
   }
 
@@ -3040,17 +3556,23 @@ async function deleteShift(id){
 
   }
 
-  const {error}=await sb
+  const {error} =
 
-    .from('shifts')
+    await sb
 
-    .delete()
+      .from('shifts')
 
-    .eq('id',id);
+      .delete()
+
+      .eq('id',id);
 
   if(error){
 
-    return alert(error.message);
+    return alert(
+
+      error.message
+
+    );
 
   }
 
@@ -3066,11 +3588,13 @@ async function editShift(id){
 
   }
 
-  const s=shifts.find(
+  const s =
 
-    x=>String(x.id)===String(id)
+    shifts.find(
 
-  );
+      x=>String(x.id)===String(id)
+
+    );
 
   if(!s){
 
@@ -3078,13 +3602,15 @@ async function editShift(id){
 
   }
 
-  const date=prompt(
+  const date =
 
-    'Date AAAA-MM-JJ',
+    prompt(
 
-    dateKey(s.start_at)
+      'Date AAAA-MM-JJ',
 
-  );
+      dateKey(s.start_at)
+
+    );
 
   if(!date){
 
@@ -3092,13 +3618,15 @@ async function editShift(id){
 
   }
 
-  const start=prompt(
+  const start =
 
-    'Début HH:MM',
+    prompt(
 
-    timeKey(s.start_at)
+      'Début HH:MM',
 
-  );
+      timeKey(s.start_at)
+
+    );
 
   if(!start){
 
@@ -3106,13 +3634,15 @@ async function editShift(id){
 
   }
 
-  const end=prompt(
+  const end =
 
-    'Fin HH:MM',
+    prompt(
 
-    timeKey(s.end_at)
+      'Fin HH:MM',
 
-  );
+      timeKey(s.end_at)
+
+    );
 
   if(!end){
 
@@ -3120,41 +3650,49 @@ async function editShift(id){
 
   }
 
-  const pub=confirm(
+  const pub =
 
-    'OK = publié pour l’employé\nAnnuler = brouillon'
+    confirm(
 
-  );
+      'OK = publié pour l’employé\nAnnuler = brouillon'
 
-  const {error}=await sb
+    );
 
-    .from('shifts')
+  const {error} =
 
-    .update({
+    await sb
 
-      start_at:
+      .from('shifts')
 
-        localStamp(date,start),
+      .update({
 
-      end_at:
+        start_at:
 
-        endStamp(date,start,end),
+          localStamp(date,start),
 
-      published:
+        end_at:
 
-        pub,
+          endStamp(date,start,end),
 
-      updated_at:
+        published:
 
-        new Date().toISOString()
+          pub,
 
-    })
+        updated_at:
 
-    .eq('id',id);
+          new Date().toISOString()
+
+      })
+
+      .eq('id',id);
 
   if(error){
 
-    return alert(error.message);
+    return alert(
+
+      error.message
+
+    );
 
   }
 
@@ -3170,11 +3708,13 @@ async function setEmployeeActive(id,active){
 
   }
 
-  const p=profiles.find(
+  const p =
 
-    x=>x.id===id
+    profiles.find(
 
-  );
+      x=>x.id===id
+
+    );
 
   if(!p){
 
@@ -3182,7 +3722,7 @@ async function setEmployeeActive(id,active){
 
   }
 
-  const action=
+  const action =
 
     active
 
@@ -3200,17 +3740,19 @@ async function setEmployeeActive(id,active){
 
   }
 
-  const {error}=await sb
+  const {error} =
 
-    .from('profiles')
+    await sb
 
-    .update({
+      .from('profiles')
 
-      active
+      .update({
 
-    })
+        active
 
-    .eq('id',id);
+      })
+
+      .eq('id',id);
 
   if(error){
 
@@ -3244,11 +3786,13 @@ async function deleteEmployee(id){
 
   }
 
-  const p=profiles.find(
+  const p =
 
-    x=>x.id===id
+    profiles.find(
 
-  );
+      x=>x.id===id
+
+    );
 
   if(!p){
 
@@ -3256,11 +3800,13 @@ async function deleteEmployee(id){
 
   }
 
-  const first=confirm(
+  const first =
 
-    `Supprimer définitivement le compte de ${p.full_name} ?`
+    confirm(
 
-  );
+      `Supprimer définitivement le compte de ${p.full_name} ?`
+
+    );
 
   if(!first){
 
@@ -3268,11 +3814,13 @@ async function deleteEmployee(id){
 
   }
 
-  const second=confirm(
+  const second =
 
-    `ATTENTION : suppression définitive de ${p.full_name}.\n\nContinuer ?`
+    confirm(
 
-  );
+      `ATTENTION : suppression définitive de ${p.full_name}.\n\nContinuer ?`
+
+    );
 
   if(!second){
 
@@ -3280,17 +3828,19 @@ async function deleteEmployee(id){
 
   }
 
-  const {error}=await sb.rpc(
+  const {error} =
 
-    'delete_employee_account',
+    await sb.rpc(
 
-    {
+      'delete_employee_account',
 
-      target_user:id
+      {
 
-    }
+        target_user:id
 
-  );
+      }
+
+    );
 
   if(error){
 
@@ -3354,7 +3904,9 @@ function show(id){
 
     );
 
-  const target=$(id);
+  const target =
+
+    $(id);
 
   if(target){
 
@@ -3396,7 +3948,9 @@ function show(id){
 
 ========================= */
 
-$('loginBtn').onclick=login;
+$('loginBtn').onclick =
+
+  login;
 
 $('loginPassword')
 
@@ -3416,47 +3970,63 @@ $('loginPassword')
 
   );
 
-$('signupBtn').onclick=signup;
+$('signupBtn').onclick =
 
-$('showSignupBtn').onclick=()=>{
+  signup;
 
-  $('loginForm').classList.add('hidden');
+$('showSignupBtn').onclick =
 
-  $('signupForm').classList.remove('hidden');
+  ()=>{
 
-};
+    $('loginForm')
 
-$('showLoginBtn').onclick=()=>{
+      .classList.add('hidden');
 
-  $('signupForm').classList.add('hidden');
+    $('signupForm')
 
-  $('loginForm').classList.remove('hidden');
+      .classList.remove('hidden');
 
-};
+  };
 
-$('logoutBtn').onclick=logout;
+$('showLoginBtn').onclick =
 
-$('saveAvailability').onclick=
+  ()=>{
+
+    $('signupForm')
+
+      .classList.add('hidden');
+
+    $('loginForm')
+
+      .classList.remove('hidden');
+
+  };
+
+$('logoutBtn').onclick =
+
+  logout;
+
+$('saveAvailability').onclick =
 
   saveAvailability;
 
-$('addShift').onclick=
+$('addShift').onclick =
 
   addShift;
 
-$('refreshAvailability').onclick=
+$('refreshAvailability').onclick =
 
   refresh;
 
-$('refreshPlanning').onclick=
+$('refreshPlanning').onclick =
 
   refresh;
 
-$('refreshTeam').onclick=
+$('refreshTeam').onclick =
 
   refresh;
 
-$('monthPicker').onchange=
+$('monthPicker').onchange =
 
   renderMonthly;
 
@@ -3468,7 +4038,7 @@ document
 
     b=>
 
-      b.onclick=
+      b.onclick =
 
         ()=>show(b.dataset.view)
 
@@ -3482,7 +4052,7 @@ document
 
     b=>
 
-      b.onclick=
+      b.onclick =
 
         ()=>show(b.dataset.go)
 
@@ -3494,31 +4064,31 @@ document
 
 ========================= */
 
-window.deleteAvailability=
+window.deleteAvailability =
 
   deleteAvailability;
 
-window.deleteShift=
+window.deleteShift =
 
   deleteShift;
 
-window.editShift=
+window.editShift =
 
   editShift;
 
-window.showMonthDetail=
+window.showMonthDetail =
 
   showMonthDetail;
 
-window.teamHours=
+window.teamHours =
 
   teamHours;
 
-window.setEmployeeActive=
+window.setEmployeeActive =
 
   setEmployeeActive;
 
-window.deleteEmployee=
+window.deleteEmployee =
 
   deleteEmployee;
 
@@ -3528,7 +4098,7 @@ window.deleteEmployee=
 
 ========================= */
 
-const today=
+const today =
 
   new Date()
 
@@ -3536,11 +4106,15 @@ const today=
 
     .slice(0,10);
 
-$('avDate').value=today;
+$('avDate').value =
 
-$('shiftDate').value=today;
+  today;
 
-$('monthPicker').value=
+$('shiftDate').value =
+
+  today;
+
+$('monthPicker').value =
 
   today.slice(0,7);
 
