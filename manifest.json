@@ -1,9 +1,33 @@
 {
-  "name":"Planning Bar",
-  "short_name":"Planning",
-  "start_url":"./index.html",
-  "display":"standalone",
-  "background_color":"#f3f4f6",
-  "theme_color":"#111827",
-  "icons":[]
+
+  "name": "Planning Bar",
+
+  "short_name": "Planning",
+
+  "start_url": "./",
+
+  "scope": "./",
+
+  "display": "standalone",
+
+  "background_color": "#f3f4f6",
+
+  "theme_color": "#111827",
+
+  "icons": [
+
+    {
+
+      "src": "./icon.PNG",
+
+      "sizes": "512x512",
+
+      "type": "image/png",
+
+      "purpose": "any"
+
+    }
+
+  ]
+
 }
