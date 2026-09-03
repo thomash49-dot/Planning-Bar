@@ -10,7 +10,7 @@
 
 <meta name="theme-color" content="#111827">
 
-<title>Planning Bar V5.1</title>
+<title>Planning Bar V5.2</title>
 
 <link rel="manifest" href="manifest.json">
 
@@ -36,7 +36,7 @@
 
   --danger:#b91c1c;
 
-  --info:#1d4ed8
+  --info:#1d4ed8;
 
 }
 
@@ -64,29 +64,15 @@ header{
 
   background:#111827;
 
-  color:white;
+  color:#fff;
 
   padding:18px 16px 14px
 
 }
 
-header h1{
+header h1{margin:0;font-size:22px}
 
-  margin:0;
-
-  font-size:22px
-
-}
-
-header p{
-
-  margin:4px 0 0;
-
-  color:#d1d5db;
-
-  font-size:13px
-
-}
+header p{margin:4px 0 0;color:#d1d5db;font-size:13px}
 
 .header-row{
 
@@ -118,39 +104,21 @@ main{
 
 }
 
-.grid{
+.grid{display:grid;gap:14px}
 
-  display:grid;
+.two{grid-template-columns:1fr 1fr}
 
-  gap:14px
-
-}
-
-.two{
-
-  grid-template-columns:1fr 1fr
-
-}
-
-.three{
-
-  grid-template-columns:repeat(3,1fr)
-
-}
+.three{grid-template-columns:repeat(3,1fr)}
 
 @media(max-width:760px){
 
-  .two,.three{
-
-    grid-template-columns:1fr
-
-  }
+  .two,.three{grid-template-columns:1fr}
 
 }
 
 .card{
 
-  background:white;
+  background:#fff;
 
   border:1px solid var(--border);
 
@@ -162,21 +130,9 @@ main{
 
 }
 
-h2{
+h2{font-size:18px;margin:0 0 12px}
 
-  font-size:18px;
-
-  margin:0 0 12px
-
-}
-
-.small{
-
-  font-size:12px;
-
-  color:var(--muted)
-
-}
+.small{font-size:12px;color:var(--muted)}
 
 label{
 
@@ -190,6 +146,8 @@ label{
 
 }
 
+input,select,button{font:inherit}
+
 input,select{
 
   width:100%;
@@ -200,9 +158,7 @@ input,select{
 
   border-radius:10px;
 
-  font:inherit;
-
-  background:white
+  background:#fff
 
 }
 
@@ -214,41 +170,23 @@ button{
 
   padding:10px 12px;
 
-  font:inherit;
+  background:var(--accent);
 
-  background:#111827;
-
-  color:white;
+  color:#fff;
 
   font-weight:700
 
 }
 
-button.secondary{
+button.secondary{background:#e5e7eb;color:#111827}
 
-  background:#e5e7eb;
+button.info{background:#1d4ed8}
 
-  color:#111827
+button.danger{background:#991b1b}
 
-}
+button.delete{background:#450a0a}
 
-button.danger{
-
-  background:#991b1b
-
-}
-
-button.info{
-
-  background:#1d4ed8
-
-}
-
-button:disabled{
-
-  opacity:.55
-
-}
+button:disabled{opacity:.55}
 
 .row{
 
@@ -288,15 +226,11 @@ button:disabled{
 
   background:#111827;
 
-  color:white
+  color:#fff
 
 }
 
-.hidden{
-
-  display:none!important
-
-}
+.hidden{display:none!important}
 
 .kpi{
 
@@ -306,17 +240,9 @@ button:disabled{
 
 }
 
-.ok{
+.ok{color:#15803d}
 
-  color:#15803d
-
-}
-
-.warn{
-
-  color:#b45309
-
-}
+.warn{color:#b45309}
 
 table{
 
@@ -334,7 +260,9 @@ th,td{
 
   border-bottom:1px solid #e5e7eb;
 
-  text-align:left
+  text-align:left;
+
+  vertical-align:top
 
 }
 
@@ -350,39 +278,21 @@ th,td{
 
 }
 
-.pill.ok{
+.pill.ok{background:#dcfce7;color:#166534}
 
-  background:#dcfce7;
+.pill.no{background:#fee2e2;color:#991b1b}
 
-  color:#166534
-
-}
-
-.pill.no{
-
-  background:#fee2e2;
-
-  color:#991b1b
-
-}
-
-.pill.draft{
-
-  background:#fef3c7;
-
-  color:#92400e
-
-}
+.pill.draft{background:#fef3c7;color:#92400e}
 
 .employee-card{
 
   border:1px solid #e5e7eb;
 
-  border-radius:12px;
+  border-radius:14px;
 
-  padding:10px;
+  padding:13px;
 
-  margin-bottom:8px
+  margin-bottom:10px
 
 }
 
@@ -390,13 +300,67 @@ th,td{
 
   display:block;
 
-  margin-bottom:4px
+  font-size:17px;
+
+  margin-bottom:5px
 
 }
 
 .pending{
 
   border-left:4px solid #b45309
+
+}
+
+.employee-hours{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:8px;
+
+  margin-top:10px
+
+}
+
+.employee-hour-box{
+
+  background:#f9fafb;
+
+  border:1px solid #e5e7eb;
+
+  border-radius:10px;
+
+  padding:9px
+
+}
+
+.employee-hour-box .value{
+
+  font-size:20px;
+
+  font-weight:800
+
+}
+
+.employee-actions{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:11px
+
+}
+
+.employee-actions button{
+
+  font-size:12px;
+
+  padding:8px 10px
 
 }
 
@@ -490,6 +454,14 @@ th,td{
 
 }
 
+.notice.warnbox{
+
+  background:#fff7ed;
+
+  color:#9a3412
+
+}
+
 .login-screen{
 
   position:fixed;
@@ -530,7 +502,7 @@ th,td{
 
   background:#374151;
 
-  color:white;
+  color:#fff;
 
   font-size:12px;
 
@@ -538,13 +510,7 @@ th,td{
 
 }
 
-.manager-only,
-
-.employee-only{
-
-  display:none
-
-}
+.manager-only,.employee-only{display:none}
 
 .auth-switch{
 
@@ -582,7 +548,7 @@ nav.bottom{
 
   z-index:20;
 
-  background:white;
+  background:#fff;
 
   border-top:1px solid #e5e7eb;
 
@@ -603,6 +569,12 @@ nav.bottom button{
   font-size:11px;
 
   padding:6px
+
+}
+
+#employeeHoursCard{
+
+  scroll-margin-top:100px
 
 }
 
@@ -680,9 +652,11 @@ nav.bottom button{
 
       <div class="notice infobox" style="margin-top:14px">
 
-        Les nouveaux comptes ne peuvent pas devenir gérants eux-mêmes.
+        Les nouveaux comptes sont créés comme employés.
 
-        Le gérant valide leur accès depuis l'onglet <strong>Équipe</strong>.
+        Le gérant valide leur accès depuis l'onglet
+
+        <strong>Équipe</strong>.
 
       </div>
 
@@ -742,15 +716,35 @@ nav.bottom button{
 
   <div class="tabs">
 
-    <button class="tab active" data-view="dashboard">Tableau de bord</button>
+    <button class="tab active" data-view="dashboard">
 
-    <button class="tab" data-view="availability">Disponibilités</button>
+      Tableau de bord
 
-    <button class="tab" data-view="planning">Planning</button>
+    </button>
 
-    <button class="tab" data-view="monthly">Mois</button>
+    <button class="tab" data-view="availability">
 
-    <button class="tab manager-only" data-view="team">Équipe</button>
+      Disponibilités
+
+    </button>
+
+    <button class="tab" data-view="planning">
+
+      Planning
+
+    </button>
+
+    <button class="tab" data-view="monthly">
+
+      Mois
+
+    </button>
+
+    <button class="tab manager-only" data-view="team">
+
+      Équipe
+
+    </button>
 
   </div>
 
@@ -800,7 +794,7 @@ nav.bottom button{
 
       <div class="small">
 
-        Tu peux encoder tes disponibilités et consulter uniquement tes horaires publiés.
+        Tu peux encoder tes disponibilités et consulter tes horaires publiés.
 
       </div>
 
@@ -1032,13 +1026,49 @@ nav.bottom button{
 
     </div>
 
+    <div id="employeeHoursCard" class="card hidden" style="margin-top:14px">
+
+      <div class="row" style="justify-content:space-between">
+
+        <h2 id="employeeHoursTitle" style="margin:0">
+
+          Heures
+
+        </h2>
+
+        <button id="closeEmployeeHours" class="secondary">
+
+          Fermer
+
+        </button>
+
+      </div>
+
+      <div id="employeeHoursSummary" class="grid two" style="margin-top:12px"></div>
+
+      <div id="employeeHoursDetail" style="margin-top:12px"></div>
+
+    </div>
+
     <div class="notice infobox" style="margin-top:14px">
 
       Les nouveaux comptes créés depuis l'application apparaissent ici en
 
       <strong>attente</strong>.
 
-      Valide-les pour autoriser l'accès.
+      Tu peux les valider, les désactiver ou consulter leurs heures.
+
+    </div>
+
+    <div class="notice warnbox" style="margin-top:10px">
+
+      <strong>Attention :</strong>
+
+      « Supprimer définitivement » retire le compte employé de Supabase.
+
+      Pour conserver son historique, utilise plutôt
+
+      <strong>Désactiver</strong>.
 
     </div>
 
@@ -1162,25 +1192,13 @@ function localStamp(date,time){
 
 function endStamp(date,start,end){
 
-  let s=new Date(
+  let s=new Date(localStamp(date,start));
 
-    localStamp(date,start)
-
-  );
-
-  let e=new Date(
-
-    localStamp(date,end)
-
-  );
+  let e=new Date(localStamp(date,end));
 
   if(e<=s){
 
-    e.setDate(
-
-      e.getDate()+1
-
-    );
+    e.setDate(e.getDate()+1);
 
   }
 
@@ -1344,6 +1362,8 @@ function showLoginPanel(){
 
 async function signup(){
 
+  msg($('signupMessage'),'');
+
   const full_name=$('signupName').value.trim();
 
   const email=$('signupEmail').value.trim().toLowerCase();
@@ -1454,13 +1474,7 @@ async function signup(){
 
 async function login(){
 
-  msg(
-
-    $('loginMessage'),
-
-    ''
-
-  );
+  msg($('loginMessage'),'');
 
   const email=$('loginEmail').value.trim();
 
@@ -1702,23 +1716,19 @@ function showApp(){
 
 }
 
-/* CORRECTION V5.1 */
-
 function applyRole(){
 
   document.querySelectorAll('.manager-only').forEach(el=>{
 
     if(isManager()){
 
-      if(el.tagName==='BUTTON'){
+      el.style.display=
 
-        el.style.display='inline-block';
+        el.tagName==='BUTTON'
 
-      }else{
+          ?'inline-block'
 
-        el.style.display='block';
-
-      }
+          :'block';
 
     }else{
 
@@ -1732,15 +1742,13 @@ function applyRole(){
 
     if(!isManager()){
 
-      if(el.tagName==='BUTTON'){
+      el.style.display=
 
-        el.style.display='inline-block';
+        el.tagName==='BUTTON'
 
-      }else{
+          ?'inline-block'
 
-        el.style.display='block';
-
-      }
+          :'block';
 
     }else{
 
@@ -1840,19 +1848,21 @@ function renderDashboard(){
 
         :`Il manque ${fmtH(38-w)} pour atteindre 38 h`;
 
-    $('teamMonth').textContent=fmtH(
+    $('teamMonth').textContent=
 
-      shiftHours(
+      fmtH(
 
-        shifts.filter(
+        shiftHours(
 
-          s=>inCurrentMonth(s.start_at)
+          shifts.filter(
+
+            s=>inCurrentMonth(s.start_at)
+
+          )
 
         )
 
-      )
-
-    );
+      );
 
     $('summary').innerHTML=profiles
 
@@ -2220,6 +2230,8 @@ function renderMonthly(){
 
             onclick="showMonthDetail('${p.id}')"
 
+            style="cursor:pointer"
+
           >
 
             <strong>${esc(p.full_name)}</strong>
@@ -2243,6 +2255,8 @@ function renderMonthly(){
       })
 
       .join('');
+
+  $('monthDetailCard').classList.add('hidden');
 
 }
 
@@ -2306,21 +2320,9 @@ function showMonthDetail(id){
 
               <td>${formatDateFr(s.start_at)}</td>
 
-              <td>
+              <td>${timeKey(s.start_at)}–${timeKey(s.end_at)}</td>
 
-                ${timeKey(s.start_at)}
-
-                –
-
-                ${timeKey(s.end_at)}
-
-              </td>
-
-              <td>
-
-                ${fmtH(hoursBetween(s.start_at,s.end_at))}
-
-              </td>
+              <td>${fmtH(hoursBetween(s.start_at,s.end_at))}</td>
 
             </tr>
 
@@ -2364,21 +2366,69 @@ function renderTeam(){
 
           p.role==='manager';
 
+        const personShifts=
+
+          shifts.filter(
+
+            s=>s.employee_id===p.id
+
+          );
+
+        const weekHours=
+
+          shiftHours(
+
+            personShifts.filter(
+
+              s=>inCurrentWeek(s.start_at)
+
+            )
+
+          );
+
+        const monthHours=
+
+          shiftHours(
+
+            personShifts.filter(
+
+              s=>inCurrentMonth(s.start_at)
+
+            )
+
+          );
+
         const status=
 
           p.active
 
             ?'<span class="pill ok">Actif</span>'
 
-            :'<span class="pill draft">En attente</span>';
+            :'<span class="pill draft">En attente / désactivé</span>';
 
-        let action='';
+        let actions='';
 
         if(!manager){
 
+          actions+=`
+
+            <button
+
+              class="secondary"
+
+              onclick="showEmployeeHours('${p.id}')"
+
+            >
+
+              Voir les heures
+
+            </button>
+
+          `;
+
           if(p.active){
 
-            action=`
+            actions+=`
 
               <button
 
@@ -2396,7 +2446,7 @@ function renderTeam(){
 
           }else{
 
-            action=`
+            actions+=`
 
               <button
 
@@ -2406,7 +2456,7 @@ function renderTeam(){
 
               >
 
-                Valider l'accès
+                Valider / Réactiver
 
               </button>
 
@@ -2414,15 +2464,45 @@ function renderTeam(){
 
           }
 
+          actions+=`
+
+            <button
+
+              class="delete"
+
+              onclick="deleteEmployeeAccount('${p.id}')"
+
+            >
+
+              Supprimer définitivement
+
+            </button>
+
+          `;
+
+        }else{
+
+          actions=`
+
+            <button
+
+              class="secondary"
+
+              onclick="showEmployeeHours('${p.id}')"
+
+            >
+
+              Voir mes heures
+
+            </button>
+
+          `;
+
         }
 
         return `
 
-          <div
-
-            class="employee-card ${!p.active?'pending':''}"
-
-          >
+          <div class="employee-card ${!p.active?'pending':''}">
 
             <strong>
 
@@ -2442,15 +2522,31 @@ function renderTeam(){
 
             </div>
 
-            ${
+            <div class="employee-hours">
 
-              action
+              <div class="employee-hour-box">
 
-                ?`<div style="margin-top:9px">${action}</div>`
+                <div class="small">Cette semaine</div>
 
-                :''
+                <div class="value">${fmtH(weekHours)}</div>
 
-            }
+              </div>
+
+              <div class="employee-hour-box">
+
+                <div class="small">Ce mois</div>
+
+                <div class="value">${fmtH(monthHours)}</div>
+
+              </div>
+
+            </div>
+
+            <div class="employee-actions">
+
+              ${actions}
+
+            </div>
 
           </div>
 
@@ -2459,6 +2555,154 @@ function renderTeam(){
       })
 
       .join('');
+
+}
+
+function showEmployeeHours(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const p=profiles.find(
+
+    x=>x.id===id
+
+  );
+
+  if(!p){
+
+    return;
+
+  }
+
+  const personShifts=
+
+    shifts
+
+      .filter(
+
+        s=>s.employee_id===id
+
+      )
+
+      .sort(
+
+        (a,b)=>
+
+          new Date(b.start_at)-
+
+          new Date(a.start_at)
+
+      );
+
+  const weekHours=
+
+    shiftHours(
+
+      personShifts.filter(
+
+        s=>inCurrentWeek(s.start_at)
+
+      )
+
+    );
+
+  const monthHours=
+
+    shiftHours(
+
+      personShifts.filter(
+
+        s=>inCurrentMonth(s.start_at)
+
+      )
+
+    );
+
+  $('employeeHoursTitle').textContent=
+
+    `Heures — ${p.full_name}`;
+
+  $('employeeHoursSummary').innerHTML=`
+
+    <div class="employee-hour-box">
+
+      <div class="small">Cette semaine</div>
+
+      <div class="value">${fmtH(weekHours)}</div>
+
+    </div>
+
+    <div class="employee-hour-box">
+
+      <div class="small">Ce mois</div>
+
+      <div class="value">${fmtH(monthHours)}</div>
+
+    </div>
+
+  `;
+
+  $('employeeHoursDetail').innerHTML=
+
+    personShifts.length
+
+      ?`
+
+      <table>
+
+        <tr>
+
+          <th>Date</th>
+
+          <th>Horaire</th>
+
+          <th>Heures</th>
+
+        </tr>
+
+        ${
+
+          personShifts.map(s=>`
+
+            <tr>
+
+              <td>${formatDateFr(s.start_at)}</td>
+
+              <td>${timeKey(s.start_at)}–${timeKey(s.end_at)}</td>
+
+              <td>${fmtH(hoursBetween(s.start_at,s.end_at))}</td>
+
+            </tr>
+
+          `).join('')
+
+        }
+
+      </table>
+
+      `
+
+      :'<div class="small">Aucune heure enregistrée pour cette personne.</div>';
+
+  $('employeeHoursCard').classList.remove('hidden');
+
+  $('employeeHoursCard').scrollIntoView({
+
+    behavior:'smooth',
+
+    block:'start'
+
+  });
+
+}
+
+function closeEmployeeHours(){
+
+  $('employeeHoursCard').classList.add('hidden');
 
 }
 
@@ -2854,9 +3098,9 @@ async function setProfileActive(id,active){
 
       active
 
-        ?`Valider l'accès de ${p.full_name} ?`
+        ?`Valider / réactiver ${p.full_name} ?`
 
-        :`Désactiver ${p.full_name} ?`
+        :`Désactiver le compte de ${p.full_name} ?`
 
     )
 
@@ -2888,6 +3132,94 @@ async function setProfileActive(id,active){
 
 }
 
+async function deleteEmployeeAccount(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const p=profiles.find(
+
+    x=>x.id===id
+
+  );
+
+  if(!p){
+
+    return;
+
+  }
+
+  if(p.role==='manager'){
+
+    return alert(
+
+      'Impossible de supprimer un compte gérant.'
+
+    );
+
+  }
+
+  const firstConfirm=confirm(
+
+    `Supprimer définitivement le compte de ${p.full_name} ?\n\nCette action est irréversible.\n\nSi tu veux simplement lui retirer l'accès, utilise plutôt Désactiver.`
+
+  );
+
+  if(!firstConfirm){
+
+    return;
+
+  }
+
+  const secondConfirm=confirm(
+
+    `DERNIÈRE CONFIRMATION\n\nSupprimer ${p.full_name} définitivement ?`
+
+  );
+
+  if(!secondConfirm){
+
+    return;
+
+  }
+
+  const {error}=await sb.rpc(
+
+    'delete_employee_account',
+
+    {
+
+      target_user:id
+
+    }
+
+  );
+
+  if(error){
+
+    return alert(
+
+      'Suppression impossible : '+error.message
+
+    );
+
+  }
+
+  closeEmployeeHours();
+
+  await refresh();
+
+  alert(
+
+    'Compte employé supprimé.'
+
+  );
+
+}
+
 window.deleteAvailability=deleteAvailability;
 
 window.deleteShift=deleteShift;
@@ -2897,6 +3229,10 @@ window.editShift=editShift;
 window.showMonthDetail=showMonthDetail;
 
 window.setProfileActive=setProfileActive;
+
+window.showEmployeeHours=showEmployeeHours;
+
+window.deleteEmployeeAccount=deleteEmployeeAccount;
 
 function show(id){
 
@@ -2986,6 +3322,8 @@ $('refreshPlanning').onclick=refresh;
 
 $('refreshTeam').onclick=refresh;
 
+$('closeEmployeeHours').onclick=closeEmployeeHours;
+
 $('monthPicker').onchange=renderMonthly;
 
 document.querySelectorAll('.tab')
@@ -3028,9 +3366,7 @@ $('avDate').value=today;
 
 $('shiftDate').value=today;
 
-$('monthPicker').value=
-
-  today.slice(0,7);
+$('monthPicker').value=today.slice(0,7);
 
 sb.auth.onAuthStateChange(
 
