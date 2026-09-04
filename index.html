@@ -10,7 +10,7 @@
 
   <meta name="theme-color" content="#111827" />
 
-  <title>Planning Bar V5.2</title>
+  <title>Planning Bar V5.3</title>
 
   <link rel="manifest" href="./manifest.json" />
 
@@ -854,9 +854,11 @@
 
       <div class="notice infobox" style="margin-top:14px">
 
-        Les nouveaux comptes ne peuvent pas devenir gérants eux-mêmes.
+        Les nouveaux comptes sont créés comme employés.
 
-        Le gérant valide leur accès depuis l'onglet <strong>Équipe</strong>.
+        Le Responsable ou le Patron valide leur accès depuis l'onglet
+
+        <strong>Équipe</strong>.
 
       </div>
 
@@ -870,7 +872,7 @@
 
         Ton compte sera créé comme <strong>employé</strong> et devra être
 
-        validé par le gérant.
+        validé par le Responsable ou le Patron.
 
       </p>
 
@@ -984,8 +986,6 @@
 
   </div>
 
-  <!-- TABLEAU DE BORD -->
-
   <section id="dashboard" class="view">
 
     <div class="grid three">
@@ -1069,8 +1069,6 @@
     </div>
 
   </section>
-
-  <!-- DISPONIBILITES -->
 
   <section id="availability" class="view hidden">
 
@@ -1174,8 +1172,6 @@
 
   </section>
 
-  <!-- PLANNING -->
-
   <section id="planning" class="view hidden">
 
     <div class="card manager-only">
@@ -1272,8 +1268,6 @@
 
   </section>
 
-  <!-- MOIS -->
-
   <section id="monthly" class="view hidden">
 
     <div class="card">
@@ -1342,8 +1336,6 @@
 
   </section>
 
-  <!-- EQUIPE -->
-
   <section id="team" class="view hidden manager-only">
 
     <div class="card">
@@ -1372,7 +1364,7 @@
 
       Les nouveaux comptes créés depuis l'application apparaissent ici.
 
-      Le gérant peut activer ou désactiver leur accès.
+      Le Responsable ou le Patron peut activer ou désactiver leur accès.
 
     </div>
 
@@ -1485,6 +1477,28 @@ const esc = s =>
 const isManager = () =>
 
   me?.role === 'manager';
+
+function roleLabel(profile){
+
+  if(!profile){
+
+    return 'Employé';
+
+  }
+
+  if(profile.role === 'manager'){
+
+    return profile.title === 'patron'
+
+      ? 'Patron'
+
+      : 'Responsable';
+
+  }
+
+  return 'Employé';
+
+}
 
 const fmtH = n =>
 
@@ -1680,6 +1694,32 @@ function statusUnavailable(a){
 
 }
 
+function availabilityState(a){
+
+  const note = a.note || '';
+
+  if(note.startsWith('[INDISPONIBLE]')){
+
+    return 'unavailable';
+
+  }
+
+  if(note.startsWith('[ACCEPTEE]')){
+
+    return 'accepted';
+
+  }
+
+  if(note.startsWith('[REFUSEE]')){
+
+    return 'refused';
+
+  }
+
+  return 'pending';
+
+}
+
 function setBusy(btn,busy,label){
 
   btn.disabled=busy;
@@ -1870,7 +1910,7 @@ async function signup(){
 
   );
 
-  const {data,error} =
+  const {error} =
 
     await sb.auth.signUp({
 
@@ -1916,7 +1956,7 @@ async function signup(){
 
     $('signupMessage'),
 
-    'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation du gérant.',
+    'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation.',
 
     true
 
@@ -1962,7 +2002,7 @@ async function getMyProfile(){
 
       .select(
 
-        'id,full_name,role,active'
+        'id,full_name,role,title,active'
 
       )
 
@@ -2002,7 +2042,7 @@ async function loadAll(){
 
         .select(
 
-          'id,full_name,role,active'
+          'id,full_name,role,title,active'
 
         )
 
@@ -2152,7 +2192,7 @@ function showApp(){
 
 /* =========================
 
-   CORRECTION AFFICHAGE ROLES
+   ROLES
 
 ========================= */
 
@@ -2214,15 +2254,15 @@ function applyRole(){
 
     isManager()
 
-      ? 'Gérant'
+      ? roleLabel(me)
 
-      : (me?.full_name||'Employé');
+      : (me?.full_name || 'Employé');
 
   $('headerSub').textContent =
 
     isManager()
 
-      ? 'Gestion du planning synchronisé'
+      ? roleLabel(me) + ' — Gestion du planning synchronisé'
 
       : 'Mes disponibilités et mon planning';
 
@@ -2488,87 +2528,395 @@ function renderAvailability(){
 
   }
 
+  if(!rows.length){
+
+    $('availabilityList').innerHTML =
+
+      '<div class="small">Aucune disponibilité encodée.</div>';
+
+    return;
+
+  }
+
   $('availabilityList').innerHTML =
 
-    rows.length
+    rows.map(a=>{
 
-      ? `
+      const state =
 
-        <table>
+        availabilityState(a);
 
-          <tr>
+      const name =
 
-            <th>Date</th>
+        esc(personName(a.employee_id));
 
-            <th>Personne</th>
+      const date =
 
-            <th>Disponibilité</th>
+        dateKey(a.start_at);
 
-            <th></th>
+      const start =
 
-          </tr>
+        timeKey(a.start_at);
 
-          ${rows.map(a=>`
+      const end =
 
-            <tr>
+        timeKey(a.end_at);
 
-              <td>
+      if(state === 'unavailable'){
 
-                ${formatDateFr(a.start_at)}
+        return `
 
-              </td>
+          <div class="employee-card">
 
-              <td>
+            <strong>
 
-                ${esc(personName(a.employee_id))}
+              ${name}
 
-              </td>
+            </strong>
 
-              <td>
+            <div style="margin-top:5px">
 
-                ${
+              ${formatDateFr(a.start_at)}
 
-                  statusUnavailable(a)
+              <span class="pill no">
 
-                    ? '<span class="pill no">Indisponible</span>'
+                Indisponible
 
-                    : `<span class="pill ok">
+              </span>
 
-                        ${timeKey(a.start_at)}–${timeKey(a.end_at)}
+            </div>
 
-                       </span>`
+            <div style="margin-top:10px">
 
-                }
+              <button
 
-              </td>
+                class="danger"
 
-              <td>
+                onclick="deleteAvailability('${a.id}')"
 
-                <button
+              >
 
-                  class="danger"
+                Supprimer
 
-                  onclick="deleteAvailability('${a.id}')"
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+
+      if(!isManager()){
+
+        let badge = '';
+
+        if(state === 'pending'){
+
+          badge = `
+
+            <span class="pill draft">
+
+              En attente
+
+            </span>
+
+          `;
+
+        }
+
+        if(state === 'accepted'){
+
+          badge = `
+
+            <span class="pill ok">
+
+              Acceptée
+
+            </span>
+
+          `;
+
+        }
+
+        if(state === 'refused'){
+
+          badge = `
+
+            <span class="pill no">
+
+              Refusée
+
+            </span>
+
+          `;
+
+        }
+
+        return `
+
+          <div class="employee-card">
+
+            <strong>
+
+              ${name}
+
+            </strong>
+
+            <div style="margin-top:5px">
+
+              ${formatDateFr(a.start_at)}
+
+              ${badge}
+
+            </div>
+
+            <div style="margin-top:6px">
+
+              <span class="pill">
+
+                ${start}–${end}
+
+              </span>
+
+            </div>
+
+            ${
+
+              state === 'pending'
+
+                ? `
+
+                  <div style="margin-top:10px">
+
+                    <button
+
+                      class="danger"
+
+                      onclick="deleteAvailability('${a.id}')"
+
+                    >
+
+                      Annuler ma demande
+
+                    </button>
+
+                  </div>
+
+                `
+
+                : ''
+
+            }
+
+          </div>
+
+        `;
+
+      }
+
+      let badge = '';
+
+      if(state === 'pending'){
+
+        badge = `
+
+          <span class="pill draft">
+
+            En attente
+
+          </span>
+
+        `;
+
+      }
+
+      if(state === 'accepted'){
+
+        badge = `
+
+          <span class="pill ok">
+
+            Acceptée
+
+          </span>
+
+        `;
+
+      }
+
+      if(state === 'refused'){
+
+        badge = `
+
+          <span class="pill no">
+
+            Refusée
+
+          </span>
+
+        `;
+
+      }
+
+      if(state === 'pending'){
+
+        return `
+
+          <div class="employee-card">
+
+            <strong>
+
+              ${name}
+
+            </strong>
+
+            <div style="margin-bottom:10px">
+
+              ${badge}
+
+            </div>
+
+            <div class="grid two">
+
+              <div>
+
+                <label>Date</label>
+
+                <input
+
+                  id="avEditDate_${a.id}"
+
+                  type="date"
+
+                  value="${date}"
 
                 >
 
-                  X
+              </div>
 
-                </button>
+              <div>
 
-              </td>
+                <label>Début</label>
 
-            </tr>
+                <input
 
-          `).join('')}
+                  id="avEditStart_${a.id}"
 
-        </table>
+                  type="time"
 
-      `
+                  value="${start}"
 
-      :
+                >
 
-      '<div class="small">Aucune disponibilité encodée.</div>';
+              </div>
+
+              <div>
+
+                <label>Fin</label>
+
+                <input
+
+                  id="avEditEnd_${a.id}"
+
+                  type="time"
+
+                  value="${end}"
+
+                >
+
+              </div>
+
+            </div>
+
+            <div class="small" style="margin-top:8px">
+
+              Tu peux modifier le créneau avant de l'accepter.
+
+            </div>
+
+            <div class="team-actions">
+
+              <button
+
+                onclick="acceptAvailability('${a.id}')"
+
+              >
+
+                ✓ Accepter et ajouter au planning
+
+              </button>
+
+              <button
+
+                class="danger"
+
+                onclick="refuseAvailability('${a.id}')"
+
+              >
+
+                ✕ Refuser
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+
+      return `
+
+        <div class="employee-card">
+
+          <strong>
+
+            ${name}
+
+          </strong>
+
+          <div style="margin-top:5px">
+
+            ${formatDateFr(a.start_at)}
+
+            ${badge}
+
+          </div>
+
+          <div style="margin-top:6px">
+
+            <span class="pill">
+
+              ${start}–${end}
+
+            </span>
+
+          </div>
+
+          <div class="team-actions">
+
+            <button
+
+              class="danger"
+
+              onclick="deleteAvailability('${a.id}')"
+
+            >
+
+              Supprimer
+
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join('');
 
 }
 
@@ -3042,7 +3390,7 @@ function showMonthDetail(id){
 
 /* =========================
 
-   EQUIPE V5.2
+   EQUIPE
 
 ========================= */
 
@@ -3108,15 +3456,7 @@ function renderTeam(){
 
             <span class="small">
 
-              ${
-
-                p.role==='manager'
-
-                  ? 'Gérant'
-
-                  : 'Employé'
-
-              }
+              ${esc(roleLabel(p))}
 
             </span>
 
@@ -3179,6 +3519,76 @@ function renderTeam(){
                 Voir ${isMe?'mes':'les'} heures
 
               </button>
+
+              ${
+
+                !isMe && p.role!=='manager'
+
+                  ? `
+
+                    <button
+
+                      class="info"
+
+                      onclick="givePatronAccess('${p.id}')"
+
+                    >
+
+                      👑 Donner accès Patron
+
+                    </button>
+
+                  `
+
+                  : ''
+
+              }
+
+              ${
+
+                p.role==='manager'
+
+                  ? `
+
+                    <select
+
+                      onchange="changeManagerTitle('${p.id}',this.value)"
+
+                      style="width:auto"
+
+                    >
+
+                      <option
+
+                        value="responsable"
+
+                        ${p.title!=='patron'?'selected':''}
+
+                      >
+
+                        Responsable
+
+                      </option>
+
+                      <option
+
+                        value="patron"
+
+                        ${p.title==='patron'?'selected':''}
+
+                      >
+
+                        Patron
+
+                      </option>
+
+                    </select>
+
+                  `
+
+                  : ''
+
+              }
 
               ${
 
@@ -3298,6 +3708,24 @@ async function refresh(){
 
     await loadAll();
 
+    if(me){
+
+      const freshMe =
+
+        profiles.find(
+
+          p=>p.id===me.id
+
+        );
+
+      if(freshMe){
+
+        me = freshMe;
+
+      }
+
+    }
+
     renderAll();
 
   }catch(e){
@@ -3346,7 +3774,7 @@ async function saveAvailability(){
 
   let end_at;
 
-  let note = null;
+  let note = '[EN_ATTENTE]';
 
   if(status==='no'){
 
@@ -3421,6 +3849,262 @@ async function saveAvailability(){
   if(error){
 
     return alert(
+
+      error.message
+
+    );
+
+  }
+
+  await refresh();
+
+}
+
+async function acceptAvailability(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const a =
+
+    availabilities.find(
+
+      x=>String(x.id)===String(id)
+
+    );
+
+  if(!a){
+
+    return;
+
+  }
+
+  const dateEl =
+
+    $('avEditDate_' + id);
+
+  const startEl =
+
+    $('avEditStart_' + id);
+
+  const endEl =
+
+    $('avEditEnd_' + id);
+
+  if(!dateEl || !startEl || !endEl){
+
+    return;
+
+  }
+
+  const date =
+
+    dateEl.value;
+
+  const start =
+
+    startEl.value;
+
+  const end =
+
+    endEl.value;
+
+  if(!date || !start || !end){
+
+    return alert(
+
+      'Complète la date, le début et la fin.'
+
+    );
+
+  }
+
+  const start_at =
+
+    localStamp(
+
+      date,
+
+      start
+
+    );
+
+  const end_at =
+
+    endStamp(
+
+      date,
+
+      start,
+
+      end
+
+    );
+
+  const duplicate =
+
+    shifts.some(s=>
+
+      s.employee_id === a.employee_id &&
+
+      s.start_at === start_at &&
+
+      s.end_at === end_at
+
+    );
+
+  if(!duplicate){
+
+    const {error:shiftError} =
+
+      await sb
+
+        .from('shifts')
+
+        .insert({
+
+          employee_id:
+
+            a.employee_id,
+
+          start_at,
+
+          end_at,
+
+          published:true,
+
+          created_by:
+
+            me.id,
+
+          note:
+
+            'Ajouté depuis une disponibilité acceptée'
+
+        });
+
+    if(shiftError){
+
+      return alert(
+
+        'Impossible d’ajouter au planning : ' +
+
+        shiftError.message
+
+      );
+
+    }
+
+  }
+
+  const {error:availabilityError} =
+
+    await sb
+
+      .from('availabilities')
+
+      .update({
+
+        start_at,
+
+        end_at,
+
+        note:'[ACCEPTEE]'
+
+      })
+
+      .eq('id',id);
+
+  if(availabilityError){
+
+    return alert(
+
+      'Planning ajouté, mais impossible de valider la disponibilité : ' +
+
+      availabilityError.message
+
+    );
+
+  }
+
+  alert(
+
+    personName(a.employee_id) +
+
+    ' a été ajouté(e) au planning de ' +
+
+    start +
+
+    ' à ' +
+
+    end +
+
+    '.'
+
+  );
+
+  await refresh();
+
+}
+
+async function refuseAvailability(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const a =
+
+    availabilities.find(
+
+      x=>String(x.id)===String(id)
+
+    );
+
+  if(!a){
+
+    return;
+
+  }
+
+  if(!confirm(
+
+    'Refuser cette disponibilité de ' +
+
+    personName(a.employee_id) +
+
+    ' ?'
+
+  )){
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb
+
+      .from('availabilities')
+
+      .update({
+
+        note:'[REFUSEE]'
+
+      })
+
+      .eq('id',id);
+
+  if(error){
+
+    return alert(
+
+      'Impossible de refuser la disponibilité : ' +
 
       error.message
 
@@ -3768,6 +4452,134 @@ async function setEmployeeActive(id,active){
 
 }
 
+async function givePatronAccess(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const p =
+
+    profiles.find(
+
+      x=>x.id===id
+
+    );
+
+  if(!p){
+
+    return;
+
+  }
+
+  if(!confirm(
+
+    `Donner à ${p.full_name} un accès Patron complet ?`
+
+  )){
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb
+
+      .from('profiles')
+
+      .update({
+
+        role:'manager',
+
+        title:'patron',
+
+        active:true
+
+      })
+
+      .eq('id',id);
+
+  if(error){
+
+    return alert(
+
+      'Impossible de donner l’accès Patron : ' +
+
+      error.message
+
+    );
+
+  }
+
+  alert(
+
+    `${p.full_name} possède maintenant l'accès Patron.`
+
+  );
+
+  await refresh();
+
+}
+
+async function changeManagerTitle(id,title){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  if(
+
+    title !== 'responsable' &&
+
+    title !== 'patron'
+
+  ){
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb
+
+      .from('profiles')
+
+      .update({
+
+        title
+
+      })
+
+      .eq('id',id);
+
+  if(error){
+
+    return alert(
+
+      'Impossible de modifier le rôle affiché : ' +
+
+      error.message
+
+    );
+
+  }
+
+  if(id === me.id){
+
+    me.title = title;
+
+  }
+
+  await refresh();
+
+}
+
 async function deleteEmployee(id){
 
   if(!isManager()){
@@ -3780,7 +4592,7 @@ async function deleteEmployee(id){
 
     return alert(
 
-      'Tu ne peux pas supprimer ton propre compte gérant.'
+      'Tu ne peux pas supprimer ton propre compte.'
 
     );
 
@@ -4068,6 +4880,14 @@ window.deleteAvailability =
 
   deleteAvailability;
 
+window.acceptAvailability =
+
+  acceptAvailability;
+
+window.refuseAvailability =
+
+  refuseAvailability;
+
 window.deleteShift =
 
   deleteShift;
@@ -4087,6 +4907,14 @@ window.teamHours =
 window.setEmployeeActive =
 
   setEmployeeActive;
+
+window.givePatronAccess =
+
+  givePatronAccess;
+
+window.changeManagerTitle =
+
+  changeManagerTitle;
 
 window.deleteEmployee =
 
