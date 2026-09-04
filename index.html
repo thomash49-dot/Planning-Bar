@@ -4,19 +4,51 @@
 
 <head>
 
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta
 
-  <meta name="theme-color" content="#111827" />
+    name="viewport"
 
-  <title>Planning Bar V5.3</title>
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 
-  <link rel="manifest" href="./manifest.json" />
+  >
 
-  <link rel="apple-touch-icon" href="./icon.PNG" />
+  <meta
 
-  <link rel="icon" type="image/png" href="./icon.PNG" />
+    name="theme-color"
+
+    content="#111827"
+
+  >
+
+  <title>Planning Bar V6</title>
+
+  <link
+
+    rel="manifest"
+
+    href="./manifest.json"
+
+  >
+
+  <link
+
+    rel="apple-touch-icon"
+
+    href="./icon.PNG"
+
+  >
+
+  <link
+
+    rel="icon"
+
+    type="image/png"
+
+    href="./icon.PNG"
+
+  >
 
   <style>
 
@@ -68,15 +100,33 @@
 
       top:0;
 
-      z-index:10;
+      z-index:30;
 
       background:rgba(17,24,39,.97);
 
       color:#fff;
 
-      padding:18px 16px 14px;
+      padding:
 
-      box-shadow:0 2px 10px rgba(0,0,0,.12);
+        calc(14px + env(safe-area-inset-top))
+
+        16px
+
+        14px;
+
+      box-shadow:0 2px 10px rgba(0,0,0,.14);
+
+    }
+
+    .header-row{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:10px;
 
     }
 
@@ -98,15 +148,13 @@
 
     }
 
-    .header-row{
+    .header-actions{
 
       display:flex;
 
+      gap:7px;
+
       align-items:center;
-
-      justify-content:space-between;
-
-      gap:10px;
 
     }
 
@@ -114,9 +162,49 @@
 
       background:#374151;
 
-      padding:7px 9px;
+      padding:8px 10px;
 
       font-size:12px;
+
+    }
+
+    .bell{
+
+      position:relative;
+
+      min-width:42px;
+
+    }
+
+    .bell-count{
+
+      position:absolute;
+
+      top:-5px;
+
+      right:-5px;
+
+      background:#dc2626;
+
+      color:white;
+
+      min-width:18px;
+
+      height:18px;
+
+      border-radius:999px;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      font-size:10px;
+
+      font-weight:900;
+
+      padding:0 4px;
 
     }
 
@@ -128,7 +216,7 @@
 
       padding:16px;
 
-      padding-bottom:100px;
+      padding-bottom:105px;
 
     }
 
@@ -186,6 +274,14 @@
 
     }
 
+    h3{
+
+      margin:0 0 8px;
+
+      font-size:15px;
+
+    }
+
     .small{
 
       font-size:12px;
@@ -222,6 +318,8 @@
 
     select,
 
+    textarea,
+
     button{
 
       font:inherit;
@@ -230,7 +328,9 @@
 
     input,
 
-    select{
+    select,
+
+    textarea{
 
       width:100%;
 
@@ -241,6 +341,14 @@
       border-radius:10px;
 
       background:#fff;
+
+    }
+
+    textarea{
+
+      min-height:85px;
+
+      resize:vertical;
 
     }
 
@@ -279,6 +387,18 @@
     button.info{
 
       background:var(--info);
+
+    }
+
+    button.okbtn{
+
+      background:#15803d;
+
+    }
+
+    button.warnbtn{
+
+      background:#b45309;
 
     }
 
@@ -356,38 +476,6 @@
 
     }
 
-    table{
-
-      width:100%;
-
-      border-collapse:collapse;
-
-      font-size:13px;
-
-    }
-
-    th,
-
-    td{
-
-      padding:9px 7px;
-
-      border-bottom:1px solid var(--border);
-
-      text-align:left;
-
-      vertical-align:top;
-
-    }
-
-    th{
-
-      color:#4b5563;
-
-      font-size:12px;
-
-    }
-
     .pill{
 
       display:inline-block;
@@ -428,6 +516,14 @@
 
     }
 
+    .pill.info{
+
+      background:#dbeafe;
+
+      color:#1e40af;
+
+    }
+
     .employee-card{
 
       border:1px solid var(--border);
@@ -448,26 +544,6 @@
 
     }
 
-    .bar{
-
-      height:10px;
-
-      background:#e5e7eb;
-
-      border-radius:999px;
-
-      overflow:hidden;
-
-    }
-
-    .bar>div{
-
-      height:100%;
-
-      background:#111827;
-
-    }
-
     .day{
 
       border:1px solid var(--border);
@@ -480,17 +556,9 @@
 
     }
 
-    .day h3{
-
-      margin:0 0 8px;
-
-      font-size:15px;
-
-    }
-
     .shift{
 
-      padding:8px;
+      padding:10px;
 
       border-radius:10px;
 
@@ -502,59 +570,77 @@
 
     }
 
-    .shift .actions{
-
-      float:right;
+    .shift-actions{
 
       display:flex;
 
       gap:6px;
 
+      flex-wrap:wrap;
+
+      margin-top:9px;
+
     }
 
-    .shift button{
+    .shift-actions button{
 
-      padding:5px 7px;
+      padding:7px 9px;
 
       font-size:11px;
 
     }
 
-    nav.bottom{
+    .team-hours{
 
-      position:fixed;
+      display:grid;
 
-      bottom:0;
+      grid-template-columns:1fr 1fr;
 
-      left:0;
+      gap:8px;
 
-      right:0;
+      margin:12px 0;
 
-      z-index:20;
+    }
 
-      background:#fff;
+    .team-hours>div{
 
-      border-top:1px solid var(--border);
+      background:#f9fafb;
+
+      border:1px solid var(--border);
+
+      border-radius:10px;
+
+      padding:10px;
+
+    }
+
+    .team-hours .number{
+
+      font-size:20px;
+
+      font-weight:800;
+
+      margin-top:3px;
+
+    }
+
+    .team-actions{
 
       display:flex;
 
-      justify-content:space-around;
+      flex-wrap:wrap;
 
-      padding:8px max(8px,env(safe-area-inset-right))
+      gap:8px;
 
-        calc(8px + env(safe-area-inset-bottom));
+      margin-top:10px;
 
     }
 
-    nav.bottom button{
+    .team-actions select{
 
-      background:transparent;
+      width:auto;
 
-      color:#374151;
-
-      font-size:11px;
-
-      padding:6px;
+      min-width:135px;
 
     }
 
@@ -585,6 +671,14 @@
       background:#eff6ff;
 
       color:#1e40af;
+
+    }
+
+    .notice.dangerbox{
+
+      background:#fef2f2;
+
+      color:#991b1b;
 
     }
 
@@ -638,93 +732,11 @@
 
     .manager-only,
 
+    .owner-only,
+
     .employee-only{
 
       display:none;
-
-    }
-
-    .personal-card{
-
-      border-left:4px solid #111827;
-
-    }
-
-    .spinner{
-
-      display:inline-block;
-
-      width:16px;
-
-      height:16px;
-
-      border:2px solid #ddd;
-
-      border-top-color:#111827;
-
-      border-radius:50%;
-
-      animation:spin .7s linear infinite;
-
-      vertical-align:-3px;
-
-      margin-right:6px;
-
-    }
-
-    @keyframes spin{
-
-      to{
-
-        transform:rotate(360deg);
-
-      }
-
-    }
-
-    .team-hours{
-
-      display:grid;
-
-      grid-template-columns:1fr 1fr;
-
-      gap:8px;
-
-      margin:12px 0;
-
-    }
-
-    .team-hours>div{
-
-      background:#f9fafb;
-
-      border:1px solid var(--border);
-
-      border-radius:10px;
-
-      padding:10px;
-
-    }
-
-    .team-hours .number{
-
-      font-size:20px;
-
-      font-weight:800;
-
-      margin-top:3px;
-
-    }
-
-    .team-actions{
-
-      display:flex;
-
-      flex-wrap:wrap;
-
-      gap:8px;
-
-      margin-top:10px;
 
     }
 
@@ -752,6 +764,206 @@
 
     }
 
+    .spinner{
+
+      display:inline-block;
+
+      width:16px;
+
+      height:16px;
+
+      border:2px solid #ddd;
+
+      border-top-color:#111827;
+
+      border-radius:50%;
+
+      animation:spin .7s linear infinite;
+
+      vertical-align:-3px;
+
+      margin-right:6px;
+
+    }
+
+    @keyframes spin{
+
+      to{ transform:rotate(360deg); }
+
+    }
+
+    nav.bottom{
+
+      position:fixed;
+
+      bottom:0;
+
+      left:0;
+
+      right:0;
+
+      z-index:20;
+
+      background:#fff;
+
+      border-top:1px solid var(--border);
+
+      display:flex;
+
+      justify-content:space-around;
+
+      padding:
+
+        8px
+
+        max(8px,env(safe-area-inset-right))
+
+        calc(8px + env(safe-area-inset-bottom));
+
+    }
+
+    nav.bottom button{
+
+      background:transparent;
+
+      color:#374151;
+
+      font-size:11px;
+
+      padding:6px;
+
+    }
+
+    .modal{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:200;
+
+      background:rgba(0,0,0,.55);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:18px;
+
+    }
+
+    .modal-box{
+
+      background:#fff;
+
+      border-radius:16px;
+
+      padding:16px;
+
+      width:100%;
+
+      max-width:520px;
+
+      max-height:85vh;
+
+      overflow:auto;
+
+    }
+
+    .notifications-panel{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:180;
+
+      background:rgba(0,0,0,.55);
+
+      padding:20px;
+
+      display:flex;
+
+      align-items:flex-start;
+
+      justify-content:center;
+
+    }
+
+    .notifications-box{
+
+      width:100%;
+
+      max-width:600px;
+
+      background:#fff;
+
+      margin-top:50px;
+
+      border-radius:16px;
+
+      padding:16px;
+
+      max-height:75vh;
+
+      overflow:auto;
+
+    }
+
+    .notification-item{
+
+      border:1px solid var(--border);
+
+      border-radius:12px;
+
+      padding:11px;
+
+      margin-bottom:9px;
+
+    }
+
+    .notification-item.unread{
+
+      border-left:4px solid #1d4ed8;
+
+      background:#eff6ff;
+
+    }
+
+    table{
+
+      width:100%;
+
+      border-collapse:collapse;
+
+      font-size:13px;
+
+    }
+
+    th,
+
+    td{
+
+      padding:9px 7px;
+
+      border-bottom:1px solid var(--border);
+
+      text-align:left;
+
+      vertical-align:top;
+
+    }
+
+    th{
+
+      color:#4b5563;
+
+      font-size:12px;
+
+    }
+
   </style>
 
 </head>
@@ -768,17 +980,63 @@
 
         Planning Bar
 
-        <span id="roleBadge" class="role-badge">Non connecté</span>
+        <span
+
+          id="roleBadge"
+
+          class="role-badge"
+
+        >
+
+          Non connecté
+
+        </span>
 
       </h1>
 
-      <p id="headerSub">Planning synchronisé</p>
+      <p id="headerSub">
+
+        Planning synchronisé
+
+      </p>
 
     </div>
 
     <div class="header-actions">
 
-      <button id="logoutBtn" class="hidden">
+      <button
+
+        id="bellBtn"
+
+        class="bell hidden"
+
+        title="Notifications"
+
+      >
+
+        🔔
+
+        <span
+
+          id="bellCount"
+
+          class="bell-count hidden"
+
+        >
+
+          0
+
+        </span>
+
+      </button>
+
+      <button
+
+        id="logoutBtn"
+
+        class="hidden"
+
+      >
 
         Déconnexion
 
@@ -790,13 +1048,25 @@
 
 </header>
 
-<div id="loginScreen" class="login-screen">
+<!-- CONNEXION -->
+
+<div
+
+  id="loginScreen"
+
+  class="login-screen"
+
+>
 
   <div class="card login-box">
 
     <div id="loginForm">
 
-      <h2>Connexion Planning Bar</h2>
+      <h2>
+
+        Connexion Planning Bar
+
+      </h2>
 
       <p class="small">
 
@@ -832,19 +1102,39 @@
 
       >
 
-      <button id="loginBtn" style="width:100%;margin-top:14px">
+      <button
+
+        id="loginBtn"
+
+        style="width:100%;margin-top:14px"
+
+      >
 
         Se connecter
 
       </button>
 
-      <div id="loginMessage" class="small" style="margin-top:12px"></div>
+      <div
+
+        id="loginMessage"
+
+        class="small"
+
+        style="margin-top:12px"
+
+      ></div>
 
       <div class="auth-switch">
 
         Pas encore de compte ?
 
-        <button id="showSignupBtn" class="auth-link">
+        <button
+
+          id="showSignupBtn"
+
+          class="auth-link"
+
+        >
 
           Créer un compte
 
@@ -852,11 +1142,19 @@
 
       </div>
 
-      <div class="notice infobox" style="margin-top:14px">
+      <div
 
-        Les nouveaux comptes sont créés comme employés.
+        class="notice infobox"
 
-        Le Responsable ou le Patron valide leur accès depuis l'onglet
+        style="margin-top:14px"
+
+      >
+
+        Les nouveaux comptes sont automatiquement créés comme
+
+        <strong>Employés</strong>.
+
+        Ils doivent ensuite être activés depuis l'onglet
 
         <strong>Équipe</strong>.
 
@@ -864,17 +1162,19 @@
 
     </div>
 
-    <div id="signupForm" class="hidden">
+    <div
 
-      <h2>Créer un compte</h2>
+      id="signupForm"
 
-      <p class="small">
+      class="hidden"
 
-        Ton compte sera créé comme <strong>employé</strong> et devra être
+    >
 
-        validé par le Responsable ou le Patron.
+      <h2>
 
-      </p>
+        Créer un compte
+
+      </h2>
 
       <label>Nom complet</label>
 
@@ -924,19 +1224,39 @@
 
       >
 
-      <button id="signupBtn" style="width:100%;margin-top:14px">
+      <button
+
+        id="signupBtn"
+
+        style="width:100%;margin-top:14px"
+
+      >
 
         Créer mon compte
 
       </button>
 
-      <div id="signupMessage" class="small" style="margin-top:12px"></div>
+      <div
+
+        id="signupMessage"
+
+        class="small"
+
+        style="margin-top:12px"
+
+      ></div>
 
       <div class="auth-switch">
 
         Déjà un compte ?
 
-        <button id="showLoginBtn" class="auth-link">
+        <button
+
+          id="showLoginBtn"
+
+          class="auth-link"
+
+        >
 
           Se connecter
 
@@ -950,35 +1270,73 @@
 
 </div>
 
-<main id="appMain" class="hidden">
+<!-- APPLICATION -->
+
+<main
+
+  id="appMain"
+
+  class="hidden"
+
+>
 
   <div class="tabs">
 
-    <button class="tab active" data-view="dashboard">
+    <button
+
+      class="tab active"
+
+      data-view="dashboard"
+
+    >
 
       Tableau de bord
 
     </button>
 
-    <button class="tab" data-view="availability">
+    <button
+
+      class="tab"
+
+      data-view="availability"
+
+    >
 
       Disponibilités
 
     </button>
 
-    <button class="tab" data-view="planning">
+    <button
+
+      class="tab"
+
+      data-view="planning"
+
+    >
 
       Planning
 
     </button>
 
-    <button class="tab" data-view="monthly">
+    <button
+
+      class="tab"
+
+      data-view="monthly"
+
+    >
 
       Mois
 
     </button>
 
-    <button class="tab manager-only" data-view="team">
+    <button
+
+      class="tab manager-only"
+
+      data-view="team"
+
+    >
 
       Équipe
 
@@ -986,7 +1344,15 @@
 
   </div>
 
-  <section id="dashboard" class="view">
+  <!-- TABLEAU DE BORD -->
+
+  <section
+
+    id="dashboard"
+
+    class="view"
+
+  >
 
     <div class="grid three">
 
@@ -998,13 +1364,25 @@
 
         </div>
 
-        <div id="myWeek" class="kpi">
+        <div
+
+          id="myWeek"
+
+          class="kpi"
+
+        >
 
           0 h
 
         </div>
 
-        <div id="myWeekStatus" class="small"></div>
+        <div
+
+          id="myWeekStatus"
+
+          class="small"
+
+        ></div>
 
       </div>
 
@@ -1016,7 +1394,13 @@
 
         </div>
 
-        <div id="myMonth" class="kpi">
+        <div
+
+          id="myMonth"
+
+          class="kpi"
+
+        >
 
           0 h
 
@@ -1032,7 +1416,13 @@
 
         </div>
 
-        <div id="teamMonth" class="kpi">
+        <div
+
+          id="teamMonth"
+
+          class="kpi"
+
+        >
 
           0 h
 
@@ -1042,9 +1432,37 @@
 
     </div>
 
-    <div class="card manager-only" style="margin-top:14px">
+    <div
 
-      <h2>Résumé par personne</h2>
+      class="card manager-only"
+
+      style="margin-top:14px"
+
+    >
+
+      <h2>
+
+        Demandes de modification d'horaire
+
+      </h2>
+
+      <div id="changeRequestsList"></div>
+
+    </div>
+
+    <div
+
+      class="card manager-only"
+
+      style="margin-top:14px"
+
+    >
+
+      <h2>
+
+        Résumé par personne
+
+      </h2>
 
       <div id="summary"></div>
 
@@ -1052,17 +1470,23 @@
 
     <div
 
-      class="card employee-only personal-card"
+      class="card employee-only"
 
       style="margin-top:14px"
 
     >
 
-      <h2>Mon espace</h2>
+      <h2>
+
+        Mon espace
+
+      </h2>
 
       <div class="small">
 
-        Tu peux encoder tes disponibilités et consulter tes horaires.
+        Consulte ton planning, encode tes disponibilités et demande
+
+        une modification d'horaire si nécessaire.
 
       </div>
 
@@ -1070,11 +1494,23 @@
 
   </section>
 
-  <section id="availability" class="view hidden">
+  <!-- DISPONIBILITES -->
+
+  <section
+
+    id="availability"
+
+    class="view hidden"
+
+  >
 
     <div class="card">
 
-      <h2>Encoder une disponibilité</h2>
+      <h2>
+
+        Encoder une disponibilité
+
+      </h2>
 
       <div class="grid two">
 
@@ -1090,7 +1526,13 @@
 
           <label>Date</label>
 
-          <input id="avDate" type="date">
+          <input
+
+            id="avDate"
+
+            type="date"
+
+          >
 
         </div>
 
@@ -1098,7 +1540,15 @@
 
           <label>Disponible à partir de</label>
 
-          <input id="avStart" type="time" value="14:00">
+          <input
+
+            id="avStart"
+
+            type="time"
+
+            value="14:00"
+
+          >
 
         </div>
 
@@ -1106,7 +1556,15 @@
 
           <label>Disponible jusqu'à</label>
 
-          <input id="avEnd" type="time" value="01:00">
+          <input
+
+            id="avEnd"
+
+            type="time"
+
+            value="01:00"
+
+          >
 
         </div>
 
@@ -1114,15 +1572,15 @@
 
       <label>Statut</label>
 
-      <select id="avStatus">
+      <select id="avAvailable">
 
-        <option value="yes">
+        <option value="true">
 
           Disponible
 
         </option>
 
-        <option value="no">
+        <option value="false">
 
           Indisponible
 
@@ -1130,27 +1588,35 @@
 
       </select>
 
-      <div style="margin-top:12px">
+      <button
 
-        <button id="saveAvailability">
+        id="saveAvailability"
 
-          Enregistrer
+        style="margin-top:12px"
 
-        </button>
+      >
 
-      </div>
+        Enregistrer
 
-      <div class="small" style="margin-top:8px">
-
-        Une fin après minuit est gérée automatiquement.
-
-      </div>
+      </button>
 
     </div>
 
-    <div class="card" style="margin-top:14px">
+    <div
 
-      <div class="row" style="justify-content:space-between">
+      class="card"
+
+      style="margin-top:14px"
+
+    >
+
+      <div
+
+        class="row"
+
+        style="justify-content:space-between"
+
+      >
 
         <h2 style="margin:0">
 
@@ -1158,7 +1624,13 @@
 
         </h2>
 
-        <button id="refreshAvailability" class="secondary">
+        <button
+
+          id="refreshAvailability"
+
+          class="secondary"
+
+        >
 
           Actualiser
 
@@ -1166,17 +1638,35 @@
 
       </div>
 
-      <div id="availabilityList" style="margin-top:10px"></div>
+      <div
+
+        id="availabilityList"
+
+        style="margin-top:10px"
+
+      ></div>
 
     </div>
 
   </section>
 
-  <section id="planning" class="view hidden">
+  <!-- PLANNING -->
+
+  <section
+
+    id="planning"
+
+    class="view hidden"
+
+  >
 
     <div class="card manager-only">
 
-      <h2>Ajouter un service</h2>
+      <h2>
+
+        Ajouter un service
+
+      </h2>
 
       <div class="grid two">
 
@@ -1192,7 +1682,13 @@
 
           <label>Date</label>
 
-          <input id="shiftDate" type="date">
+          <input
+
+            id="shiftDate"
+
+            type="date"
+
+          >
 
         </div>
 
@@ -1200,7 +1696,15 @@
 
           <label>Début</label>
 
-          <input id="shiftStart" type="time" value="14:00">
+          <input
+
+            id="shiftStart"
+
+            type="time"
+
+            value="14:00"
+
+          >
 
         </div>
 
@@ -1208,13 +1712,25 @@
 
           <label>Fin</label>
 
-          <input id="shiftEnd" type="time" value="01:00">
+          <input
+
+            id="shiftEnd"
+
+            type="time"
+
+            value="01:00"
+
+          >
 
         </div>
 
       </div>
 
-      <label style="display:flex;gap:8px;align-items:center;margin-top:12px">
+      <label
+
+        style="display:flex;gap:8px;align-items:center;margin-top:12px"
+
+      >
 
         <input
 
@@ -1232,21 +1748,35 @@
 
       </label>
 
-      <div style="margin-top:12px">
+      <button
 
-        <button id="addShift">
+        id="addShift"
 
-          Ajouter au planning
+        style="margin-top:12px"
 
-        </button>
+      >
 
-      </div>
+        Ajouter au planning
+
+      </button>
 
     </div>
 
-    <div class="card" style="margin-top:14px">
+    <div
 
-      <div class="row" style="justify-content:space-between">
+      class="card"
+
+      style="margin-top:14px"
+
+    >
+
+      <div
+
+        class="row"
+
+        style="justify-content:space-between"
+
+      >
 
         <h2 style="margin:0">
 
@@ -1254,7 +1784,13 @@
 
         </h2>
 
-        <button id="refreshPlanning" class="secondary">
+        <button
+
+          id="refreshPlanning"
+
+          class="secondary"
+
+        >
 
           Actualiser
 
@@ -1262,17 +1798,35 @@
 
       </div>
 
-      <div id="planningList" style="margin-top:10px"></div>
+      <div
+
+        id="planningList"
+
+        style="margin-top:10px"
+
+      ></div>
 
     </div>
 
   </section>
 
-  <section id="monthly" class="view hidden">
+  <!-- MOIS -->
+
+  <section
+
+    id="monthly"
+
+    class="view hidden"
+
+  >
 
     <div class="card">
 
-      <h2>Récapitulatif mensuel</h2>
+      <h2>
+
+        Récapitulatif mensuel
+
+      </h2>
 
       <div class="grid two">
 
@@ -1280,7 +1834,13 @@
 
           <label>Mois</label>
 
-          <input id="monthPicker" type="month">
+          <input
+
+            id="monthPicker"
+
+            type="month"
+
+          >
 
         </div>
 
@@ -1288,7 +1848,13 @@
 
           <label>Total affiché</label>
 
-          <div id="selectedMonthTotal" class="kpi">
+          <div
+
+            id="selectedMonthTotal"
+
+            class="kpi"
+
+          >
 
             0 h
 
@@ -1298,17 +1864,21 @@
 
       </div>
 
-      <div class="small" style="margin-top:8px">
-
-        Touchez une personne pour voir son détail jour par jour.
-
-      </div>
-
     </div>
 
-    <div class="card" style="margin-top:14px">
+    <div
 
-      <h2>Heures par personne</h2>
+      class="card"
+
+      style="margin-top:14px"
+
+    >
+
+      <h2>
+
+        Heures par personne
+
+      </h2>
 
       <div id="monthlySummary"></div>
 
@@ -1316,9 +1886,9 @@
 
     <div
 
-      class="card hidden"
-
       id="monthDetailCard"
+
+      class="card hidden"
 
       style="margin-top:14px"
 
@@ -1336,11 +1906,25 @@
 
   </section>
 
-  <section id="team" class="view hidden manager-only">
+  <!-- EQUIPE -->
+
+  <section
+
+    id="team"
+
+    class="view hidden manager-only"
+
+  >
 
     <div class="card">
 
-      <div class="row" style="justify-content:space-between">
+      <div
+
+        class="row"
+
+        style="justify-content:space-between"
+
+      >
 
         <h2 style="margin:0">
 
@@ -1348,7 +1932,13 @@
 
         </h2>
 
-        <button id="refreshTeam" class="secondary">
+        <button
+
+          id="refreshTeam"
+
+          class="secondary"
+
+        >
 
           Actualiser
 
@@ -1356,15 +1946,27 @@
 
       </div>
 
-      <div id="teamList" style="margin-top:14px"></div>
+      <div
+
+        id="teamList"
+
+        style="margin-top:14px"
+
+      ></div>
 
     </div>
 
-    <div class="notice infobox" style="margin-top:14px">
+    <div
 
-      Les nouveaux comptes créés depuis l'application apparaissent ici.
+      class="notice infobox"
 
-      Le Responsable ou le Patron peut activer ou désactiver leur accès.
+      style="margin-top:14px"
+
+    >
+
+      Les nouveaux comptes apparaissent ici en tant qu'Employés
+
+      et sont désactivés jusqu'à validation.
 
     </div>
 
@@ -1372,7 +1974,15 @@
 
 </main>
 
-<nav id="bottomNav" class="bottom hidden">
+<!-- NAVIGATION BAS -->
+
+<nav
+
+  id="bottomNav"
+
+  class="bottom hidden"
+
+>
 
   <button data-go="dashboard">
 
@@ -1398,7 +2008,13 @@
 
   </button>
 
-  <button class="manager-only" data-go="team">
+  <button
+
+    class="manager-only"
+
+    data-go="team"
+
+  >
 
     👥<br>Équipe
 
@@ -1406,43 +2022,217 @@
 
 </nav>
 
+<!-- MODIFICATION HORAIRE EMPLOYE -->
+
+<div
+
+  id="changeModal"
+
+  class="modal hidden"
+
+>
+
+  <div class="modal-box">
+
+    <h2>
+
+      Demander une modification
+
+    </h2>
+
+    <div
+
+      id="changeCurrent"
+
+      class="notice infobox"
+
+    ></div>
+
+    <label>Nouveau début</label>
+
+    <input
+
+      id="changeStart"
+
+      type="time"
+
+    >
+
+    <label>Nouvelle fin</label>
+
+    <input
+
+      id="changeEnd"
+
+      type="time"
+
+    >
+
+    <label>Motif</label>
+
+    <textarea
+
+      id="changeReason"
+
+      placeholder="Ex. Je termine plus tard à mon autre travail."
+
+    ></textarea>
+
+    <div
+
+      class="row"
+
+      style="margin-top:14px"
+
+    >
+
+      <button id="sendChangeRequest">
+
+        Envoyer la demande
+
+      </button>
+
+      <button
+
+        id="closeChangeModal"
+
+        class="secondary"
+
+      >
+
+        Annuler
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- NOTIFICATIONS -->
+
+<div
+
+  id="notificationsPanel"
+
+  class="notifications-panel hidden"
+
+>
+
+  <div class="notifications-box">
+
+    <div
+
+      class="row"
+
+      style="justify-content:space-between;margin-bottom:12px"
+
+    >
+
+      <h2 style="margin:0">
+
+        🔔 Notifications
+
+      </h2>
+
+      <button
+
+        id="closeNotifications"
+
+        class="secondary"
+
+      >
+
+        Fermer
+
+      </button>
+
+    </div>
+
+    <div
+
+      class="row"
+
+      style="margin-bottom:12px"
+
+    >
+
+      <button
+
+        id="markAllRead"
+
+        class="secondary"
+
+      >
+
+        Tout marquer comme lu
+
+      </button>
+
+    </div>
+
+    <div id="notificationsList"></div>
+
+  </div>
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
+/* ============================================================
+
+   SUPABASE
+
+============================================================ */
+
 const SUPABASE_URL =
 
-  'https://nzekencekmieysxpdzgo.supabase.co';
+  'https://dwvjygshthdgjrxfdkas.supabase.co';
 
 const SUPABASE_KEY =
 
-  'sb_publishable_YDUmGd6SY-1bZdYci3j4yw_fvcueFN9';
+  'sb_publishable_4yyRPWNMpyK4mu1MrcJVVQ_UAo4lTTC';
 
-const sb = supabase.createClient(
+const OWNER_ID =
 
-  SUPABASE_URL,
+  '745fefeb-65fc-4c73-9caa-261218b6f70f';
 
-  SUPABASE_KEY,
+const sb =
 
-  {
+  supabase.createClient(
 
-    auth:{
+    SUPABASE_URL,
 
-      persistSession:true,
+    SUPABASE_KEY,
 
-      autoRefreshToken:true,
+    {
 
-      detectSessionInUrl:true
+      auth:{
+
+        persistSession:true,
+
+        autoRefreshToken:true,
+
+        detectSessionInUrl:true
+
+      }
 
     }
 
-  }
+  );
 
-);
+/* ============================================================
 
-const $ = id =>
+   VARIABLES
 
-  document.getElementById(id);
+============================================================ */
+
+const $ =
+
+  id => document.getElementById(id);
 
 let me = null;
 
@@ -1452,47 +2242,79 @@ let availabilities = [];
 
 let shifts = [];
 
+let changeRequests = [];
+
+let notifications = [];
+
+let selectedShiftForChange = null;
+
+let realtimeChannel = null;
+
+let refreshTimer = null;
+
+/* ============================================================
+
+   OUTILS
+
+============================================================ */
+
 const esc = s =>
 
-  String(s ?? '').replace(
+  String(s ?? '')
 
-    /[&<>'"]/g,
+    .replace(
 
-    c => ({
+      /[&<>'"]/g,
 
-      '&':'&amp;',
+      c => ({
 
-      '<':'&lt;',
+        '&':'&amp;',
 
-      '>':'&gt;',
+        '<':'&lt;',
 
-      "'":'&#39;',
+        '>':'&gt;',
 
-      '"':'&quot;'
+        "'":'&#39;',
 
-    }[c])
+        '"':'&quot;'
 
-  );
+      }[c])
+
+    );
 
 const isManager = () =>
 
-  me?.role === 'manager';
+  me &&
 
-function roleLabel(profile){
+  (
 
-  if(!profile){
+    me.role === 'responsable' ||
+
+    me.role === 'patron'
+
+  );
+
+const isOwner = () =>
+
+  me?.id === OWNER_ID;
+
+function roleLabel(p){
+
+  if(!p){
 
     return 'Employé';
 
   }
 
-  if(profile.role === 'manager'){
+  if(p.role === 'responsable'){
 
-    return profile.title === 'patron'
+    return 'Responsable';
 
-      ? 'Patron'
+  }
 
-      : 'Responsable';
+  if(p.role === 'patron'){
+
+    return 'Patron';
 
   }
 
@@ -1500,137 +2322,113 @@ function roleLabel(profile){
 
 }
 
-const fmtH = n =>
+function displayName(p){
 
-  (Math.round((Number(n)||0)*100)/100)
+  return p?.name?.trim() ||
 
-    .toString()
+    'Employé';
+
+}
+
+function personName(id){
+
+  return displayName(
+
+    profiles.find(
+
+      p => p.id === id
+
+    )
+
+  );
+
+}
+
+function fmtH(n){
+
+  const rounded =
+
+    Math.round(
+
+      (Number(n) || 0) * 100
+
+    ) / 100;
+
+  return String(rounded)
 
     .replace('.',',') + ' h';
 
-const dt = v =>
+}
 
-  new Date(v);
+function timeShort(v){
 
-const dateKey = v =>
+  return String(v || '')
 
-  String(v).slice(0,10);
-
-const timeKey = v =>
-
-  String(v).slice(11,16);
-
-function localStamp(date,time){
-
-  return `${date}T${time}:00`;
+    .slice(0,5);
 
 }
 
-function endStamp(date,start,end){
+function localDateKey(date = new Date()){
 
-  const s =
+  return [
 
-    new Date(localStamp(date,start));
+    date.getFullYear(),
 
-  const e =
+    String(date.getMonth()+1).padStart(2,'0'),
 
-    new Date(localStamp(date,end));
+    String(date.getDate()).padStart(2,'0')
 
-  if(e <= s){
+  ].join('-');
 
-    e.setDate(e.getDate()+1);
+}
+
+function currentMonthKey(){
+
+  return localDateKey()
+
+    .slice(0,7);
+
+}
+
+function hoursBetweenTimes(start,end){
+
+  if(!start || !end){
+
+    return 0;
 
   }
 
-  return (
+  const [sh,sm] =
 
-    `${e.getFullYear()}-` +
+    timeShort(start)
 
-    `${String(e.getMonth()+1).padStart(2,'0')}-` +
+      .split(':')
 
-    `${String(e.getDate()).padStart(2,'0')}T` +
+      .map(Number);
 
-    `${String(e.getHours()).padStart(2,'0')}:` +
+  const [eh,em] =
 
-    `${String(e.getMinutes()).padStart(2,'0')}:00`
+    timeShort(end)
 
-  );
+      .split(':')
 
-}
+      .map(Number);
 
-function hoursBetween(a,b){
+  let a =
 
-  return Math.max(
+    sh * 60 + sm;
 
-    0,
+  let b =
 
-    (dt(b)-dt(a))/3600000
+    eh * 60 + em;
 
-  );
+  if(b <= a){
 
-}
+    b += 24 * 60;
 
-function startOfWeek(d=new Date()){
+  }
 
-  const x = new Date(d);
-
-  x.setHours(0,0,0,0);
-
-  const day =
-
-    (x.getDay()+6)%7;
-
-  x.setDate(
-
-    x.getDate()-day
-
-  );
-
-  return x;
-
-}
-
-function inCurrentWeek(v){
-
-  const d = dt(v);
-
-  const a =
-
-    startOfWeek();
-
-  const b =
-
-    new Date(a);
-
-  b.setDate(
-
-    b.getDate()+7
-
-  );
-
-  return d>=a && d<b;
-
-}
-
-function inCurrentMonth(v){
-
-  const d = dt(v);
-
-  const n = new Date();
-
-  return (
-
-    d.getFullYear()===n.getFullYear() &&
-
-    d.getMonth()===n.getMonth()
-
-  );
-
-}
-
-function inMonth(v,key){
-
-  return String(v).slice(0,7)===key;
+  return (b-a)/60;
 
 }
 
@@ -1638,13 +2436,15 @@ function shiftHours(list){
 
   return list.reduce(
 
-    (t,s)=>
+    (total,s) =>
 
-      t+hoursBetween(
+      total +
 
-        s.start_at,
+      hoursBetweenTimes(
 
-        s.end_at
+        s.start_time,
+
+        s.end_time
 
       ),
 
@@ -1654,75 +2454,117 @@ function shiftHours(list){
 
 }
 
-function personName(id){
+function dateObject(date){
 
-  return profiles.find(
+  return new Date(
 
-    p=>p.id===id
-
-  )?.full_name || 'Employé';
-
-}
-
-function formatDateFr(v){
-
-  return dt(v).toLocaleDateString(
-
-    'fr-BE',
-
-    {
-
-      weekday:'short',
-
-      day:'2-digit',
-
-      month:'2-digit'
-
-    }
+    `${date}T12:00:00`
 
   );
 
 }
 
-function statusUnavailable(a){
+function formatDateFr(date){
 
-  return (a.note||'').startsWith(
+  return dateObject(date)
 
-    '[INDISPONIBLE]'
+    .toLocaleDateString(
+
+      'fr-BE',
+
+      {
+
+        weekday:'short',
+
+        day:'2-digit',
+
+        month:'2-digit'
+
+      }
+
+    );
+
+}
+
+function startOfCurrentWeek(){
+
+  const d =
+
+    new Date();
+
+  d.setHours(0,0,0,0);
+
+  const day =
+
+    (d.getDay()+6)%7;
+
+  d.setDate(
+
+    d.getDate()-day
+
+  );
+
+  return localDateKey(d);
+
+}
+
+function endOfCurrentWeek(){
+
+  const d =
+
+    new Date(
+
+      startOfCurrentWeek() +
+
+      'T12:00:00'
+
+    );
+
+  d.setDate(
+
+    d.getDate()+7
+
+  );
+
+  return localDateKey(d);
+
+}
+
+function inCurrentWeek(date){
+
+  return (
+
+    date >= startOfCurrentWeek() &&
+
+    date < endOfCurrentWeek()
 
   );
 
 }
 
-function availabilityState(a){
+function inCurrentMonth(date){
 
-  const note = a.note || '';
+  return String(date)
 
-  if(note.startsWith('[INDISPONIBLE]')){
+    .startsWith(
 
-    return 'unavailable';
+      currentMonthKey()
 
-  }
+    );
 
-  if(note.startsWith('[ACCEPTEE]')){
+}
 
-    return 'accepted';
+function inMonth(date,key){
 
-  }
+  return String(date)
 
-  if(note.startsWith('[REFUSEE]')){
-
-    return 'refused';
-
-  }
-
-  return 'pending';
+    .startsWith(key);
 
 }
 
 function setBusy(btn,busy,label){
 
-  btn.disabled=busy;
+  btn.disabled = busy;
 
   btn.innerHTML =
 
@@ -1734,11 +2576,11 @@ function setBusy(btn,busy,label){
 
 }
 
-function msg(el,text,ok=false){
+function setMessage(el,text,ok=false){
 
-  el.textContent=text;
+  el.textContent = text;
 
-  el.style.color=
+  el.style.color =
 
     ok
 
@@ -1748,13 +2590,45 @@ function msg(el,text,ok=false){
 
 }
 
-/* =========================
+function statusBadge(status){
+
+  if(status === 'accepted'){
+
+    return '<span class="pill ok">Acceptée</span>';
+
+  }
+
+  if(status === 'refused'){
+
+    return '<span class="pill no">Refusée</span>';
+
+  }
+
+  return '<span class="pill draft">En attente</span>';
+
+}
+
+/* ============================================================
 
    AUTHENTIFICATION
 
-========================= */
+============================================================ */
 
 async function login(){
+
+  const email =
+
+    $('loginEmail')
+
+      .value
+
+      .trim();
+
+  const password =
+
+    $('loginPassword')
+
+      .value;
 
   const btn =
 
@@ -1770,7 +2644,7 @@ async function login(){
 
   );
 
-  msg(
+  setMessage(
 
     $('loginMessage'),
 
@@ -1778,23 +2652,17 @@ async function login(){
 
   );
 
-  const email =
-
-    $('loginEmail').value.trim();
-
-  const password =
-
-    $('loginPassword').value;
-
   const {error} =
 
-    await sb.auth.signInWithPassword({
+    await sb.auth
 
-      email,
+      .signInWithPassword({
 
-      password
+        email,
 
-    });
+        password
+
+      });
 
   setBusy(
 
@@ -1808,11 +2676,13 @@ async function login(){
 
   if(error){
 
-    return msg(
+    return setMessage(
 
       $('loginMessage'),
 
-      'Connexion impossible : '+error.message
+      'Connexion impossible : ' +
+
+      error.message
 
     );
 
@@ -1826,23 +2696,35 @@ async function signup(){
 
   const name =
 
-    $('signupName').value.trim();
+    $('signupName')
+
+      .value
+
+      .trim();
 
   const email =
 
-    $('signupEmail').value.trim();
+    $('signupEmail')
+
+      .value
+
+      .trim();
 
   const password =
 
-    $('signupPassword').value;
+    $('signupPassword')
+
+      .value;
 
   const password2 =
 
-    $('signupPassword2').value;
+    $('signupPassword2')
+
+      .value;
 
   if(!name){
 
-    return msg(
+    return setMessage(
 
       $('signupMessage'),
 
@@ -1854,7 +2736,7 @@ async function signup(){
 
   if(!email){
 
-    return msg(
+    return setMessage(
 
       $('signupMessage'),
 
@@ -1864,9 +2746,9 @@ async function signup(){
 
   }
 
-  if(password.length<8){
+  if(password.length < 8){
 
-    return msg(
+    return setMessage(
 
       $('signupMessage'),
 
@@ -1876,9 +2758,9 @@ async function signup(){
 
   }
 
-  if(password!==password2){
+  if(password !== password2){
 
-    return msg(
+    return setMessage(
 
       $('signupMessage'),
 
@@ -1902,33 +2784,27 @@ async function signup(){
 
   );
 
-  msg(
-
-    $('signupMessage'),
-
-    ''
-
-  );
-
   const {error} =
 
-    await sb.auth.signUp({
+    await sb.auth
 
-      email,
+      .signUp({
 
-      password,
+        email,
 
-      options:{
+        password,
 
-        data:{
+        options:{
 
-          full_name:name
+          data:{
+
+            name
+
+          }
 
         }
 
-      }
-
-    });
+      });
 
   setBusy(
 
@@ -1942,21 +2818,23 @@ async function signup(){
 
   if(error){
 
-    return msg(
+    return setMessage(
 
       $('signupMessage'),
 
-      'Impossible de créer le compte : '+error.message
+      'Impossible de créer le compte : ' +
+
+      error.message
 
     );
 
   }
 
-  msg(
+  setMessage(
 
     $('signupMessage'),
 
-    'Compte créé ✅ Vérifie éventuellement ton e-mail, puis attends la validation.',
+    'Compte créé ✅ Il doit maintenant être activé par le Responsable ou le Patron.',
 
     true
 
@@ -1972,11 +2850,11 @@ async function logout(){
 
 }
 
-/* =========================
+/* ============================================================
 
    DONNEES
 
-========================= */
+============================================================ */
 
 async function getMyProfile(){
 
@@ -2002,11 +2880,17 @@ async function getMyProfile(){
 
       .select(
 
-        'id,full_name,role,title,active'
+        'id,name,role,active,created_at'
 
       )
 
-      .eq('id',user.id)
+      .eq(
+
+        'id',
+
+        user.id
+
+      )
 
       .single();
 
@@ -2016,61 +2900,119 @@ async function getMyProfile(){
 
   }
 
-  if(!data.active){
-
-    throw new Error(
-
-      'Ton compte est en attente de validation ou a été désactivé.'
-
-    );
-
-  }
-
   return data;
 
 }
 
 async function loadAll(){
 
-  const [p,a,s] =
+  const profileQuery =
+
+    sb
+
+      .from('profiles')
+
+      .select(
+
+        'id,name,role,active,created_at'
+
+      )
+
+      .order('name');
+
+  const availabilityQuery =
+
+    sb
+
+      .from('availabilities')
+
+      .select(
+
+        'id,user_id,date,start_time,end_time,available,status,created_at,updated_at'
+
+      )
+
+      .order('date');
+
+  const shiftQuery =
+
+    sb
+
+      .from('shifts')
+
+      .select(
+
+        'id,user_id,date,start_time,end_time,published,created_by,created_at,updated_at'
+
+      )
+
+      .order('date');
+
+  const requestQuery =
+
+    sb
+
+      .from('shift_change_requests')
+
+      .select(
+
+        'id,shift_id,user_id,old_start_time,old_end_time,requested_start_time,requested_end_time,reason,status,reviewed_by,reviewed_at,created_at'
+
+      )
+
+      .order(
+
+        'created_at',
+
+        {ascending:false}
+
+      );
+
+  const notificationQuery =
+
+    sb
+
+      .from('notifications')
+
+      .select(
+
+        'id,user_id,title,message,type,related_shift_id,related_request_id,read,created_at'
+
+      )
+
+      .order(
+
+        'created_at',
+
+        {ascending:false}
+
+      );
+
+  const [
+
+    p,
+
+    a,
+
+    s,
+
+    r,
+
+    n
+
+  ] =
 
     await Promise.all([
 
-      sb
+      profileQuery,
 
-        .from('profiles')
+      availabilityQuery,
 
-        .select(
+      shiftQuery,
 
-          'id,full_name,role,title,active'
+      requestQuery,
 
-        )
-
-        .order('full_name'),
-
-      sb
-
-        .from('availabilities')
-
-        .select(
-
-          'id,employee_id,start_at,end_at,note,created_at'
-
-        )
-
-        .order('start_at'),
-
-      sb
-
-        .from('shifts')
-
-        .select(
-
-          'id,employee_id,start_at,end_at,note,published,created_at,updated_at'
-
-        )
-
-        .order('start_at')
+      notificationQuery
 
     ]);
 
@@ -2079,6 +3021,10 @@ async function loadAll(){
   if(a.error) throw a.error;
 
   if(s.error) throw s.error;
+
+  if(r.error) throw r.error;
+
+  if(n.error) throw n.error;
 
   profiles =
 
@@ -2092,13 +3038,21 @@ async function loadAll(){
 
     s.data || [];
 
+  changeRequests =
+
+    r.data || [];
+
+  notifications =
+
+    n.data || [];
+
 }
 
-/* =========================
+/* ============================================================
 
    DEMARRAGE
 
-========================= */
+============================================================ */
 
 async function boot(){
 
@@ -2110,7 +3064,9 @@ async function boot(){
 
     } =
 
-      await sb.auth.getSession();
+      await sb.auth
+
+        .getSession();
 
     if(!session){
 
@@ -2124,11 +3080,41 @@ async function boot(){
 
       await getMyProfile();
 
+    if(!me){
+
+      throw new Error(
+
+        'Profil introuvable.'
+
+      );
+
+    }
+
+    if(!me.active){
+
+      await sb.auth.signOut();
+
+      showLogin();
+
+      setMessage(
+
+        $('loginMessage'),
+
+        'Ton compte existe mais il est encore en attente de validation.'
+
+      );
+
+      return;
+
+    }
+
     await loadAll();
 
     showApp();
 
     renderAll();
+
+    startRealtime();
 
   }catch(e){
 
@@ -2136,11 +3122,11 @@ async function boot(){
 
     alert(
 
-      'Erreur : '+e.message
+      'Erreur : ' +
+
+      e.message
 
     );
-
-    await sb.auth.signOut();
 
     showLogin();
 
@@ -2152,19 +3138,33 @@ function showLogin(){
 
   $('loginScreen')
 
-    .classList.remove('hidden');
+    .classList
+
+    .remove('hidden');
 
   $('appMain')
 
-    .classList.add('hidden');
+    .classList
+
+    .add('hidden');
 
   $('bottomNav')
 
-    .classList.add('hidden');
+    .classList
+
+    .add('hidden');
 
   $('logoutBtn')
 
-    .classList.add('hidden');
+    .classList
+
+    .add('hidden');
+
+  $('bellBtn')
+
+    .classList
+
+    .add('hidden');
 
 }
 
@@ -2172,129 +3172,171 @@ function showApp(){
 
   $('loginScreen')
 
-    .classList.add('hidden');
+    .classList
+
+    .add('hidden');
 
   $('appMain')
 
-    .classList.remove('hidden');
+    .classList
+
+    .remove('hidden');
 
   $('bottomNav')
 
-    .classList.remove('hidden');
+    .classList
+
+    .remove('hidden');
 
   $('logoutBtn')
 
-    .classList.remove('hidden');
+    .classList
+
+    .remove('hidden');
+
+  $('bellBtn')
+
+    .classList
+
+    .remove('hidden');
 
   applyRole();
 
 }
 
-/* =========================
+/* ============================================================
 
    ROLES
 
-========================= */
+============================================================ */
 
 function applyRole(){
 
   document
 
-    .querySelectorAll('.manager-only')
+    .querySelectorAll(
+
+      '.manager-only'
+
+    )
 
     .forEach(el=>{
 
-      if(isManager()){
+      el.style.display =
 
-        if(el.tagName === 'BUTTON'){
+        isManager()
 
-          el.style.display='inline-block';
+          ? (
 
-        }else{
+              el.tagName === 'BUTTON'
 
-          el.style.display='block';
+                ? 'inline-block'
 
-        }
+                : ''
 
-      }else{
+            )
 
-        el.style.display='none';
-
-      }
+          : 'none';
 
     });
 
   document
 
-    .querySelectorAll('.employee-only')
+    .querySelectorAll(
+
+      '.owner-only'
+
+    )
 
     .forEach(el=>{
 
-      if(!isManager()){
+      el.style.display =
 
-        if(el.tagName === 'BUTTON'){
+        isOwner()
 
-          el.style.display='inline-block';
+          ? (
 
-        }else{
+              el.tagName === 'BUTTON'
 
-          el.style.display='block';
+                ? 'inline-block'
 
-        }
+                : ''
 
-      }else{
+            )
 
-        el.style.display='none';
-
-      }
+          : 'none';
 
     });
 
-  $('roleBadge').textContent =
+  document
 
-    isManager()
+    .querySelectorAll(
 
-      ? roleLabel(me)
+      '.employee-only'
 
-      : (me?.full_name || 'Employé');
+    )
 
-  $('headerSub').textContent =
+    .forEach(el=>{
 
-    isManager()
+      el.style.display =
 
-      ? roleLabel(me) + ' — Gestion du planning synchronisé'
+        !isManager()
 
-      : 'Mes disponibilités et mon planning';
+          ? (
+
+              el.tagName === 'BUTTON'
+
+                ? 'inline-block'
+
+                : ''
+
+            )
+
+          : 'none';
+
+    });
+
+  $('roleBadge')
+
+    .textContent =
+
+      roleLabel(me);
+
+  $('headerSub')
+
+    .textContent =
+
+      isManager()
+
+        ? `${displayName(me)} — ${roleLabel(me)}`
+
+        : `${displayName(me)} — Mon planning`;
 
 }
 
-/* =========================
+/* ============================================================
 
-   AFFICHAGE
+   SELECTS
 
-========================= */
+============================================================ */
 
 function renderSelects(){
 
-  const opts =
+  const options =
 
     profiles
 
       .filter(
 
-        p=>p.active
+        p => p.active
 
       )
 
       .map(
 
-        p=>
+        p =>
 
-          `<option value="${esc(p.id)}">`+
-
-          `${esc(p.full_name)}`+
-
-          `</option>`
+          `<option value="${esc(p.id)}">${esc(displayName(p))}</option>`
 
       )
 
@@ -2302,19 +3344,35 @@ function renderSelects(){
 
   $('avPerson').innerHTML =
 
-    opts;
+    options;
 
   $('shiftPerson').innerHTML =
 
-    opts;
+    options;
 
 }
+
+/* ============================================================
+
+   DASHBOARD
+
+============================================================ */
 
 function myShifts(){
 
   return shifts.filter(
 
-    s=>s.employee_id===me.id
+    s =>
+
+      s.user_id === me.id &&
+
+      (
+
+        isManager() ||
+
+        s.published
+
+      )
 
   );
 
@@ -2326,131 +3384,261 @@ function renderDashboard(){
 
     myShifts();
 
-  const w =
+  const weekHours =
 
     shiftHours(
 
       mine.filter(
 
-        s=>inCurrentWeek(s.start_at)
+        s => inCurrentWeek(s.date)
 
       )
 
     );
 
-  const m =
+  const monthHours =
 
     shiftHours(
 
       mine.filter(
 
-        s=>inCurrentMonth(s.start_at)
+        s => inCurrentMonth(s.date)
 
       )
 
     );
 
-  $('myWeek').textContent =
+  $('myWeek')
 
-    fmtH(w);
+    .textContent =
 
-  $('myMonth').textContent =
+      fmtH(weekHours);
 
-    fmtH(m);
+  $('myMonth')
+
+    .textContent =
+
+      fmtH(monthHours);
+
+  if(me.role === 'responsable'){
+
+    $('myWeek')
+
+      .className =
+
+        'kpi ' +
+
+        (
+
+          weekHours >= 38
+
+            ? 'ok'
+
+            : 'warn'
+
+        );
+
+    $('myWeekStatus')
+
+      .textContent =
+
+        weekHours >= 38
+
+          ? `Minimum 38 h atteint (+${fmtH(weekHours-38)})`
+
+          : `Il manque ${fmtH(38-weekHours)} pour atteindre 38 h`;
+
+  }else{
+
+    $('myWeek')
+
+      .className =
+
+        'kpi';
+
+    $('myWeekStatus')
+
+      .textContent =
+
+        '';
+
+  }
 
   if(isManager()){
 
-    $('myWeek').className =
+    $('teamMonth')
 
-      'kpi '+(w>=38?'ok':'warn');
+      .textContent =
 
-    $('myWeekStatus').textContent =
+        fmtH(
 
-      w>=38
-
-        ? `Minimum 38 h atteint (+${fmtH(w-38)})`
-
-        : `Il manque ${fmtH(38-w)} pour atteindre 38 h`;
-
-    const tm =
-
-      shiftHours(
-
-        shifts.filter(
-
-          s=>inCurrentMonth(s.start_at)
-
-        )
-
-      );
-
-    $('teamMonth').textContent =
-
-      fmtH(tm);
-
-    $('summary').innerHTML =
-
-      profiles
-
-        .filter(
-
-          p=>p.active
-
-        )
-
-        .map(p=>{
-
-          const ps =
+          shiftHours(
 
             shifts.filter(
 
-              s=>s.employee_id===p.id
+              s => inCurrentMonth(s.date)
 
-            );
+            )
 
-          const pw =
+          )
 
-            shiftHours(
+        );
 
-              ps.filter(
+    $('summary')
 
-                s=>inCurrentWeek(s.start_at)
+      .innerHTML =
 
-              )
+        profiles
 
-            );
+          .filter(
 
-          const pm =
+            p => p.active
 
-            shiftHours(
+          )
 
-              ps.filter(
+          .map(p=>{
 
-                s=>inCurrentMonth(s.start_at)
+            const ps =
 
-              )
+              shifts.filter(
 
-            );
+                s => s.user_id === p.id
 
-          const pct =
+              );
 
-            p.id===me.id
+            const week =
 
-              ? Math.min(
+              shiftHours(
 
-                  100,
+                ps.filter(
 
-                  pw/38*100
+                  s => inCurrentWeek(s.date)
 
                 )
 
-              : Math.min(
+              );
 
-                  100,
+            const month =
 
-                  pw/40*100
+              shiftHours(
 
-                );
+                ps.filter(
+
+                  s => inCurrentMonth(s.date)
+
+                )
+
+              );
+
+            return `
+
+              <div class="employee-card">
+
+                <strong>
+
+                  ${esc(displayName(p))}
+
+                </strong>
+
+                <span class="pill">
+
+                  ${esc(roleLabel(p))}
+
+                </span>
+
+                <div style="margin-top:8px">
+
+                  Semaine :
+
+                  <strong>${fmtH(week)}</strong>
+
+                  · Mois :
+
+                  <strong>${fmtH(month)}</strong>
+
+                </div>
+
+              </div>
+
+            `;
+
+          })
+
+          .join('')
+
+          ||
+
+          '<div class="small">Aucun membre.</div>';
+
+  }
+
+  renderChangeRequests();
+
+}
+
+/* ============================================================
+
+   DEMANDES MODIFICATION
+
+============================================================ */
+
+function pendingRequestForShift(shiftId){
+
+  return changeRequests.find(
+
+    r =>
+
+      r.shift_id === shiftId &&
+
+      r.status === 'pending'
+
+  );
+
+}
+
+function renderChangeRequests(){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const pending =
+
+    changeRequests.filter(
+
+      r => r.status === 'pending'
+
+    );
+
+  if(!pending.length){
+
+    $('changeRequestsList')
+
+      .innerHTML =
+
+        '<div class="small">Aucune demande en attente ✅</div>';
+
+    return;
+
+  }
+
+  $('changeRequestsList')
+
+    .innerHTML =
+
+      pending
+
+        .map(r=>{
+
+          const shift =
+
+            shifts.find(
+
+              s => s.id === r.shift_id
+
+            );
 
           return `
 
@@ -2458,29 +3646,87 @@ function renderDashboard(){
 
               <strong>
 
-                ${esc(p.full_name)}
+                ${esc(personName(r.user_id))}
 
               </strong>
 
-              <div class="row">
+              <div class="small">
 
-                <span>
+                ${shift ? formatDateFr(shift.date) : ''}
 
-                  Semaine : ${fmtH(pw)}
+              </div>
+
+              <div style="margin-top:8px">
+
+                Actuel :
+
+                <span class="pill">
+
+                  ${timeShort(r.old_start_time)}–${timeShort(r.old_end_time)}
 
                 </span>
 
-                <span>
+                <br>
 
-                  • Mois : ${fmtH(pm)}
+                Demandé :
+
+                <span class="pill info">
+
+                  ${timeShort(r.requested_start_time)}–${timeShort(r.requested_end_time)}
 
                 </span>
 
               </div>
 
-              <div class="bar" style="margin-top:7px">
+              ${
 
-                <div style="width:${pct}%"></div>
+                r.reason
+
+                  ? `
+
+                    <div
+
+                      class="notice infobox"
+
+                      style="margin-top:9px"
+
+                    >
+
+                      ${esc(r.reason)}
+
+                    </div>
+
+                  `
+
+                  : ''
+
+              }
+
+              <div class="team-actions">
+
+                <button
+
+                  class="okbtn"
+
+                  onclick="reviewChange('${r.id}','accepted')"
+
+                >
+
+                  ✅ Accepter
+
+                </button>
+
+                <button
+
+                  class="danger"
+
+                  onclick="reviewChange('${r.id}','refused')"
+
+                >
+
+                  ❌ Refuser
+
+                </button>
 
               </div>
 
@@ -2490,25 +3736,15 @@ function renderDashboard(){
 
         })
 
-        .join('')
-
-        ||
-
-        '<div class="small">Aucun employé.</div>';
-
-  }else{
-
-    $('myWeek').className =
-
-      'kpi';
-
-    $('myWeekStatus').textContent =
-
-      '';
-
-  }
+        .join('');
 
 }
+
+/* ============================================================
+
+   DISPONIBILITES
+
+============================================================ */
 
 function renderAvailability(){
 
@@ -2522,7 +3758,7 @@ function renderAvailability(){
 
       rows.filter(
 
-        a=>a.employee_id===me.id
+        a => a.user_id === me.id
 
       );
 
@@ -2530,395 +3766,179 @@ function renderAvailability(){
 
   if(!rows.length){
 
-    $('availabilityList').innerHTML =
+    $('availabilityList')
 
-      '<div class="small">Aucune disponibilité encodée.</div>';
+      .innerHTML =
+
+        '<div class="small">Aucune disponibilité encodée.</div>';
 
     return;
 
   }
 
-  $('availabilityList').innerHTML =
+  $('availabilityList')
 
-    rows.map(a=>{
+    .innerHTML =
 
-      const state =
+      rows
 
-        availabilityState(a);
+        .map(a=>{
 
-      const name =
+          const availableLabel =
 
-        esc(personName(a.employee_id));
+            a.available
 
-      const date =
+              ? '<span class="pill ok">Disponible</span>'
 
-        dateKey(a.start_at);
+              : '<span class="pill no">Indisponible</span>';
 
-      const start =
+          return `
 
-        timeKey(a.start_at);
+            <div class="employee-card">
 
-      const end =
+              <strong>
 
-        timeKey(a.end_at);
+                ${esc(personName(a.user_id))}
 
-      if(state === 'unavailable'){
-
-        return `
-
-          <div class="employee-card">
-
-            <strong>
-
-              ${name}
-
-            </strong>
-
-            <div style="margin-top:5px">
-
-              ${formatDateFr(a.start_at)}
-
-              <span class="pill no">
-
-                Indisponible
-
-              </span>
-
-            </div>
-
-            <div style="margin-top:10px">
-
-              <button
-
-                class="danger"
-
-                onclick="deleteAvailability('${a.id}')"
-
-              >
-
-                Supprimer
-
-              </button>
-
-            </div>
-
-          </div>
-
-        `;
-
-      }
-
-      if(!isManager()){
-
-        let badge = '';
-
-        if(state === 'pending'){
-
-          badge = `
-
-            <span class="pill draft">
-
-              En attente
-
-            </span>
-
-          `;
-
-        }
-
-        if(state === 'accepted'){
-
-          badge = `
-
-            <span class="pill ok">
-
-              Acceptée
-
-            </span>
-
-          `;
-
-        }
-
-        if(state === 'refused'){
-
-          badge = `
-
-            <span class="pill no">
-
-              Refusée
-
-            </span>
-
-          `;
-
-        }
-
-        return `
-
-          <div class="employee-card">
-
-            <strong>
-
-              ${name}
-
-            </strong>
-
-            <div style="margin-top:5px">
-
-              ${formatDateFr(a.start_at)}
-
-              ${badge}
-
-            </div>
-
-            <div style="margin-top:6px">
-
-              <span class="pill">
-
-                ${start}–${end}
-
-              </span>
-
-            </div>
-
-            ${
-
-              state === 'pending'
-
-                ? `
-
-                  <div style="margin-top:10px">
-
-                    <button
-
-                      class="danger"
-
-                      onclick="deleteAvailability('${a.id}')"
-
-                    >
-
-                      Annuler ma demande
-
-                    </button>
-
-                  </div>
-
-                `
-
-                : ''
-
-            }
-
-          </div>
-
-        `;
-
-      }
-
-      let badge = '';
-
-      if(state === 'pending'){
-
-        badge = `
-
-          <span class="pill draft">
-
-            En attente
-
-          </span>
-
-        `;
-
-      }
-
-      if(state === 'accepted'){
-
-        badge = `
-
-          <span class="pill ok">
-
-            Acceptée
-
-          </span>
-
-        `;
-
-      }
-
-      if(state === 'refused'){
-
-        badge = `
-
-          <span class="pill no">
-
-            Refusée
-
-          </span>
-
-        `;
-
-      }
-
-      if(state === 'pending'){
-
-        return `
-
-          <div class="employee-card">
-
-            <strong>
-
-              ${name}
-
-            </strong>
-
-            <div style="margin-bottom:10px">
-
-              ${badge}
-
-            </div>
-
-            <div class="grid two">
+              </strong>
 
               <div>
 
-                <label>Date</label>
+                ${formatDateFr(a.date)}
 
-                <input
+                ${availableLabel}
 
-                  id="avEditDate_${a.id}"
-
-                  type="date"
-
-                  value="${date}"
-
-                >
+                ${statusBadge(a.status)}
 
               </div>
 
-              <div>
+              ${
 
-                <label>Début</label>
+                a.available
 
-                <input
+                  ? `
 
-                  id="avEditStart_${a.id}"
+                    <div style="margin-top:7px">
 
-                  type="time"
+                      <span class="pill">
 
-                  value="${start}"
+                        ${timeShort(a.start_time)}–${timeShort(a.end_time)}
 
-                >
+                      </span>
 
-              </div>
+                    </div>
 
-              <div>
+                  `
 
-                <label>Fin</label>
+                  : ''
 
-                <input
+              }
 
-                  id="avEditEnd_${a.id}"
+              ${
 
-                  type="time"
+                isManager() &&
 
-                  value="${end}"
+                a.status === 'pending'
 
-                >
+                  ? `
 
-              </div>
+                    <div class="team-actions">
+
+                      <button
+
+                        class="okbtn"
+
+                        onclick="acceptAvailability('${a.id}')"
+
+                      >
+
+                        ${
+
+                          a.available
+
+                            ? '✓ Accepter et ajouter au planning'
+
+                            : '✓ Valider'
+
+                        }
+
+                      </button>
+
+                      <button
+
+                        class="danger"
+
+                        onclick="refuseAvailability('${a.id}')"
+
+                      >
+
+                        ✕ Refuser
+
+                      </button>
+
+                    </div>
+
+                  `
+
+                  : ''
+
+              }
+
+              ${
+
+                (
+
+                  !isManager() &&
+
+                  a.user_id === me.id &&
+
+                  a.status === 'pending'
+
+                )
+
+                ||
+
+                isManager()
+
+                  ? `
+
+                    <div class="team-actions">
+
+                      <button
+
+                        class="danger"
+
+                        onclick="deleteAvailability('${a.id}')"
+
+                      >
+
+                        Supprimer
+
+                      </button>
+
+                    </div>
+
+                  `
+
+                  : ''
+
+              }
 
             </div>
 
-            <div class="small" style="margin-top:8px">
+          `;
 
-              Tu peux modifier le créneau avant de l'accepter.
+        })
 
-            </div>
-
-            <div class="team-actions">
-
-              <button
-
-                onclick="acceptAvailability('${a.id}')"
-
-              >
-
-                ✓ Accepter et ajouter au planning
-
-              </button>
-
-              <button
-
-                class="danger"
-
-                onclick="refuseAvailability('${a.id}')"
-
-              >
-
-                ✕ Refuser
-
-              </button>
-
-            </div>
-
-          </div>
-
-        `;
-
-      }
-
-      return `
-
-        <div class="employee-card">
-
-          <strong>
-
-            ${name}
-
-          </strong>
-
-          <div style="margin-top:5px">
-
-            ${formatDateFr(a.start_at)}
-
-            ${badge}
-
-          </div>
-
-          <div style="margin-top:6px">
-
-            <span class="pill">
-
-              ${start}–${end}
-
-            </span>
-
-          </div>
-
-          <div class="team-actions">
-
-            <button
-
-              class="danger"
-
-              onclick="deleteAvailability('${a.id}')"
-
-            >
-
-              Supprimer
-
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join('');
+        .join('');
 
 }
+
+/* ============================================================
+
+   PLANNING
+
+============================================================ */
 
 function visibleShifts(){
 
@@ -2930,9 +3950,9 @@ function visibleShifts(){
 
   return shifts.filter(
 
-    s=>
+    s =>
 
-      s.employee_id===me.id &&
+      s.user_id === me.id &&
 
       s.published
 
@@ -2948,17 +3968,15 @@ function renderPlanning(){
 
     .forEach(s=>{
 
-      const key =
+      if(!groups[s.date]){
 
-        dateKey(s.start_at);
-
-      if(!groups[key]){
-
-        groups[key] = [];
+        groups[s.date] = [];
 
       }
 
-      groups[key].push(s);
+      groups[s.date]
+
+        .push(s);
 
     });
 
@@ -2980,7 +3998,7 @@ function renderPlanning(){
 
             ${
 
-              new Date(date+'T12:00:00')
+              dateObject(date)
 
                 .toLocaleDateString(
 
@@ -3008,79 +4026,133 @@ function renderPlanning(){
 
         groups[date]
 
-          .map(s=>`
+          .map(s=>{
 
-            <div class="shift">
+            const pending =
 
-              ${
+              pendingRequestForShift(
 
-                isManager()
+                s.id
 
-                  ? `
+              );
 
-                    <span class="actions">
+            return `
 
-                      <button
+              <div class="shift">
 
-                        onclick="editShift('${s.id}')"
+                <strong>
 
-                      >
+                  ${esc(personName(s.user_id))}
 
-                        Modifier
+                </strong>
 
-                      </button>
+                ${
 
-                      <button
+                  !s.published
 
-                        class="danger"
+                    ? '<span class="pill draft">Brouillon</span>'
 
-                        onclick="deleteShift('${s.id}')"
+                    : ''
 
-                      >
+                }
 
-                        Suppr.
+                <div
 
-                      </button>
+                  class="small"
 
-                    </span>
+                  style="margin-top:5px"
 
-                  `
+                >
 
-                  : ''
+                  ${timeShort(s.start_time)}–${timeShort(s.end_time)}
 
-              }
+                  ·
 
-              <strong>
+                  ${fmtH(hoursBetweenTimes(s.start_time,s.end_time))}
 
-                ${esc(personName(s.employee_id))}
+                </div>
 
-              </strong>
+                ${
 
-              ${
+                  isManager()
 
-                isManager() && !s.published
+                    ? `
 
-                  ? '<span class="pill draft">Brouillon</span>'
+                      <div class="shift-actions">
 
-                  : ''
+                        <button
 
-              }
+                          onclick="editShift('${s.id}')"
 
-              <br>
+                        >
 
-              <span class="small">
+                          Modifier
 
-                ${timeKey(s.start_at)}–${timeKey(s.end_at)}
+                        </button>
 
-                •
+                        <button
 
-                ${fmtH(hoursBetween(s.start_at,s.end_at))}
+                          class="danger"
 
-              </span>
+                          onclick="deleteShift('${s.id}')"
 
-            </div>
+                        >
 
-          `)
+                          Supprimer
+
+                        </button>
+
+                      </div>
+
+                    `
+
+                    : (
+
+                        pending
+
+                          ? `
+
+                            <div style="margin-top:8px">
+
+                              <span class="pill draft">
+
+                                Modification en attente
+
+                              </span>
+
+                            </div>
+
+                          `
+
+                          : `
+
+                            <div class="shift-actions">
+
+                              <button
+
+                                class="info"
+
+                                onclick="openChangeRequest('${s.id}')"
+
+                              >
+
+                                🔄 Demander une modification
+
+                              </button>
+
+                            </div>
+
+                          `
+
+                      )
+
+                }
+
+              </div>
+
+            `;
+
+          })
 
           .join('');
 
@@ -3088,13 +4160,21 @@ function renderPlanning(){
 
     });
 
-  $('planningList').innerHTML =
+  $('planningList')
 
-    html ||
+    .innerHTML =
 
-    '<div class="small">Aucun service au planning.</div>';
+      html ||
+
+      '<div class="small">Aucun service au planning.</div>';
 
 }
+
+/* ============================================================
+
+   MOIS
+
+============================================================ */
 
 function renderMonthly(){
 
@@ -3102,7 +4182,7 @@ function renderMonthly(){
 
     $('monthPicker').value ||
 
-    new Date().toISOString().slice(0,7);
+    currentMonthKey();
 
   const people =
 
@@ -3110,13 +4190,13 @@ function renderMonthly(){
 
       ? profiles.filter(
 
-          p=>p.active
+          p => p.active
 
         )
 
       : profiles.filter(
 
-          p=>p.id===me.id
+          p => p.id === me.id
 
         );
 
@@ -3124,7 +4204,7 @@ function renderMonthly(){
 
     shifts.filter(
 
-      s=>inMonth(s.start_at,key)
+      s => inMonth(s.date,key)
 
     );
 
@@ -3134,9 +4214,9 @@ function renderMonthly(){
 
       rel.filter(
 
-        s=>
+        s =>
 
-          s.employee_id===me.id &&
+          s.user_id === me.id &&
 
           s.published
 
@@ -3144,93 +4224,95 @@ function renderMonthly(){
 
   }
 
-  $('selectedMonthTotal').textContent =
+  $('selectedMonthTotal')
 
-    fmtH(
+    .textContent =
 
-      shiftHours(rel)
+      fmtH(
 
-    );
+        shiftHours(rel)
 
-  $('monthlySummary').innerHTML =
+      );
 
-    people
+  $('monthlySummary')
 
-      .map(p=>{
+    .innerHTML =
 
-        const ps =
+      people
 
-          rel.filter(
+        .map(p=>{
 
-            s=>s.employee_id===p.id
+          const ps =
 
-          );
+            rel.filter(
 
-        const h =
+              s => s.user_id === p.id
 
-          shiftHours(ps);
+            );
 
-        return `
+          return `
 
-          <div
+            <div
 
-            class="employee-card"
+              class="employee-card"
 
-            onclick="showMonthDetail('${p.id}')"
+              onclick="showMonthDetail('${p.id}')"
 
-            style="cursor:pointer"
+              style="cursor:pointer"
 
-          >
+            >
 
-            <strong>
+              <strong>
 
-              ${esc(p.full_name)}
+                ${esc(displayName(p))}
 
-            </strong>
+              </strong>
 
-            <div class="row">
+              <div>
 
-              <span>
+                ${fmtH(shiftHours(ps))}
 
-                ${fmtH(h)}
+                <span class="small">
 
-              </span>
+                  · ${ps.length} service${ps.length>1?'s':''}
 
-              <span class="small">
+                </span>
 
-                • ${ps.length}
-
-                service${ps.length>1?'s':''}
-
-              </span>
+              </div>
 
             </div>
 
-          </div>
+          `;
 
-        `;
+        })
 
-      })
+        .join('')
 
-      .join('')
+        ||
 
-      ||
-
-      '<div class="small">Aucune donnée.</div>';
+        '<div class="small">Aucune donnée.</div>';
 
   $('monthDetailCard')
 
-    .classList.add('hidden');
+    .classList
+
+    .add('hidden');
 
 }
 
 function showMonthDetail(id){
 
+  if(!isManager() && id !== me.id){
+
+    return;
+
+  }
+
   const p =
 
     profiles.find(
 
-      x=>x.id===id
+      x => x.id === id
 
     );
 
@@ -3240,27 +4322,21 @@ function showMonthDetail(id){
 
   }
 
-  if(!isManager() && id!==me.id){
-
-    return;
-
-  }
-
   const key =
 
     $('monthPicker').value ||
 
-    new Date().toISOString().slice(0,7);
+    currentMonthKey();
 
   let ps =
 
     shifts.filter(
 
-      s=>
+      s =>
 
-        s.employee_id===id &&
+        s.user_id === id &&
 
-        inMonth(s.start_at,key)
+        inMonth(s.date,key)
 
     );
 
@@ -3270,7 +4346,7 @@ function showMonthDetail(id){
 
       ps.filter(
 
-        s=>s.published
+        s => s.published
 
       );
 
@@ -3280,119 +4356,95 @@ function showMonthDetail(id){
 
     shiftHours(ps);
 
-  const label =
+  $('monthDetailTitle')
 
-    new Date(key+'-01T12:00:00')
+    .textContent =
 
-      .toLocaleDateString(
+      `${displayName(p)} — ${key}`;
 
-        'fr-BE',
+  $('monthDetail')
 
-        {
+    .innerHTML =
 
-          month:'long',
+      ps.length
 
-          year:'numeric'
+        ? `
 
-        }
-
-      );
-
-  $('monthDetailTitle').textContent =
-
-    `${p.full_name} — `+
-
-    `${label.charAt(0).toUpperCase()+label.slice(1)}`;
-
-  $('monthDetail').innerHTML =
-
-    ps.length
-
-      ? `
-
-        <table>
-
-          <tr>
-
-            <th>Date</th>
-
-            <th>Horaire</th>
-
-            <th>Heures</th>
-
-          </tr>
-
-          ${ps.map(s=>`
+          <table>
 
             <tr>
 
-              <td>
+              <th>Date</th>
 
-                ${formatDateFr(s.start_at)}
+              <th>Horaire</th>
 
-              </td>
-
-              <td>
-
-                ${timeKey(s.start_at)}–${timeKey(s.end_at)}
-
-              </td>
-
-              <td>
-
-                ${fmtH(hoursBetween(s.start_at,s.end_at))}
-
-              </td>
+              <th>Heures</th>
 
             </tr>
 
-          `).join('')}
+            ${ps.map(s=>`
 
-          <tr>
+              <tr>
 
-            <th colspan="2">
+                <td>
 
-              Total
+                  ${formatDateFr(s.date)}
 
-            </th>
+                </td>
 
-            <th>
+                <td>
 
-              ${fmtH(total)}
+                  ${timeShort(s.start_time)}–${timeShort(s.end_time)}
 
-            </th>
+                </td>
 
-          </tr>
+                <td>
 
-        </table>
+                  ${fmtH(hoursBetweenTimes(s.start_time,s.end_time))}
 
-      `
+                </td>
 
-      :
+              </tr>
 
-      '<div class="small">Aucun service ce mois-ci.</div>';
+            `).join('')}
+
+            <tr>
+
+              <th colspan="2">
+
+                Total
+
+              </th>
+
+              <th>
+
+                ${fmtH(total)}
+
+              </th>
+
+            </tr>
+
+          </table>
+
+        `
+
+        :
+
+        '<div class="small">Aucun service ce mois-ci.</div>';
 
   $('monthDetailCard')
 
-    .classList.remove('hidden');
+    .classList
 
-  $('monthDetailCard')
-
-    .scrollIntoView({
-
-      behavior:'smooth',
-
-      block:'start'
-
-    });
+    .remove('hidden');
 
 }
 
-/* =========================
+/* ============================================================
 
    EQUIPE
 
-========================= */
+============================================================ */
 
 function renderTeam(){
 
@@ -3402,349 +4454,397 @@ function renderTeam(){
 
   }
 
-  $('teamList').innerHTML =
+  $('teamList')
 
-    profiles
+    .innerHTML =
 
-      .map(p=>{
+      profiles
 
-        const ps =
+        .map(p=>{
 
-          shifts.filter(
+          const isMe =
 
-            s=>s.employee_id===p.id
+            p.id === me.id;
 
-          );
+          const ps =
 
-        const week =
+            shifts.filter(
 
-          shiftHours(
+              s => s.user_id === p.id
 
-            ps.filter(
+            );
 
-              s=>inCurrentWeek(s.start_at)
+          const week =
 
-            )
+            shiftHours(
 
-          );
+              ps.filter(
 
-        const month =
+                s => inCurrentWeek(s.date)
 
-          shiftHours(
+              )
 
-            ps.filter(
+            );
 
-              s=>inCurrentMonth(s.start_at)
+          const month =
 
-            )
+            shiftHours(
 
-          );
+              ps.filter(
 
-        const isMe =
+                s => inCurrentMonth(s.date)
 
-          p.id===me.id;
+              )
 
-        return `
+            );
 
-          <div class="employee-card">
+          return `
 
-            <strong>
+            <div class="employee-card">
 
-              ${esc(p.full_name)}
+              <strong>
 
-            </strong>
+                ${esc(displayName(p))}
 
-            <span class="small">
+              </strong>
 
-              ${esc(roleLabel(p))}
+              <span class="pill">
 
-            </span>
+                ${esc(roleLabel(p))}
 
-            ${
+              </span>
 
-              p.active
+              ${
 
-                ? '<span class="pill ok">Actif</span>'
+                p.active
 
-                : '<span class="pill no">Désactivé</span>'
+                  ? '<span class="pill ok">Actif</span>'
 
-            }
+                  : '<span class="pill no">En attente / désactivé</span>'
 
-            <div class="team-hours">
+              }
 
-              <div>
+              <div class="team-hours">
 
-                <div class="small">
+                <div>
 
-                  Cette semaine
+                  <div class="small">
+
+                    Cette semaine
+
+                  </div>
+
+                  <div class="number">
+
+                    ${fmtH(week)}
+
+                  </div>
 
                 </div>
 
-                <div class="number">
+                <div>
 
-                  ${fmtH(week)}
+                  <div class="small">
+
+                    Ce mois
+
+                  </div>
+
+                  <div class="number">
+
+                    ${fmtH(month)}
+
+                  </div>
 
                 </div>
 
               </div>
 
-              <div>
+              <div class="team-actions">
 
-                <div class="small">
+                <button
 
-                  Ce mois
+                  class="secondary"
 
-                </div>
+                  onclick="teamHours('${p.id}')"
 
-                <div class="number">
+                >
 
-                  ${fmtH(month)}
+                  Voir les heures
 
-                </div>
+                </button>
+
+                ${
+
+                  !isMe
+
+                    ? (
+
+                        p.active
+
+                          ? `
+
+                            <button
+
+                              class="danger"
+
+                              onclick="setMemberActive('${p.id}',false)"
+
+                            >
+
+                              Désactiver
+
+                            </button>
+
+                          `
+
+                          : `
+
+                            <button
+
+                              class="okbtn"
+
+                              onclick="setMemberActive('${p.id}',true)"
+
+                            >
+
+                              Activer
+
+                            </button>
+
+                          `
+
+                      )
+
+                    : ''
+
+                }
+
+                ${
+
+                  isOwner() &&
+
+                  !isMe
+
+                    ? `
+
+                      <select
+
+                        onchange="configureRole('${p.id}',this.value,${p.active})"
+
+                      >
+
+                        <option
+
+                          value="employe"
+
+                          ${p.role==='employe'?'selected':''}
+
+                        >
+
+                          Employé
+
+                        </option>
+
+                        <option
+
+                          value="responsable"
+
+                          ${p.role==='responsable'?'selected':''}
+
+                        >
+
+                          Responsable
+
+                        </option>
+
+                        <option
+
+                          value="patron"
+
+                          ${p.role==='patron'?'selected':''}
+
+                        >
+
+                          Patron
+
+                        </option>
+
+                      </select>
+
+                      <button
+
+                        class="danger"
+
+                        onclick="deleteEmployee('${p.id}')"
+
+                      >
+
+                        Supprimer le compte
+
+                      </button>
+
+                    `
+
+                    : ''
+
+                }
 
               </div>
 
             </div>
 
-            <div class="team-actions">
+          `;
 
-              <button
+        })
 
-                class="secondary"
+        .join('')
 
-                onclick="teamHours('${p.id}')"
+        ||
 
-              >
-
-                Voir ${isMe?'mes':'les'} heures
-
-              </button>
-
-              ${
-
-                !isMe && p.role!=='manager'
-
-                  ? `
-
-                    <button
-
-                      class="info"
-
-                      onclick="givePatronAccess('${p.id}')"
-
-                    >
-
-                      👑 Donner accès Patron
-
-                    </button>
-
-                  `
-
-                  : ''
-
-              }
-
-              ${
-
-                p.role==='manager'
-
-                  ? `
-
-                    <select
-
-                      onchange="changeManagerTitle('${p.id}',this.value)"
-
-                      style="width:auto"
-
-                    >
-
-                      <option
-
-                        value="responsable"
-
-                        ${p.title!=='patron'?'selected':''}
-
-                      >
-
-                        Responsable
-
-                      </option>
-
-                      <option
-
-                        value="patron"
-
-                        ${p.title==='patron'?'selected':''}
-
-                      >
-
-                        Patron
-
-                      </option>
-
-                    </select>
-
-                  `
-
-                  : ''
-
-              }
-
-              ${
-
-                !isMe && p.role!=='manager'
-
-                  ? (
-
-                      p.active
-
-                        ? `
-
-                          <button
-
-                            class="danger"
-
-                            onclick="setEmployeeActive('${p.id}',false)"
-
-                          >
-
-                            Désactiver
-
-                          </button>
-
-                        `
-
-                        : `
-
-                          <button
-
-                            onclick="setEmployeeActive('${p.id}',true)"
-
-                          >
-
-                            Activer
-
-                          </button>
-
-                        `
-
-                    )
-
-                  : ''
-
-              }
-
-              ${
-
-                !isMe && p.role!=='manager'
-
-                  ? `
-
-                    <button
-
-                      class="danger"
-
-                      onclick="deleteEmployee('${p.id}')"
-
-                    >
-
-                      Supprimer le compte
-
-                    </button>
-
-                  `
-
-                  : ''
-
-              }
-
-            </div>
-
-          </div>
-
-        `;
-
-      })
-
-      .join('')
-
-      ||
-
-      '<div class="small">Aucun profil.</div>';
+        '<div class="small">Aucun profil.</div>';
 
 }
 
-function teamHours(id){
+/* ============================================================
 
-  $('monthPicker').value =
+   NOTIFICATIONS
 
-    new Date()
+============================================================ */
 
-      .toISOString()
+function renderNotifications(){
 
-      .slice(0,7);
+  const mine =
 
-  show('monthly');
+    notifications.filter(
 
-  setTimeout(
-
-    ()=>showMonthDetail(id),
-
-    100
-
-  );
-
-}
-
-/* =========================
-
-   ACTIONS
-
-========================= */
-
-async function refresh(){
-
-  try{
-
-    await loadAll();
-
-    if(me){
-
-      const freshMe =
-
-        profiles.find(
-
-          p=>p.id===me.id
-
-        );
-
-      if(freshMe){
-
-        me = freshMe;
-
-      }
-
-    }
-
-    renderAll();
-
-  }catch(e){
-
-    console.error(e);
-
-    alert(
-
-      'Erreur : '+e.message
+      n => n.user_id === me.id
 
     );
 
-  }
+  const unread =
+
+    mine.filter(
+
+      n => !n.read
+
+    ).length;
+
+  $('bellCount')
+
+    .textContent =
+
+      unread;
+
+  $('bellCount')
+
+    .classList
+
+    .toggle(
+
+      'hidden',
+
+      unread === 0
+
+    );
+
+  $('notificationsList')
+
+    .innerHTML =
+
+      mine.length
+
+        ? mine
+
+            .map(n=>`
+
+              <div
+
+                class="notification-item ${n.read?'':'unread'}"
+
+              >
+
+                <strong>
+
+                  ${esc(n.title)}
+
+                </strong>
+
+                <div style="margin-top:5px">
+
+                  ${esc(n.message)}
+
+                </div>
+
+                <div
+
+                  class="small"
+
+                  style="margin-top:6px"
+
+                >
+
+                  ${
+
+                    new Date(n.created_at)
+
+                      .toLocaleString('fr-BE')
+
+                  }
+
+                </div>
+
+                ${
+
+                  !n.read
+
+                    ? `
+
+                      <button
+
+                        class="secondary"
+
+                        style="margin-top:8px"
+
+                        onclick="markNotificationRead('${n.id}')"
+
+                      >
+
+                        Marquer comme lu
+
+                      </button>
+
+                    `
+
+                    : ''
+
+                }
+
+              </div>
+
+            `)
+
+            .join('')
+
+        :
+
+        '<div class="small">Aucune notification.</div>';
 
 }
 
+/* ============================================================
+
+   ACTIONS DISPONIBILITES
+
+============================================================ */
+
 async function saveAvailability(){
 
-  if(!$('avDate').value){
+  const date =
+
+    $('avDate').value;
+
+  if(!date){
 
     return alert(
 
@@ -3754,7 +4854,7 @@ async function saveAvailability(){
 
   }
 
-  const employee_id =
+  const user_id =
 
     isManager()
 
@@ -3762,71 +4862,25 @@ async function saveAvailability(){
 
       : me.id;
 
-  const status =
+  const available =
 
-    $('avStatus').value;
+    $('avAvailable').value === 'true';
 
-  const date =
+  const start_time =
 
-    $('avDate').value;
+    available
 
-  let start_at;
+      ? $('avStart').value
 
-  let end_at;
+      : '00:00';
 
-  let note = '[EN_ATTENTE]';
+  const end_time =
 
-  if(status==='no'){
+    available
 
-    start_at =
+      ? $('avEnd').value
 
-      localStamp(
-
-        date,
-
-        '00:00'
-
-      );
-
-    end_at =
-
-      localStamp(
-
-        date,
-
-        '23:59'
-
-      );
-
-    note =
-
-      '[INDISPONIBLE]';
-
-  }else{
-
-    start_at =
-
-      localStamp(
-
-        date,
-
-        $('avStart').value
-
-      );
-
-    end_at =
-
-      endStamp(
-
-        date,
-
-        $('avStart').value,
-
-        $('avEnd').value
-
-      );
-
-  }
+      : '23:59';
 
   const {error} =
 
@@ -3836,19 +4890,25 @@ async function saveAvailability(){
 
       .insert({
 
-        employee_id,
+        user_id,
 
-        start_at,
+        date,
 
-        end_at,
+        start_time,
 
-        note
+        end_time,
+
+        available,
+
+        status:'pending'
 
       });
 
   if(error){
 
     return alert(
+
+      'Erreur : ' +
 
       error.message
 
@@ -3872,7 +4932,7 @@ async function acceptAvailability(id){
 
     availabilities.find(
 
-      x=>String(x.id)===String(id)
+      x => x.id === id
 
     );
 
@@ -3882,81 +4942,7 @@ async function acceptAvailability(id){
 
   }
 
-  const dateEl =
-
-    $('avEditDate_' + id);
-
-  const startEl =
-
-    $('avEditStart_' + id);
-
-  const endEl =
-
-    $('avEditEnd_' + id);
-
-  if(!dateEl || !startEl || !endEl){
-
-    return;
-
-  }
-
-  const date =
-
-    dateEl.value;
-
-  const start =
-
-    startEl.value;
-
-  const end =
-
-    endEl.value;
-
-  if(!date || !start || !end){
-
-    return alert(
-
-      'Complète la date, le début et la fin.'
-
-    );
-
-  }
-
-  const start_at =
-
-    localStamp(
-
-      date,
-
-      start
-
-    );
-
-  const end_at =
-
-    endStamp(
-
-      date,
-
-      start,
-
-      end
-
-    );
-
-  const duplicate =
-
-    shifts.some(s=>
-
-      s.employee_id === a.employee_id &&
-
-      s.start_at === start_at &&
-
-      s.end_at === end_at
-
-    );
-
-  if(!duplicate){
+  if(a.available){
 
     const {error:shiftError} =
 
@@ -3966,23 +4952,17 @@ async function acceptAvailability(id){
 
         .insert({
 
-          employee_id:
+          user_id:a.user_id,
 
-            a.employee_id,
+          date:a.date,
 
-          start_at,
+          start_time:a.start_time,
 
-          end_at,
+          end_time:a.end_time,
 
           published:true,
 
-          created_by:
-
-            me.id,
-
-          note:
-
-            'Ajouté depuis une disponibilité acceptée'
+          created_by:me.id
 
         });
 
@@ -3990,7 +4970,7 @@ async function acceptAvailability(id){
 
       return alert(
 
-        'Impossible d’ajouter au planning : ' +
+        'Impossible d’ajouter le service : ' +
 
         shiftError.message
 
@@ -4000,7 +4980,7 @@ async function acceptAvailability(id){
 
   }
 
-  const {error:availabilityError} =
+  const {error} =
 
     await sb
 
@@ -4008,41 +4988,41 @@ async function acceptAvailability(id){
 
       .update({
 
-        start_at,
+        status:'accepted',
 
-        end_at,
-
-        note:'[ACCEPTEE]'
+        updated_at:new Date().toISOString()
 
       })
 
       .eq('id',id);
 
-  if(availabilityError){
+  if(error){
 
     return alert(
 
-      'Planning ajouté, mais impossible de valider la disponibilité : ' +
-
-      availabilityError.message
+      error.message
 
     );
 
   }
 
-  alert(
+  await createNotification(
 
-    personName(a.employee_id) +
+    a.user_id,
 
-    ' a été ajouté(e) au planning de ' +
+    a.available
 
-    start +
+      ? 'Disponibilité acceptée'
 
-    ' à ' +
+      : 'Indisponibilité validée',
 
-    end +
+    a.available
 
-    '.'
+      ? 'Ta disponibilité a été acceptée et ajoutée au planning.'
+
+      : 'Ton indisponibilité a été prise en compte.',
+
+    'success'
 
   );
 
@@ -4062,7 +5042,7 @@ async function refuseAvailability(id){
 
     availabilities.find(
 
-      x=>String(x.id)===String(id)
+      x => x.id === id
 
     );
 
@@ -4074,11 +5054,7 @@ async function refuseAvailability(id){
 
   if(!confirm(
 
-    'Refuser cette disponibilité de ' +
-
-    personName(a.employee_id) +
-
-    ' ?'
+    `Refuser cette demande de ${personName(a.user_id)} ?`
 
   )){
 
@@ -4094,7 +5070,9 @@ async function refuseAvailability(id){
 
       .update({
 
-        note:'[REFUSEE]'
+        status:'refused',
+
+        updated_at:new Date().toISOString()
 
       })
 
@@ -4104,13 +5082,23 @@ async function refuseAvailability(id){
 
     return alert(
 
-      'Impossible de refuser la disponibilité : ' +
-
       error.message
 
     );
 
   }
+
+  await createNotification(
+
+    a.user_id,
+
+    'Disponibilité refusée',
+
+    'Ta demande de disponibilité a été refusée.',
+
+    'danger'
+
+  );
 
   await refresh();
 
@@ -4152,6 +5140,12 @@ async function deleteAvailability(id){
 
 }
 
+/* ============================================================
+
+   ACTIONS SHIFTS
+
+============================================================ */
+
 async function addShift(){
 
   if(!isManager()){
@@ -4160,7 +5154,11 @@ async function addShift(){
 
   }
 
-  if(!$('shiftDate').value){
+  const date =
+
+    $('shiftDate').value;
+
+  if(!date){
 
     return alert(
 
@@ -4170,17 +5168,153 @@ async function addShift(){
 
   }
 
+  const payload = {
+
+    user_id:
+
+      $('shiftPerson').value,
+
+    date,
+
+    start_time:
+
+      $('shiftStart').value,
+
+    end_time:
+
+      $('shiftEnd').value,
+
+    published:
+
+      $('shiftPublished').checked,
+
+    created_by:
+
+      me.id
+
+  };
+
+  const {data,error} =
+
+    await sb
+
+      .from('shifts')
+
+      .insert(payload)
+
+      .select()
+
+      .single();
+
+  if(error){
+
+    return alert(
+
+      error.message
+
+    );
+
+  }
+
+  if(payload.published){
+
+    await createNotification(
+
+      payload.user_id,
+
+      'Nouvel horaire',
+
+      `Un service a été ajouté le ${formatDateFr(date)} de ${timeShort(payload.start_time)} à ${timeShort(payload.end_time)}.`,
+
+      'info',
+
+      data?.id
+
+    );
+
+  }
+
+  await refresh();
+
+}
+
+async function editShift(id){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const s =
+
+    shifts.find(
+
+      x => x.id === id
+
+    );
+
+  if(!s){
+
+    return;
+
+  }
+
   const date =
 
-    $('shiftDate').value;
+    prompt(
+
+      'Date AAAA-MM-JJ',
+
+      s.date
+
+    );
+
+  if(!date){
+
+    return;
+
+  }
 
   const start =
 
-    $('shiftStart').value;
+    prompt(
+
+      'Début HH:MM',
+
+      timeShort(s.start_time)
+
+    );
+
+  if(!start){
+
+    return;
+
+  }
 
   const end =
 
-    $('shiftEnd').value;
+    prompt(
+
+      'Fin HH:MM',
+
+      timeShort(s.end_time)
+
+    );
+
+  if(!end){
+
+    return;
+
+  }
+
+  const published =
+
+    confirm(
+
+      'OK = publié pour l’employé\nAnnuler = brouillon'
+
+    );
 
   const {error} =
 
@@ -4188,35 +5322,47 @@ async function addShift(){
 
       .from('shifts')
 
-      .insert({
+      .update({
 
-        employee_id:
+        date,
 
-          $('shiftPerson').value,
+        start_time:start,
 
-        start_at:
+        end_time:end,
 
-          localStamp(date,start),
+        published,
 
-        end_at:
+        updated_at:
 
-          endStamp(date,start,end),
+          new Date().toISOString()
 
-        published:
+      })
 
-          $('shiftPublished').checked,
-
-        created_by:
-
-          me.id
-
-      });
+      .eq('id',id);
 
   if(error){
 
     return alert(
 
       error.message
+
+    );
+
+  }
+
+  if(published){
+
+    await createNotification(
+
+      s.user_id,
+
+      'Horaire modifié',
+
+      `Ton service du ${formatDateFr(date)} est maintenant prévu de ${start} à ${end}.`,
+
+      'warning',
+
+      id
 
     );
 
@@ -4264,9 +5410,15 @@ async function deleteShift(id){
 
 }
 
-async function editShift(id){
+/* ============================================================
 
-  if(!isManager()){
+   DEMANDE MODIFICATION EMPLOYE
+
+============================================================ */
+
+function openChangeRequest(id){
+
+  if(isManager()){
 
     return;
 
@@ -4276,7 +5428,7 @@ async function editShift(id){
 
     shifts.find(
 
-      x=>String(x.id)===String(id)
+      x => x.id === id
 
     );
 
@@ -4286,17 +5438,49 @@ async function editShift(id){
 
   }
 
-  const date =
+  if(pendingRequestForShift(id)){
 
-    prompt(
+    return alert(
 
-      'Date AAAA-MM-JJ',
-
-      dateKey(s.start_at)
+      'Une demande est déjà en attente pour cet horaire.'
 
     );
 
-  if(!date){
+  }
+
+  selectedShiftForChange =
+
+    s;
+
+  $('changeCurrent')
+
+    .innerHTML =
+
+      `Horaire actuel : <strong>${formatDateFr(s.date)} — ${timeShort(s.start_time)} à ${timeShort(s.end_time)}</strong>`;
+
+  $('changeStart').value =
+
+    timeShort(s.start_time);
+
+  $('changeEnd').value =
+
+    timeShort(s.end_time);
+
+  $('changeReason').value =
+
+    '';
+
+  $('changeModal')
+
+    .classList
+
+    .remove('hidden');
+
+}
+
+async function sendChangeRequest(){
+
+  if(!selectedShiftForChange){
 
     return;
 
@@ -4304,75 +5488,65 @@ async function editShift(id){
 
   const start =
 
-    prompt(
-
-      'Début HH:MM',
-
-      timeKey(s.start_at)
-
-    );
-
-  if(!start){
-
-    return;
-
-  }
+    $('changeStart').value;
 
   const end =
 
-    prompt(
+    $('changeEnd').value;
 
-      'Fin HH:MM',
+  const reason =
 
-      timeKey(s.end_at)
+    $('changeReason')
+
+      .value
+
+      .trim();
+
+  if(!start || !end){
+
+    return alert(
+
+      'Complète le nouvel horaire.'
 
     );
-
-  if(!end){
-
-    return;
 
   }
 
-  const pub =
+  const s =
 
-    confirm(
-
-      'OK = publié pour l’employé\nAnnuler = brouillon'
-
-    );
+    selectedShiftForChange;
 
   const {error} =
 
     await sb
 
-      .from('shifts')
+      .from('shift_change_requests')
 
-      .update({
+      .insert({
 
-        start_at:
+        shift_id:s.id,
 
-          localStamp(date,start),
+        user_id:me.id,
 
-        end_at:
+        old_start_time:s.start_time,
 
-          endStamp(date,start,end),
+        old_end_time:s.end_time,
 
-        published:
+        requested_start_time:start,
 
-          pub,
+        requested_end_time:end,
 
-        updated_at:
+        reason,
 
-          new Date().toISOString()
+        status:'pending'
 
-      })
-
-      .eq('id',id);
+      });
 
   if(error){
 
     return alert(
+
+      'Impossible d’envoyer la demande : ' +
 
       error.message
 
@@ -4380,143 +5554,19 @@ async function editShift(id){
 
   }
 
-  await refresh();
+  $('changeModal')
 
-}
+    .classList
 
-async function setEmployeeActive(id,active){
+    .add('hidden');
 
-  if(!isManager()){
+  selectedShiftForChange =
 
-    return;
-
-  }
-
-  const p =
-
-    profiles.find(
-
-      x=>x.id===id
-
-    );
-
-  if(!p){
-
-    return;
-
-  }
-
-  const action =
-
-    active
-
-      ? 'activer'
-
-      : 'désactiver';
-
-  if(!confirm(
-
-    `${action.charAt(0).toUpperCase()+action.slice(1)} le compte de ${p.full_name} ?`
-
-  )){
-
-    return;
-
-  }
-
-  const {error} =
-
-    await sb
-
-      .from('profiles')
-
-      .update({
-
-        active
-
-      })
-
-      .eq('id',id);
-
-  if(error){
-
-    return alert(
-
-      'Impossible de modifier le compte : '+error.message
-
-    );
-
-  }
-
-  await refresh();
-
-}
-
-async function givePatronAccess(id){
-
-  if(!isManager()){
-
-    return;
-
-  }
-
-  const p =
-
-    profiles.find(
-
-      x=>x.id===id
-
-    );
-
-  if(!p){
-
-    return;
-
-  }
-
-  if(!confirm(
-
-    `Donner à ${p.full_name} un accès Patron complet ?`
-
-  )){
-
-    return;
-
-  }
-
-  const {error} =
-
-    await sb
-
-      .from('profiles')
-
-      .update({
-
-        role:'manager',
-
-        title:'patron',
-
-        active:true
-
-      })
-
-      .eq('id',id);
-
-  if(error){
-
-    return alert(
-
-      'Impossible de donner l’accès Patron : ' +
-
-      error.message
-
-    );
-
-  }
+    null;
 
   alert(
 
-    `${p.full_name} possède maintenant l'accès Patron.`
+    'Demande envoyée ✅ Le Responsable ou le Patron doit maintenant la valider.'
 
   );
 
@@ -4524,7 +5574,7 @@ async function givePatronAccess(id){
 
 }
 
-async function changeManagerTitle(id,title){
+async function reviewChange(id,decision){
 
   if(!isManager()){
 
@@ -4532,13 +5582,19 @@ async function changeManagerTitle(id,title){
 
   }
 
-  if(
+  const label =
 
-    title !== 'responsable' &&
+    decision === 'accepted'
 
-    title !== 'patron'
+      ? 'accepter'
 
-  ){
+      : 'refuser';
+
+  if(!confirm(
+
+    `${label.charAt(0).toUpperCase()+label.slice(1)} cette modification ?`
+
+  )){
 
     return;
 
@@ -4546,23 +5602,23 @@ async function changeManagerTitle(id,title){
 
   const {error} =
 
-    await sb
+    await sb.rpc(
 
-      .from('profiles')
+      'review_shift_change',
 
-      .update({
+      {
 
-        title
+        request_uuid:id,
 
-      })
+        decision
 
-      .eq('id',id);
+      }
+
+    );
 
   if(error){
 
     return alert(
-
-      'Impossible de modifier le rôle affiché : ' +
 
       error.message
 
@@ -4570,9 +5626,145 @@ async function changeManagerTitle(id,title){
 
   }
 
-  if(id === me.id){
+  await refresh();
 
-    me.title = title;
+}
+
+/* ============================================================
+
+   EQUIPE / ROLES
+
+============================================================ */
+
+async function setMemberActive(id,active){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const p =
+
+    profiles.find(
+
+      x => x.id === id
+
+    );
+
+  if(!p){
+
+    return;
+
+  }
+
+  if(!confirm(
+
+    `${active?'Activer':'Désactiver'} le compte de ${displayName(p)} ?`
+
+  )){
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb.rpc(
+
+      'set_member_active',
+
+      {
+
+        member_uuid:id,
+
+        new_active:active
+
+      }
+
+    );
+
+  if(error){
+
+    return alert(
+
+      error.message
+
+    );
+
+  }
+
+  await refresh();
+
+}
+
+async function configureRole(id,role,active){
+
+  if(!isOwner()){
+
+    return alert(
+
+      'Seul le Responsable principal peut modifier les rôles.'
+
+    );
+
+  }
+
+  const p =
+
+    profiles.find(
+
+      x => x.id === id
+
+    );
+
+  if(!p){
+
+    return;
+
+  }
+
+  if(!confirm(
+
+    `Passer ${displayName(p)} en ${roleLabel({role})} ?`
+
+  )){
+
+    renderTeam();
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb.rpc(
+
+      'configure_member',
+
+      {
+
+        member_uuid:id,
+
+        new_role:role,
+
+        new_active:active
+
+      }
+
+    );
+
+  if(error){
+
+    alert(
+
+      error.message
+
+    );
+
+    await refresh();
+
+    return;
 
   }
 
@@ -4582,19 +5774,9 @@ async function changeManagerTitle(id,title){
 
 async function deleteEmployee(id){
 
-  if(!isManager()){
+  if(!isOwner()){
 
     return;
-
-  }
-
-  if(id===me.id){
-
-    return alert(
-
-      'Tu ne peux pas supprimer ton propre compte.'
-
-    );
 
   }
 
@@ -4602,7 +5784,7 @@ async function deleteEmployee(id){
 
     profiles.find(
 
-      x=>x.id===id
+      x => x.id === id
 
     );
 
@@ -4612,29 +5794,21 @@ async function deleteEmployee(id){
 
   }
 
-  const first =
+  if(!confirm(
 
-    confirm(
+    `Supprimer définitivement le compte de ${displayName(p)} ?`
 
-      `Supprimer définitivement le compte de ${p.full_name} ?`
-
-    );
-
-  if(!first){
+  )){
 
     return;
 
   }
 
-  const second =
+  if(!confirm(
 
-    confirm(
+    `ATTENTION : cette suppression est définitive.\n\nConfirmer la suppression de ${displayName(p)} ?`
 
-      `ATTENTION : suppression définitive de ${p.full_name}.\n\nContinuer ?`
-
-    );
-
-  if(!second){
+  )){
 
     return;
 
@@ -4658,7 +5832,7 @@ async function deleteEmployee(id){
 
     return alert(
 
-      'Suppression impossible : '+error.message
+      error.message
 
     );
 
@@ -4666,7 +5840,7 @@ async function deleteEmployee(id){
 
   alert(
 
-    `Le compte de ${p.full_name} a été supprimé.`
+    'Compte supprimé.'
 
   );
 
@@ -4674,11 +5848,355 @@ async function deleteEmployee(id){
 
 }
 
-/* =========================
+function teamHours(id){
+
+  $('monthPicker').value =
+
+    currentMonthKey();
+
+  show('monthly');
+
+  setTimeout(
+
+    ()=>showMonthDetail(id),
+
+    100
+
+  );
+
+}
+
+/* ============================================================
+
+   NOTIFICATIONS
+
+============================================================ */
+
+async function createNotification(
+
+  userId,
+
+  title,
+
+  message,
+
+  type='info',
+
+  shiftId=null,
+
+  requestId=null
+
+){
+
+  if(!isManager()){
+
+    return;
+
+  }
+
+  const {error} =
+
+    await sb
+
+      .from('notifications')
+
+      .insert({
+
+        user_id:userId,
+
+        title,
+
+        message,
+
+        type,
+
+        related_shift_id:shiftId,
+
+        related_request_id:requestId
+
+      });
+
+  if(error){
+
+    console.error(
+
+      'Notification :',
+
+      error
+
+    );
+
+  }
+
+}
+
+async function markNotificationRead(id){
+
+  const {error} =
+
+    await sb
+
+      .from('notifications')
+
+      .update({
+
+        read:true
+
+      })
+
+      .eq('id',id);
+
+  if(error){
+
+    return alert(
+
+      error.message
+
+    );
+
+  }
+
+  await refresh();
+
+}
+
+async function markAllRead(){
+
+  const unread =
+
+    notifications.filter(
+
+      n =>
+
+        n.user_id === me.id &&
+
+        !n.read
+
+    );
+
+  for(const n of unread){
+
+    await sb
+
+      .from('notifications')
+
+      .update({
+
+        read:true
+
+      })
+
+      .eq('id',n.id);
+
+  }
+
+  await refresh();
+
+}
+
+/* ============================================================
+
+   ACTUALISATION
+
+============================================================ */
+
+async function refresh(){
+
+  try{
+
+    await loadAll();
+
+    const current =
+
+      profiles.find(
+
+        p => p.id === me.id
+
+      );
+
+    if(current){
+
+      me = current;
+
+    }
+
+    if(!me.active){
+
+      alert(
+
+        'Ton compte a été désactivé.'
+
+      );
+
+      return logout();
+
+    }
+
+    renderAll();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+
+      'Erreur : ' +
+
+      e.message
+
+    );
+
+  }
+
+}
+
+function scheduleRefresh(){
+
+  clearTimeout(
+
+    refreshTimer
+
+  );
+
+  refreshTimer =
+
+    setTimeout(
+
+      refresh,
+
+      500
+
+    );
+
+}
+
+/* ============================================================
+
+   REALTIME
+
+============================================================ */
+
+function startRealtime(){
+
+  if(realtimeChannel){
+
+    sb.removeChannel(
+
+      realtimeChannel
+
+    );
+
+  }
+
+  realtimeChannel =
+
+    sb
+
+      .channel(
+
+        'planning-bar-v6'
+
+      )
+
+      .on(
+
+        'postgres_changes',
+
+        {
+
+          event:'*',
+
+          schema:'public',
+
+          table:'profiles'
+
+        },
+
+        scheduleRefresh
+
+      )
+
+      .on(
+
+        'postgres_changes',
+
+        {
+
+          event:'*',
+
+          schema:'public',
+
+          table:'availabilities'
+
+        },
+
+        scheduleRefresh
+
+      )
+
+      .on(
+
+        'postgres_changes',
+
+        {
+
+          event:'*',
+
+          schema:'public',
+
+          table:'shifts'
+
+        },
+
+        scheduleRefresh
+
+      )
+
+      .on(
+
+        'postgres_changes',
+
+        {
+
+          event:'*',
+
+          schema:'public',
+
+          table:'shift_change_requests'
+
+        },
+
+        scheduleRefresh
+
+      )
+
+      .on(
+
+        'postgres_changes',
+
+        {
+
+          event:'*',
+
+          schema:'public',
+
+          table:'notifications'
+
+        },
+
+        scheduleRefresh
+
+      )
+
+      .subscribe();
+
+}
+
+/* ============================================================
 
    RENDU GLOBAL
 
-========================= */
+============================================================ */
 
 function renderAll(){
 
@@ -4696,15 +6214,29 @@ function renderAll(){
 
   renderTeam();
 
+  renderNotifications();
+
 }
 
-/* =========================
+/* ============================================================
 
    NAVIGATION
 
-========================= */
+============================================================ */
 
 function show(id){
+
+  if(
+
+    id === 'team' &&
+
+    !isManager()
+
+  ){
+
+    return;
+
+  }
 
   document
 
@@ -4712,7 +6244,11 @@ function show(id){
 
     .forEach(
 
-      v=>v.classList.add('hidden')
+      v =>
+
+        v.classList
+
+          .add('hidden')
 
     );
 
@@ -4722,7 +6258,9 @@ function show(id){
 
   if(target){
 
-    target.classList.remove('hidden');
+    target.classList
+
+      .remove('hidden');
 
   }
 
@@ -4732,15 +6270,17 @@ function show(id){
 
     .forEach(
 
-      b=>
+      b =>
 
-        b.classList.toggle(
+        b.classList
 
-          'active',
+          .toggle(
 
-          b.dataset.view===id
+            'active',
 
-        )
+            b.dataset.view === id
+
+          )
 
     );
 
@@ -4754,11 +6294,11 @@ function show(id){
 
 }
 
-/* =========================
+/* ============================================================
 
    BOUTONS
 
-========================= */
+============================================================ */
 
 $('loginBtn').onclick =
 
@@ -4772,7 +6312,7 @@ $('loginPassword')
 
     e=>{
 
-      if(e.key==='Enter'){
+      if(e.key === 'Enter'){
 
         login();
 
@@ -4792,11 +6332,15 @@ $('showSignupBtn').onclick =
 
     $('loginForm')
 
-      .classList.add('hidden');
+      .classList
+
+      .add('hidden');
 
     $('signupForm')
 
-      .classList.remove('hidden');
+      .classList
+
+      .remove('hidden');
 
   };
 
@@ -4806,11 +6350,15 @@ $('showLoginBtn').onclick =
 
     $('signupForm')
 
-      .classList.add('hidden');
+      .classList
+
+      .add('hidden');
 
     $('loginForm')
 
-      .classList.remove('hidden');
+      .classList
+
+      .remove('hidden');
 
   };
 
@@ -4842,13 +6390,59 @@ $('monthPicker').onchange =
 
   renderMonthly;
 
+$('sendChangeRequest').onclick =
+
+  sendChangeRequest;
+
+$('closeChangeModal').onclick =
+
+  ()=>{
+
+    selectedShiftForChange = null;
+
+    $('changeModal')
+
+      .classList
+
+      .add('hidden');
+
+  };
+
+$('bellBtn').onclick =
+
+  ()=>{
+
+    $('notificationsPanel')
+
+      .classList
+
+      .remove('hidden');
+
+  };
+
+$('closeNotifications').onclick =
+
+  ()=>{
+
+    $('notificationsPanel')
+
+      .classList
+
+      .add('hidden');
+
+  };
+
+$('markAllRead').onclick =
+
+  markAllRead;
+
 document
 
   .querySelectorAll('.tab')
 
   .forEach(
 
-    b=>
+    b =>
 
       b.onclick =
 
@@ -4862,7 +6456,7 @@ document
 
   .forEach(
 
-    b=>
+    b =>
 
       b.onclick =
 
@@ -4870,15 +6464,11 @@ document
 
   );
 
-/* =========================
+/* ============================================================
 
    FONCTIONS GLOBALES
 
-========================= */
-
-window.deleteAvailability =
-
-  deleteAvailability;
+============================================================ */
 
 window.acceptAvailability =
 
@@ -4888,51 +6478,59 @@ window.refuseAvailability =
 
   refuseAvailability;
 
-window.deleteShift =
+window.deleteAvailability =
 
-  deleteShift;
+  deleteAvailability;
 
 window.editShift =
 
   editShift;
 
-window.showMonthDetail =
+window.deleteShift =
 
-  showMonthDetail;
+  deleteShift;
 
-window.teamHours =
+window.openChangeRequest =
 
-  teamHours;
+  openChangeRequest;
 
-window.setEmployeeActive =
+window.reviewChange =
 
-  setEmployeeActive;
+  reviewChange;
 
-window.givePatronAccess =
+window.setMemberActive =
 
-  givePatronAccess;
+  setMemberActive;
 
-window.changeManagerTitle =
+window.configureRole =
 
-  changeManagerTitle;
+  configureRole;
 
 window.deleteEmployee =
 
   deleteEmployee;
 
-/* =========================
+window.teamHours =
 
-   DATES PAR DEFAUT
+  teamHours;
 
-========================= */
+window.showMonthDetail =
+
+  showMonthDetail;
+
+window.markNotificationRead =
+
+  markNotificationRead;
+
+/* ============================================================
+
+   DATES DE DEPART
+
+============================================================ */
 
 const today =
 
-  new Date()
-
-    .toISOString()
-
-    .slice(0,10);
+  localDateKey();
 
 $('avDate').value =
 
@@ -4946,39 +6544,33 @@ $('monthPicker').value =
 
   today.slice(0,7);
 
-/* =========================
+/* ============================================================
 
    SESSION
 
-========================= */
+============================================================ */
 
-sb.auth.onAuthStateChange(
+sb.auth
 
-  event=>{
+  .onAuthStateChange(
 
-    if(event==='SIGNED_OUT'){
+    event=>{
 
-      showLogin();
+      if(event === 'SIGNED_OUT'){
+
+        showLogin();
+
+      }
 
     }
 
-  }
+  );
 
-);
-
-/* =========================
-
-   LANCEMENT
-
-========================= */
-
-boot();
-
-/* =========================
+/* ============================================================
 
    SERVICE WORKER
 
-========================= */
+============================================================ */
 
 if('serviceWorker' in navigator){
 
@@ -4994,7 +6586,7 @@ if('serviceWorker' in navigator){
 
         .catch(
 
-          err=>
+          err =>
 
             console.log(
 
@@ -5011,6 +6603,14 @@ if('serviceWorker' in navigator){
   );
 
 }
+
+/* ============================================================
+
+   LANCEMENT
+
+============================================================ */
+
+boot();
 
 </script>
 
