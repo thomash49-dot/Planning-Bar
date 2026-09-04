@@ -6,49 +6,17 @@
 
   <meta charset="UTF-8">
 
-  <meta
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    name="viewport"
-
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-
-  >
-
-  <meta
-
-    name="theme-color"
-
-    content="#111827"
-
-  >
+  <meta name="theme-color" content="#111827">
 
   <title>Planning Bar V6</title>
 
-  <link
+  <link rel="manifest" href="./manifest.json">
 
-    rel="manifest"
+  <link rel="apple-touch-icon" href="./icon.PNG">
 
-    href="./manifest.json"
-
-  >
-
-  <link
-
-    rel="apple-touch-icon"
-
-    href="./icon.PNG"
-
-  >
-
-  <link
-
-    rel="icon"
-
-    type="image/png"
-
-    href="./icon.PNG"
-
-  >
+  <link rel="icon" type="image/png" href="./icon.PNG">
 
   <style>
 
@@ -56,7 +24,7 @@
 
       --bg:#f3f4f6;
 
-      --card:#fff;
+      --card:#ffffff;
 
       --text:#111827;
 
@@ -104,17 +72,13 @@
 
       background:rgba(17,24,39,.97);
 
-      color:#fff;
+      color:white;
 
-      padding:
+      padding:18px 16px 14px;
 
-        calc(14px + env(safe-area-inset-top))
+      padding-top:calc(18px + env(safe-area-inset-top));
 
-        16px
-
-        14px;
-
-      box-shadow:0 2px 10px rgba(0,0,0,.14);
+      box-shadow:0 2px 10px rgba(0,0,0,.15);
 
     }
 
@@ -122,9 +86,9 @@
 
       display:flex;
 
-      align-items:center;
-
       justify-content:space-between;
+
+      align-items:center;
 
       gap:10px;
 
@@ -142,9 +106,9 @@
 
       margin:4px 0 0;
 
-      color:#d1d5db;
-
       font-size:13px;
+
+      color:#d1d5db;
 
     }
 
@@ -168,51 +132,11 @@
 
     }
 
-    .bell{
-
-      position:relative;
-
-      min-width:42px;
-
-    }
-
-    .bell-count{
-
-      position:absolute;
-
-      top:-5px;
-
-      right:-5px;
-
-      background:#dc2626;
-
-      color:white;
-
-      min-width:18px;
-
-      height:18px;
-
-      border-radius:999px;
-
-      display:flex;
-
-      justify-content:center;
-
-      align-items:center;
-
-      font-size:10px;
-
-      font-weight:900;
-
-      padding:0 4px;
-
-    }
-
     main{
 
       max-width:1100px;
 
-      margin:0 auto;
+      margin:auto;
 
       padding:16px;
 
@@ -242,9 +166,7 @@
 
     @media(max-width:760px){
 
-      .two,
-
-      .three{
+      .two,.three{
 
         grid-template-columns:1fr;
 
@@ -254,7 +176,7 @@
 
     .card{
 
-      background:var(--card);
+      background:white;
 
       border:1px solid var(--border);
 
@@ -268,9 +190,9 @@
 
     h2{
 
-      font-size:18px;
-
       margin:0 0 12px;
+
+      font-size:18px;
 
     }
 
@@ -294,43 +216,21 @@
 
       display:block;
 
+      margin:8px 0 5px;
+
       font-size:13px;
 
       font-weight:600;
 
-      margin:8px 0 5px;
-
     }
 
-    .row{
-
-      display:flex;
-
-      gap:8px;
-
-      align-items:center;
-
-      flex-wrap:wrap;
-
-    }
-
-    input,
-
-    select,
-
-    textarea,
-
-    button{
+    input,select,textarea,button{
 
       font:inherit;
 
     }
 
-    input,
-
-    select,
-
-    textarea{
+    input,select,textarea{
 
       width:100%;
 
@@ -340,13 +240,13 @@
 
       border-radius:10px;
 
-      background:#fff;
+      background:white;
 
     }
 
     textarea{
 
-      min-height:85px;
+      min-height:90px;
 
       resize:vertical;
 
@@ -362,7 +262,7 @@
 
       background:var(--accent);
 
-      color:#fff;
+      color:white;
 
       font-weight:700;
 
@@ -378,12 +278,6 @@
 
     }
 
-    button.danger{
-
-      background:#991b1b;
-
-    }
-
     button.info{
 
       background:var(--info);
@@ -392,13 +286,19 @@
 
     button.okbtn{
 
-      background:#15803d;
+      background:var(--ok);
 
     }
 
     button.warnbtn{
 
-      background:#b45309;
+      background:var(--warn);
+
+    }
+
+    button.danger{
+
+      background:#991b1b;
 
     }
 
@@ -410,6 +310,24 @@
 
     }
 
+    .row{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:8px;
+
+      flex-wrap:wrap;
+
+    }
+
+    .hidden{
+
+      display:none!important;
+
+    }
+
     .tabs{
 
       display:flex;
@@ -418,11 +336,11 @@
 
       overflow-x:auto;
 
-      margin-bottom:14px;
+      scrollbar-width:none;
 
       padding-bottom:2px;
 
-      scrollbar-width:none;
+      margin-bottom:14px;
 
     }
 
@@ -434,11 +352,11 @@
 
     .tab{
 
-      white-space:nowrap;
-
       background:#e5e7eb;
 
       color:#111827;
+
+      white-space:nowrap;
 
     }
 
@@ -446,13 +364,7 @@
 
       background:#111827;
 
-      color:#fff;
-
-    }
-
-    .hidden{
-
-      display:none!important;
+      color:white;
 
     }
 
@@ -476,9 +388,29 @@
 
     }
 
+    .role-badge{
+
+      display:inline-block;
+
+      margin-left:7px;
+
+      padding:4px 8px;
+
+      background:#374151;
+
+      border-radius:999px;
+
+      font-size:12px;
+
+      color:white;
+
+    }
+
     .pill{
 
       display:inline-block;
+
+      margin:2px;
 
       padding:4px 8px;
 
@@ -487,8 +419,6 @@
       background:#eef2ff;
 
       font-size:12px;
-
-      margin:2px;
 
     }
 
@@ -560,25 +490,27 @@
 
       padding:10px;
 
+      border:1px solid var(--border);
+
       border-radius:10px;
 
       background:#f9fafb;
-
-      border:1px solid var(--border);
 
       margin-top:7px;
 
     }
 
-    .shift-actions{
+    .shift-actions,
+
+    .team-actions{
 
       display:flex;
 
-      gap:6px;
-
       flex-wrap:wrap;
 
-      margin-top:9px;
+      gap:7px;
+
+      margin-top:10px;
 
     }
 
@@ -624,23 +556,11 @@
 
     }
 
-    .team-actions{
-
-      display:flex;
-
-      flex-wrap:wrap;
-
-      gap:8px;
-
-      margin-top:10px;
-
-    }
-
     .team-actions select{
 
       width:auto;
 
-      min-width:135px;
+      min-width:140px;
 
     }
 
@@ -650,19 +570,11 @@
 
       border-radius:10px;
 
+      font-size:13px;
+
       background:#fff7ed;
 
       color:#9a3412;
-
-      font-size:13px;
-
-    }
-
-    .notice.okbox{
-
-      background:#ecfdf5;
-
-      color:#166534;
 
     }
 
@@ -671,6 +583,14 @@
       background:#eff6ff;
 
       color:#1e40af;
+
+    }
+
+    .notice.okbox{
+
+      background:#ecfdf5;
+
+      color:#166534;
 
     }
 
@@ -690,8 +610,6 @@
 
       z-index:100;
 
-      background:var(--bg);
-
       display:flex;
 
       align-items:center;
@@ -700,43 +618,17 @@
 
       padding:20px;
 
+      background:var(--bg);
+
       overflow:auto;
 
     }
 
     .login-box{
 
-      max-width:520px;
-
       width:100%;
 
-    }
-
-    .role-badge{
-
-      display:inline-block;
-
-      padding:4px 8px;
-
-      border-radius:999px;
-
-      background:#374151;
-
-      color:#fff;
-
-      font-size:12px;
-
-      margin-left:8px;
-
-    }
-
-    .manager-only,
-
-    .owner-only,
-
-    .employee-only{
-
-      display:none;
+      max-width:520px;
 
     }
 
@@ -750,9 +642,9 @@
 
     .auth-link{
 
-      border:0;
-
       padding:0;
+
+      border:0;
 
       background:transparent;
 
@@ -760,35 +652,53 @@
 
       font-weight:800;
 
-      font-size:inherit;
+    }
+
+    .manager-only,
+
+    .employee-only{
+
+      display:none;
 
     }
 
-    .spinner{
+    .bell{
 
-      display:inline-block;
+      position:relative;
 
-      width:16px;
-
-      height:16px;
-
-      border:2px solid #ddd;
-
-      border-top-color:#111827;
-
-      border-radius:50%;
-
-      animation:spin .7s linear infinite;
-
-      vertical-align:-3px;
-
-      margin-right:6px;
+      min-width:42px;
 
     }
 
-    @keyframes spin{
+    .bell-count{
 
-      to{ transform:rotate(360deg); }
+      position:absolute;
+
+      top:-5px;
+
+      right:-5px;
+
+      min-width:18px;
+
+      height:18px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:0 4px;
+
+      border-radius:999px;
+
+      background:#dc2626;
+
+      color:white;
+
+      font-size:10px;
+
+      font-weight:900;
 
     }
 
@@ -796,29 +706,23 @@
 
       position:fixed;
 
-      bottom:0;
+      z-index:20;
 
       left:0;
 
       right:0;
 
-      z-index:20;
-
-      background:#fff;
-
-      border-top:1px solid var(--border);
+      bottom:0;
 
       display:flex;
 
       justify-content:space-around;
 
-      padding:
+      background:white;
 
-        8px
+      border-top:1px solid var(--border);
 
-        max(8px,env(safe-area-inset-right))
-
-        calc(8px + env(safe-area-inset-bottom));
+      padding:8px 8px calc(8px + env(safe-area-inset-bottom));
 
     }
 
@@ -834,15 +738,15 @@
 
     }
 
-    .modal{
+    .modal,
+
+    .notifications-panel{
 
       position:fixed;
 
       inset:0;
 
       z-index:200;
-
-      background:rgba(0,0,0,.55);
 
       display:flex;
 
@@ -852,63 +756,27 @@
 
       padding:18px;
 
-    }
-
-    .modal-box{
-
-      background:#fff;
-
-      border-radius:16px;
-
-      padding:16px;
-
-      width:100%;
-
-      max-width:520px;
-
-      max-height:85vh;
-
-      overflow:auto;
-
-    }
-
-    .notifications-panel{
-
-      position:fixed;
-
-      inset:0;
-
-      z-index:180;
-
       background:rgba(0,0,0,.55);
 
-      padding:20px;
-
-      display:flex;
-
-      align-items:flex-start;
-
-      justify-content:center;
-
     }
+
+    .modal-box,
 
     .notifications-box{
 
       width:100%;
 
-      max-width:600px;
+      max-width:560px;
 
-      background:#fff;
+      max-height:85vh;
 
-      margin-top:50px;
-
-      border-radius:16px;
+      overflow:auto;
 
       padding:16px;
 
-      max-height:75vh;
+      border-radius:16px;
 
-      overflow:auto;
+      background:white;
 
     }
 
@@ -942,9 +810,7 @@
 
     }
 
-    th,
-
-    td{
+    th,td{
 
       padding:9px 7px;
 
@@ -964,6 +830,34 @@
 
     }
 
+    .spinner{
+
+      display:inline-block;
+
+      width:16px;
+
+      height:16px;
+
+      border:2px solid #ddd;
+
+      border-top-color:#111827;
+
+      border-radius:50%;
+
+      animation:spin .7s linear infinite;
+
+      vertical-align:-3px;
+
+      margin-right:6px;
+
+    }
+
+    @keyframes spin{
+
+      to{transform:rotate(360deg)}
+
+    }
+
   </style>
 
 </head>
@@ -980,13 +874,7 @@
 
         Planning Bar
 
-        <span
-
-          id="roleBadge"
-
-          class="role-badge"
-
-        >
+        <span id="roleBadge" class="role-badge">
 
           Non connecté
 
@@ -1004,25 +892,11 @@
 
     <div class="header-actions">
 
-      <button
-
-        id="bellBtn"
-
-        class="bell hidden"
-
-        title="Notifications"
-
-      >
+      <button id="bellBtn" class="bell hidden">
 
         🔔
 
-        <span
-
-          id="bellCount"
-
-          class="bell-count hidden"
-
-        >
+        <span id="bellCount" class="bell-count hidden">
 
           0
 
@@ -1030,13 +904,7 @@
 
       </button>
 
-      <button
-
-        id="logoutBtn"
-
-        class="hidden"
-
-      >
+      <button id="logoutBtn" class="hidden">
 
         Déconnexion
 
@@ -1048,25 +916,13 @@
 
 </header>
 
-<!-- CONNEXION -->
-
-<div
-
-  id="loginScreen"
-
-  class="login-screen"
-
->
+<div id="loginScreen" class="login-screen">
 
   <div class="card login-box">
 
     <div id="loginForm">
 
-      <h2>
-
-        Connexion Planning Bar
-
-      </h2>
+      <h2>Connexion Planning Bar</h2>
 
       <p class="small">
 
@@ -1150,31 +1006,19 @@
 
       >
 
-        Les nouveaux comptes sont automatiquement créés comme
+        Les nouveaux comptes arrivent comme
 
-        <strong>Employés</strong>.
+        <strong>Employés en attente</strong>.
 
-        Ils doivent ensuite être activés depuis l'onglet
-
-        <strong>Équipe</strong>.
+        Un Responsable ou le Patron doit ensuite activer leur accès.
 
       </div>
 
     </div>
 
-    <div
+    <div id="signupForm" class="hidden">
 
-      id="signupForm"
-
-      class="hidden"
-
-    >
-
-      <h2>
-
-        Créer un compte
-
-      </h2>
+      <h2>Créer un compte</h2>
 
       <label>Nom complet</label>
 
@@ -1270,73 +1114,35 @@
 
 </div>
 
-<!-- APPLICATION -->
-
-<main
-
-  id="appMain"
-
-  class="hidden"
-
->
+<main id="appMain" class="hidden">
 
   <div class="tabs">
 
-    <button
-
-      class="tab active"
-
-      data-view="dashboard"
-
-    >
+    <button class="tab active" data-view="dashboard">
 
       Tableau de bord
 
     </button>
 
-    <button
-
-      class="tab"
-
-      data-view="availability"
-
-    >
+    <button class="tab" data-view="availability">
 
       Disponibilités
 
     </button>
 
-    <button
-
-      class="tab"
-
-      data-view="planning"
-
-    >
+    <button class="tab" data-view="planning">
 
       Planning
 
     </button>
 
-    <button
-
-      class="tab"
-
-      data-view="monthly"
-
-    >
+    <button class="tab" data-view="monthly">
 
       Mois
 
     </button>
 
-    <button
-
-      class="tab manager-only"
-
-      data-view="team"
-
-    >
+    <button class="tab manager-only" data-view="team">
 
       Équipe
 
@@ -1344,15 +1150,7 @@
 
   </div>
 
-  <!-- TABLEAU DE BORD -->
-
-  <section
-
-    id="dashboard"
-
-    class="view"
-
-  >
+  <section id="dashboard" class="view">
 
     <div class="grid three">
 
@@ -1364,25 +1162,13 @@
 
         </div>
 
-        <div
-
-          id="myWeek"
-
-          class="kpi"
-
-        >
+        <div id="myWeek" class="kpi">
 
           0 h
 
         </div>
 
-        <div
-
-          id="myWeekStatus"
-
-          class="small"
-
-        ></div>
+        <div id="myWeekStatus" class="small"></div>
 
       </div>
 
@@ -1394,13 +1180,7 @@
 
         </div>
 
-        <div
-
-          id="myMonth"
-
-          class="kpi"
-
-        >
+        <div id="myMonth" class="kpi">
 
           0 h
 
@@ -1416,13 +1196,7 @@
 
         </div>
 
-        <div
-
-          id="teamMonth"
-
-          class="kpi"
-
-        >
+        <div id="teamMonth" class="kpi">
 
           0 h
 
@@ -1442,7 +1216,7 @@
 
       <h2>
 
-        Demandes de modification d'horaire
+        Demandes de modification
 
       </h2>
 
@@ -1476,11 +1250,7 @@
 
     >
 
-      <h2>
-
-        Mon espace
-
-      </h2>
+      <h2>Mon espace</h2>
 
       <div class="small">
 
@@ -1494,15 +1264,7 @@
 
   </section>
 
-  <!-- DISPONIBILITES -->
-
-  <section
-
-    id="availability"
-
-    class="view hidden"
-
-  >
+  <section id="availability" class="view hidden">
 
     <div class="card">
 
@@ -1526,13 +1288,7 @@
 
           <label>Date</label>
 
-          <input
-
-            id="avDate"
-
-            type="date"
-
-          >
+          <input id="avDate" type="date">
 
         </div>
 
@@ -1650,15 +1406,7 @@
 
   </section>
 
-  <!-- PLANNING -->
-
-  <section
-
-    id="planning"
-
-    class="view hidden"
-
-  >
+  <section id="planning" class="view hidden">
 
     <div class="card manager-only">
 
@@ -1682,13 +1430,7 @@
 
           <label>Date</label>
 
-          <input
-
-            id="shiftDate"
-
-            type="date"
-
-          >
+          <input id="shiftDate" type="date">
 
         </div>
 
@@ -1728,7 +1470,7 @@
 
       <label
 
-        style="display:flex;gap:8px;align-items:center;margin-top:12px"
+        style="display:flex;align-items:center;gap:8px;margin-top:12px"
 
       >
 
@@ -1810,15 +1552,7 @@
 
   </section>
 
-  <!-- MOIS -->
-
-  <section
-
-    id="monthly"
-
-    class="view hidden"
-
-  >
+  <section id="monthly" class="view hidden">
 
     <div class="card">
 
@@ -1834,13 +1568,7 @@
 
           <label>Mois</label>
 
-          <input
-
-            id="monthPicker"
-
-            type="month"
-
-          >
+          <input id="monthPicker" type="month">
 
         </div>
 
@@ -1848,13 +1576,7 @@
 
           <label>Total affiché</label>
 
-          <div
-
-            id="selectedMonthTotal"
-
-            class="kpi"
-
-          >
+          <div id="selectedMonthTotal" class="kpi">
 
             0 h
 
@@ -1905,8 +1627,6 @@
     </div>
 
   </section>
-
-  <!-- EQUIPE -->
 
   <section
 
@@ -1964,9 +1684,9 @@
 
     >
 
-      Les nouveaux comptes apparaissent ici en tant qu'Employés
+      Les nouveaux comptes apparaissent ici automatiquement.
 
-      et sont désactivés jusqu'à validation.
+      Ils sont créés en tant qu'Employés désactivés.
 
     </div>
 
@@ -1974,15 +1694,7 @@
 
 </main>
 
-<!-- NAVIGATION BAS -->
-
-<nav
-
-  id="bottomNav"
-
-  class="bottom hidden"
-
->
+<nav id="bottomNav" class="bottom hidden">
 
   <button data-go="dashboard">
 
@@ -2022,15 +1734,7 @@
 
 </nav>
 
-<!-- MODIFICATION HORAIRE EMPLOYE -->
-
-<div
-
-  id="changeModal"
-
-  class="modal hidden"
-
->
+<div id="changeModal" class="modal hidden">
 
   <div class="modal-box">
 
@@ -2074,7 +1778,7 @@
 
       id="changeReason"
 
-      placeholder="Ex. Je termine plus tard à mon autre travail."
+      placeholder="Ex. Je dois commencer une heure plus tard."
 
     ></textarea>
 
@@ -2109,8 +1813,6 @@
   </div>
 
 </div>
-
-<!-- NOTIFICATIONS -->
 
 <div
 
@@ -2150,27 +1852,19 @@
 
     </div>
 
-    <div
+    <button
 
-      class="row"
+      id="markAllRead"
+
+      class="secondary"
 
       style="margin-bottom:12px"
 
     >
 
-      <button
+      Tout marquer comme lu
 
-        id="markAllRead"
-
-        class="secondary"
-
-      >
-
-        Tout marquer comme lu
-
-      </button>
-
-    </div>
+    </button>
 
     <div id="notificationsList"></div>
 
@@ -2184,7 +1878,7 @@
 
 /* ============================================================
 
-   SUPABASE
+   CONFIGURATION SUPABASE
 
 ============================================================ */
 
@@ -2258,15 +1952,15 @@ let refreshTimer = null;
 
 ============================================================ */
 
-const esc = s =>
+const esc = value =>
 
-  String(s ?? '')
+  String(value ?? '')
 
     .replace(
 
       /[&<>'"]/g,
 
-      c => ({
+      char => ({
 
         '&':'&amp;',
 
@@ -2278,41 +1972,49 @@ const esc = s =>
 
         '"':'&quot;'
 
-      }[c])
+      }[char])
 
     );
 
-const isManager = () =>
+function isManager(){
 
-  me &&
+  return Boolean(
 
-  (
+    me &&
 
-    me.role === 'responsable' ||
+    (
 
-    me.role === 'patron'
+      me.role === 'responsable' ||
+
+      me.role === 'patron'
+
+    )
 
   );
 
-const isOwner = () =>
+}
 
-  me?.id === OWNER_ID;
+function isOwner(){
 
-function roleLabel(p){
+  return me?.id === OWNER_ID;
 
-  if(!p){
+}
+
+function roleLabel(profile){
+
+  if(!profile){
 
     return 'Employé';
 
   }
 
-  if(p.role === 'responsable'){
+  if(profile.role === 'responsable'){
 
     return 'Responsable';
 
   }
 
-  if(p.role === 'patron'){
+  if(profile.role === 'patron'){
 
     return 'Patron';
 
@@ -2322,9 +2024,9 @@ function roleLabel(p){
 
 }
 
-function displayName(p){
+function displayName(profile){
 
-  return p?.name?.trim() ||
+  return profile?.name?.trim() ||
 
     'Employé';
 
@@ -2344,25 +2046,27 @@ function personName(id){
 
 }
 
-function fmtH(n){
+function fmtH(hours){
 
-  const rounded =
+  const n =
 
     Math.round(
 
-      (Number(n) || 0) * 100
+      (Number(hours) || 0) * 100
 
     ) / 100;
 
-  return String(rounded)
+  return String(n)
 
-    .replace('.',',') + ' h';
+    .replace('.',',') +
+
+    ' h';
 
 }
 
-function timeShort(v){
+function timeShort(value){
 
-  return String(v || '')
+  return String(value || '')
 
     .slice(0,5);
 
@@ -2414,21 +2118,27 @@ function hoursBetweenTimes(start,end){
 
       .map(Number);
 
-  let a =
+  let startMinutes =
 
-    sh * 60 + sm;
+    sh*60 + sm;
 
-  let b =
+  let endMinutes =
 
-    eh * 60 + em;
+    eh*60 + em;
 
-  if(b <= a){
+  if(endMinutes <= startMinutes){
 
-    b += 24 * 60;
+    endMinutes += 24*60;
 
   }
 
-  return (b-a)/60;
+  return (
+
+    endMinutes -
+
+    startMinutes
+
+  ) / 60;
 
 }
 
@@ -2436,15 +2146,15 @@ function shiftHours(list){
 
   return list.reduce(
 
-    (total,s) =>
+    (total,shift) =>
 
       total +
 
       hoursBetweenTimes(
 
-        s.start_time,
+        shift.start_time,
 
-        s.end_time
+        shift.end_time
 
       ),
 
@@ -2488,29 +2198,29 @@ function formatDateFr(date){
 
 function startOfCurrentWeek(){
 
-  const d =
+  const date =
 
     new Date();
 
-  d.setHours(0,0,0,0);
+  date.setHours(0,0,0,0);
 
   const day =
 
-    (d.getDay()+6)%7;
+    (date.getDay()+6)%7;
 
-  d.setDate(
+  date.setDate(
 
-    d.getDate()-day
+    date.getDate()-day
 
   );
 
-  return localDateKey(d);
+  return localDateKey(date);
 
 }
 
 function endOfCurrentWeek(){
 
-  const d =
+  const date =
 
     new Date(
 
@@ -2520,13 +2230,13 @@ function endOfCurrentWeek(){
 
     );
 
-  d.setDate(
+  date.setDate(
 
-    d.getDate()+7
+    date.getDate()+7
 
   );
 
-  return localDateKey(d);
+  return localDateKey(date);
 
 }
 
@@ -2562,11 +2272,13 @@ function inMonth(date,key){
 
 }
 
-function setBusy(btn,busy,label){
+function setBusy(button,busy,label){
 
-  btn.disabled = busy;
+  button.disabled =
 
-  btn.innerHTML =
+    busy;
+
+  button.innerHTML =
 
     busy
 
@@ -2576,13 +2288,15 @@ function setBusy(btn,busy,label){
 
 }
 
-function setMessage(el,text,ok=false){
+function setMessage(element,text,success=false){
 
-  el.textContent = text;
+  element.textContent =
 
-  el.style.color =
+    text;
 
-    ok
+  element.style.color =
+
+    success
 
       ? '#15803d'
 
@@ -2630,13 +2344,13 @@ async function login(){
 
       .value;
 
-  const btn =
+  const button =
 
     $('loginBtn');
 
   setBusy(
 
-    btn,
+    button,
 
     true,
 
@@ -2666,7 +2380,7 @@ async function login(){
 
   setBusy(
 
-    btn,
+    button,
 
     false,
 
@@ -2764,19 +2478,19 @@ async function signup(){
 
       $('signupMessage'),
 
-      'Les deux mots de passe ne correspondent pas.'
+      'Les mots de passe ne correspondent pas.'
 
     );
 
   }
 
-  const btn =
+  const button =
 
     $('signupBtn');
 
   setBusy(
 
-    btn,
+    button,
 
     true,
 
@@ -2808,7 +2522,7 @@ async function signup(){
 
   setBusy(
 
-    btn,
+    button,
 
     false,
 
@@ -2842,17 +2556,9 @@ async function signup(){
 
 }
 
-async function logout(){
-
-  await sb.auth.signOut();
-
-  location.reload();
-
-}
-
 /* ============================================================
 
-   DONNEES
+   PROFIL
 
 ============================================================ */
 
@@ -2864,7 +2570,9 @@ async function getMyProfile(){
 
   } =
 
-    await sb.auth.getUser();
+    await sb.auth
+
+      .getUser();
 
   if(!user){
 
@@ -2904,147 +2612,153 @@ async function getMyProfile(){
 
 }
 
+/* ============================================================
+
+   CHARGEMENT
+
+============================================================ */
+
 async function loadAll(){
-
-  const profileQuery =
-
-    sb
-
-      .from('profiles')
-
-      .select(
-
-        'id,name,role,active,created_at'
-
-      )
-
-      .order('name');
-
-  const availabilityQuery =
-
-    sb
-
-      .from('availabilities')
-
-      .select(
-
-        'id,user_id,date,start_time,end_time,available,status,created_at,updated_at'
-
-      )
-
-      .order('date');
-
-  const shiftQuery =
-
-    sb
-
-      .from('shifts')
-
-      .select(
-
-        'id,user_id,date,start_time,end_time,published,created_by,created_at,updated_at'
-
-      )
-
-      .order('date');
-
-  const requestQuery =
-
-    sb
-
-      .from('shift_change_requests')
-
-      .select(
-
-        'id,shift_id,user_id,old_start_time,old_end_time,requested_start_time,requested_end_time,reason,status,reviewed_by,reviewed_at,created_at'
-
-      )
-
-      .order(
-
-        'created_at',
-
-        {ascending:false}
-
-      );
-
-  const notificationQuery =
-
-    sb
-
-      .from('notifications')
-
-      .select(
-
-        'id,user_id,title,message,type,related_shift_id,related_request_id,read,created_at'
-
-      )
-
-      .order(
-
-        'created_at',
-
-        {ascending:false}
-
-      );
 
   const [
 
-    p,
+    profileResult,
 
-    a,
+    availabilityResult,
 
-    s,
+    shiftResult,
 
-    r,
+    requestResult,
 
-    n
+    notificationResult
 
   ] =
 
     await Promise.all([
 
-      profileQuery,
+      sb
 
-      availabilityQuery,
+        .from('profiles')
 
-      shiftQuery,
+        .select(
 
-      requestQuery,
+          'id,name,role,active,created_at'
 
-      notificationQuery
+        )
+
+        .order('name'),
+
+      sb
+
+        .from('availabilities')
+
+        .select(
+
+          'id,user_id,date,start_time,end_time,available,status,created_at,updated_at'
+
+        )
+
+        .order('date'),
+
+      sb
+
+        .from('shifts')
+
+        .select(
+
+          'id,user_id,date,start_time,end_time,published,created_by,created_at,updated_at'
+
+        )
+
+        .order('date'),
+
+      sb
+
+        .from('shift_change_requests')
+
+        .select(
+
+          'id,shift_id,user_id,old_start_time,old_end_time,requested_start_time,requested_end_time,reason,status,reviewed_by,reviewed_at,created_at'
+
+        )
+
+        .order(
+
+          'created_at',
+
+          {ascending:false}
+
+        ),
+
+      sb
+
+        .from('notifications')
+
+        .select(
+
+          'id,user_id,title,message,type,related_shift_id,related_request_id,read,created_at'
+
+        )
+
+        .order(
+
+          'created_at',
+
+          {ascending:false}
+
+        )
 
     ]);
 
-  if(p.error) throw p.error;
+  if(profileResult.error){
 
-  if(a.error) throw a.error;
+    throw profileResult.error;
 
-  if(s.error) throw s.error;
+  }
 
-  if(r.error) throw r.error;
+  if(availabilityResult.error){
 
-  if(n.error) throw n.error;
+    throw availabilityResult.error;
+
+  }
+
+  if(shiftResult.error){
+
+    throw shiftResult.error;
+
+  }
+
+  if(requestResult.error){
+
+    throw requestResult.error;
+
+  }
+
+  if(notificationResult.error){
+
+    throw notificationResult.error;
+
+  }
 
   profiles =
 
-    p.data || [];
+    profileResult.data || [];
 
   availabilities =
 
-    a.data || [];
+    availabilityResult.data || [];
 
   shifts =
 
-    s.data || [];
+    shiftResult.data || [];
 
   changeRequests =
 
-    r.data || [];
+    requestResult.data || [];
 
   notifications =
 
-    n.data || [];
+    notificationResult.data || [];
 
 }
 
@@ -3084,7 +2798,7 @@ async function boot(){
 
       throw new Error(
 
-        'Profil introuvable.'
+        'Profil utilisateur introuvable.'
 
       );
 
@@ -3092,7 +2806,9 @@ async function boot(){
 
     if(!me.active){
 
-      await sb.auth.signOut();
+      await sb.auth
+
+        .signOut();
 
       showLogin();
 
@@ -3100,7 +2816,7 @@ async function boot(){
 
         $('loginMessage'),
 
-        'Ton compte existe mais il est encore en attente de validation.'
+        'Ton compte est encore en attente de validation.'
 
       );
 
@@ -3116,15 +2832,15 @@ async function boot(){
 
     startRealtime();
 
-  }catch(e){
+  }catch(error){
 
-    console.error(e);
+    console.error(error);
 
     alert(
 
       'Erreur : ' +
 
-      e.message
+      error.message
 
     );
 
@@ -3204,6 +2920,16 @@ function showApp(){
 
 }
 
+async function logout(){
+
+  await sb.auth
+
+    .signOut();
+
+  location.reload();
+
+}
+
 /* ============================================================
 
    ROLES
@@ -3220,49 +2946,13 @@ function applyRole(){
 
     )
 
-    .forEach(el=>{
+    .forEach(element=>{
 
-      el.style.display =
+      element.style.display =
 
         isManager()
 
-          ? (
-
-              el.tagName === 'BUTTON'
-
-                ? 'inline-block'
-
-                : ''
-
-            )
-
-          : 'none';
-
-    });
-
-  document
-
-    .querySelectorAll(
-
-      '.owner-only'
-
-    )
-
-    .forEach(el=>{
-
-      el.style.display =
-
-        isOwner()
-
-          ? (
-
-              el.tagName === 'BUTTON'
-
-                ? 'inline-block'
-
-                : ''
-
-            )
+          ? ''
 
           : 'none';
 
@@ -3276,21 +2966,13 @@ function applyRole(){
 
     )
 
-    .forEach(el=>{
+    .forEach(element=>{
 
-      el.style.display =
+      element.style.display =
 
         !isManager()
 
-          ? (
-
-              el.tagName === 'BUTTON'
-
-                ? 'inline-block'
-
-                : ''
-
-            )
+          ? ''
 
           : 'none';
 
@@ -3306,11 +2988,7 @@ function applyRole(){
 
     .textContent =
 
-      isManager()
-
-        ? `${displayName(me)} — ${roleLabel(me)}`
-
-        : `${displayName(me)} — Mon planning`;
+      `${displayName(me)} — ${roleLabel(me)}`;
 
 }
 
@@ -3328,27 +3006,41 @@ function renderSelects(){
 
       .filter(
 
-        p => p.active
+        profile =>
+
+          profile.active
 
       )
 
       .map(
 
-        p =>
+        profile =>
 
-          `<option value="${esc(p.id)}">${esc(displayName(p))}</option>`
+          `
+
+            <option value="${esc(profile.id)}">
+
+              ${esc(displayName(profile))}
+
+            </option>
+
+          `
 
       )
 
       .join('');
 
-  $('avPerson').innerHTML =
+  $('avPerson')
 
-    options;
+    .innerHTML =
 
-  $('shiftPerson').innerHTML =
+      options;
 
-    options;
+  $('shiftPerson')
+
+    .innerHTML =
+
+      options;
 
 }
 
@@ -3362,15 +3054,15 @@ function myShifts(){
 
   return shifts.filter(
 
-    s =>
+    shift =>
 
-      s.user_id === me.id &&
+      shift.user_id === me.id &&
 
       (
 
         isManager() ||
 
-        s.published
+        shift.published
 
       )
 
@@ -3390,7 +3082,13 @@ function renderDashboard(){
 
       mine.filter(
 
-        s => inCurrentWeek(s.date)
+        shift =>
+
+          inCurrentWeek(
+
+            shift.date
+
+          )
 
       )
 
@@ -3402,7 +3100,13 @@ function renderDashboard(){
 
       mine.filter(
 
-        s => inCurrentMonth(s.date)
+        shift =>
+
+          inCurrentMonth(
+
+            shift.date
+
+          )
 
       )
 
@@ -3476,7 +3180,13 @@ function renderDashboard(){
 
             shifts.filter(
 
-              s => inCurrentMonth(s.date)
+              shift =>
+
+                inCurrentMonth(
+
+                  shift.date
+
+                )
 
             )
 
@@ -3492,17 +3202,23 @@ function renderDashboard(){
 
           .filter(
 
-            p => p.active
+            profile =>
+
+              profile.active
 
           )
 
-          .map(p=>{
+          .map(profile=>{
 
-            const ps =
+            const personShifts =
 
               shifts.filter(
 
-                s => s.user_id === p.id
+                shift =>
+
+                  shift.user_id ===
+
+                  profile.id
 
               );
 
@@ -3510,9 +3226,15 @@ function renderDashboard(){
 
               shiftHours(
 
-                ps.filter(
+                personShifts.filter(
 
-                  s => inCurrentWeek(s.date)
+                  shift =>
+
+                    inCurrentWeek(
+
+                      shift.date
+
+                    )
 
                 )
 
@@ -3522,9 +3244,15 @@ function renderDashboard(){
 
               shiftHours(
 
-                ps.filter(
+                personShifts.filter(
 
-                  s => inCurrentMonth(s.date)
+                  shift =>
+
+                    inCurrentMonth(
+
+                      shift.date
+
+                    )
 
                 )
 
@@ -3536,13 +3264,13 @@ function renderDashboard(){
 
                 <strong>
 
-                  ${esc(displayName(p))}
+                  ${esc(displayName(profile))}
 
                 </strong>
 
                 <span class="pill">
 
-                  ${esc(roleLabel(p))}
+                  ${esc(roleLabel(profile))}
 
                 </span>
 
@@ -3550,11 +3278,13 @@ function renderDashboard(){
 
                   Semaine :
 
-                  <strong>${fmtH(week)}</strong>
+                  <b>${fmtH(week)}</b>
 
-                  · Mois :
+                  ·
 
-                  <strong>${fmtH(month)}</strong>
+                  Mois :
+
+                  <b>${fmtH(month)}</b>
 
                 </div>
 
@@ -3586,11 +3316,11 @@ function pendingRequestForShift(shiftId){
 
   return changeRequests.find(
 
-    r =>
+    request =>
 
-      r.shift_id === shiftId &&
+      request.shift_id === shiftId &&
 
-      r.status === 'pending'
+      request.status === 'pending'
 
   );
 
@@ -3608,7 +3338,9 @@ function renderChangeRequests(){
 
     changeRequests.filter(
 
-      r => r.status === 'pending'
+      request =>
+
+        request.status === 'pending'
 
     );
 
@@ -3630,13 +3362,17 @@ function renderChangeRequests(){
 
       pending
 
-        .map(r=>{
+        .map(request=>{
 
           const shift =
 
             shifts.find(
 
-              s => s.id === r.shift_id
+              s =>
+
+                s.id ===
+
+                request.shift_id
 
             );
 
@@ -3646,33 +3382,49 @@ function renderChangeRequests(){
 
               <strong>
 
-                ${esc(personName(r.user_id))}
+                ${esc(personName(request.user_id))}
 
               </strong>
 
               <div class="small">
 
-                ${shift ? formatDateFr(shift.date) : ''}
+                ${
+
+                  shift
+
+                    ? formatDateFr(shift.date)
+
+                    : ''
+
+                }
 
               </div>
 
               <div style="margin-top:8px">
 
-                Actuel :
+                Horaire actuel :
 
                 <span class="pill">
 
-                  ${timeShort(r.old_start_time)}–${timeShort(r.old_end_time)}
+                  ${timeShort(request.old_start_time)}
+
+                  –
+
+                  ${timeShort(request.old_end_time)}
 
                 </span>
 
                 <br>
 
-                Demandé :
+                Horaire demandé :
 
                 <span class="pill info">
 
-                  ${timeShort(r.requested_start_time)}–${timeShort(r.requested_end_time)}
+                  ${timeShort(request.requested_start_time)}
+
+                  –
+
+                  ${timeShort(request.requested_end_time)}
 
                 </span>
 
@@ -3680,7 +3432,7 @@ function renderChangeRequests(){
 
               ${
 
-                r.reason
+                request.reason
 
                   ? `
 
@@ -3692,7 +3444,7 @@ function renderChangeRequests(){
 
                     >
 
-                      ${esc(r.reason)}
+                      ${esc(request.reason)}
 
                     </div>
 
@@ -3708,7 +3460,7 @@ function renderChangeRequests(){
 
                   class="okbtn"
 
-                  onclick="reviewChange('${r.id}','accepted')"
+                  onclick="reviewChange('${request.id}','accepted')"
 
                 >
 
@@ -3720,7 +3472,7 @@ function renderChangeRequests(){
 
                   class="danger"
 
-                  onclick="reviewChange('${r.id}','refused')"
+                  onclick="reviewChange('${request.id}','refused')"
 
                 >
 
@@ -3758,7 +3510,11 @@ function renderAvailability(){
 
       rows.filter(
 
-        a => a.user_id === me.id
+        availability =>
+
+          availability.user_id ===
+
+          me.id
 
       );
 
@@ -3782,11 +3538,11 @@ function renderAvailability(){
 
       rows
 
-        .map(a=>{
+        .map(availability=>{
 
-          const availableLabel =
+          const availabilityBadge =
 
-            a.available
+            availability.available
 
               ? '<span class="pill ok">Disponible</span>'
 
@@ -3798,23 +3554,23 @@ function renderAvailability(){
 
               <strong>
 
-                ${esc(personName(a.user_id))}
+                ${esc(personName(availability.user_id))}
 
               </strong>
 
               <div>
 
-                ${formatDateFr(a.date)}
+                ${formatDateFr(availability.date)}
 
-                ${availableLabel}
+                ${availabilityBadge}
 
-                ${statusBadge(a.status)}
+                ${statusBadge(availability.status)}
 
               </div>
 
               ${
 
-                a.available
+                availability.available
 
                   ? `
 
@@ -3822,7 +3578,11 @@ function renderAvailability(){
 
                       <span class="pill">
 
-                        ${timeShort(a.start_time)}–${timeShort(a.end_time)}
+                        ${timeShort(availability.start_time)}
+
+                        –
+
+                        ${timeShort(availability.end_time)}
 
                       </span>
 
@@ -3838,7 +3598,7 @@ function renderAvailability(){
 
                 isManager() &&
 
-                a.status === 'pending'
+                availability.status === 'pending'
 
                   ? `
 
@@ -3848,13 +3608,13 @@ function renderAvailability(){
 
                         class="okbtn"
 
-                        onclick="acceptAvailability('${a.id}')"
+                        onclick="acceptAvailability('${availability.id}')"
 
                       >
 
                         ${
 
-                          a.available
+                          availability.available
 
                             ? '✓ Accepter et ajouter au planning'
 
@@ -3868,7 +3628,7 @@ function renderAvailability(){
 
                         class="danger"
 
-                        onclick="refuseAvailability('${a.id}')"
+                        onclick="refuseAvailability('${availability.id}')"
 
                       >
 
@@ -3890,9 +3650,9 @@ function renderAvailability(){
 
                   !isManager() &&
 
-                  a.user_id === me.id &&
+                  availability.user_id === me.id &&
 
-                  a.status === 'pending'
+                  availability.status === 'pending'
 
                 )
 
@@ -3908,7 +3668,7 @@ function renderAvailability(){
 
                         class="danger"
 
-                        onclick="deleteAvailability('${a.id}')"
+                        onclick="deleteAvailability('${availability.id}')"
 
                       >
 
@@ -3950,11 +3710,11 @@ function visibleShifts(){
 
   return shifts.filter(
 
-    s =>
+    shift =>
 
-      s.user_id === me.id &&
+      shift.user_id === me.id &&
 
-      s.published
+      shift.published
 
   );
 
@@ -3966,17 +3726,17 @@ function renderPlanning(){
 
   visibleShifts()
 
-    .forEach(s=>{
+    .forEach(shift=>{
 
-      if(!groups[s.date]){
+      if(!groups[shift.date]){
 
-        groups[s.date] = [];
+        groups[shift.date] = [];
 
       }
 
-      groups[s.date]
+      groups[shift.date]
 
-        .push(s);
+        .push(shift);
 
     });
 
@@ -4026,13 +3786,13 @@ function renderPlanning(){
 
         groups[date]
 
-          .map(s=>{
+          .map(shift=>{
 
             const pending =
 
               pendingRequestForShift(
 
-                s.id
+                shift.id
 
               );
 
@@ -4042,13 +3802,13 @@ function renderPlanning(){
 
                 <strong>
 
-                  ${esc(personName(s.user_id))}
+                  ${esc(personName(shift.user_id))}
 
                 </strong>
 
                 ${
 
-                  !s.published
+                  !shift.published
 
                     ? '<span class="pill draft">Brouillon</span>'
 
@@ -4064,11 +3824,15 @@ function renderPlanning(){
 
                 >
 
-                  ${timeShort(s.start_time)}–${timeShort(s.end_time)}
+                  ${timeShort(shift.start_time)}
+
+                  –
+
+                  ${timeShort(shift.end_time)}
 
                   ·
 
-                  ${fmtH(hoursBetweenTimes(s.start_time,s.end_time))}
+                  ${fmtH(hoursBetweenTimes(shift.start_time,shift.end_time))}
 
                 </div>
 
@@ -4082,7 +3846,7 @@ function renderPlanning(){
 
                         <button
 
-                          onclick="editShift('${s.id}')"
+                          onclick="editShift('${shift.id}')"
 
                         >
 
@@ -4094,7 +3858,7 @@ function renderPlanning(){
 
                           class="danger"
 
-                          onclick="deleteShift('${s.id}')"
+                          onclick="deleteShift('${shift.id}')"
 
                         >
 
@@ -4106,45 +3870,47 @@ function renderPlanning(){
 
                     `
 
-                    : (
+                    :
 
-                        pending
+                    (
 
-                          ? `
+                      pending
 
-                            <div style="margin-top:8px">
+                        ? `
 
-                              <span class="pill draft">
+                          <div style="margin-top:8px">
 
-                                Modification en attente
+                            <span class="pill draft">
 
-                              </span>
+                              Modification en attente
 
-                            </div>
+                            </span>
 
-                          `
+                          </div>
 
-                          : `
+                        `
 
-                            <div class="shift-actions">
+                        : `
 
-                              <button
+                          <div class="shift-actions">
 
-                                class="info"
+                            <button
 
-                                onclick="openChangeRequest('${s.id}')"
+                              class="info"
 
-                              >
+                              onclick="openChangeRequest('${shift.id}')"
 
-                                🔄 Demander une modification
+                            >
 
-                              </button>
+                              🔄 Demander une modification
 
-                            </div>
+                            </button>
 
-                          `
+                          </div>
 
-                      )
+                        `
+
+                    )
 
                 }
 
@@ -4178,7 +3944,7 @@ function renderPlanning(){
 
 function renderMonthly(){
 
-  const key =
+  const month =
 
     $('monthPicker').value ||
 
@@ -4190,35 +3956,47 @@ function renderMonthly(){
 
       ? profiles.filter(
 
-          p => p.active
+          profile =>
+
+            profile.active
 
         )
 
       : profiles.filter(
 
-          p => p.id === me.id
+          profile =>
+
+            profile.id === me.id
 
         );
 
-  let rel =
+  let relevant =
 
     shifts.filter(
 
-      s => inMonth(s.date,key)
+      shift =>
+
+        inMonth(
+
+          shift.date,
+
+          month
+
+        )
 
     );
 
   if(!isManager()){
 
-    rel =
+    relevant =
 
-      rel.filter(
+      relevant.filter(
 
-        s =>
+        shift =>
 
-          s.user_id === me.id &&
+          shift.user_id === me.id &&
 
-          s.published
+          shift.published
 
       );
 
@@ -4230,7 +4008,7 @@ function renderMonthly(){
 
       fmtH(
 
-        shiftHours(rel)
+        shiftHours(relevant)
 
       );
 
@@ -4240,13 +4018,15 @@ function renderMonthly(){
 
       people
 
-        .map(p=>{
+        .map(profile=>{
 
-          const ps =
+          const personShifts =
 
-            rel.filter(
+            relevant.filter(
 
-              s => s.user_id === p.id
+              shift =>
+
+                shift.user_id === profile.id
 
             );
 
@@ -4256,25 +4036,29 @@ function renderMonthly(){
 
               class="employee-card"
 
-              onclick="showMonthDetail('${p.id}')"
-
               style="cursor:pointer"
+
+              onclick="showMonthDetail('${profile.id}')"
 
             >
 
               <strong>
 
-                ${esc(displayName(p))}
+                ${esc(displayName(profile))}
 
               </strong>
 
               <div>
 
-                ${fmtH(shiftHours(ps))}
+                ${fmtH(shiftHours(personShifts))}
 
                 <span class="small">
 
-                  · ${ps.length} service${ps.length>1?'s':''}
+                  ·
+
+                  ${personShifts.length}
+
+                  service${personShifts.length>1?'s':''}
 
                 </span>
 
@@ -4308,45 +4092,55 @@ function showMonthDetail(id){
 
   }
 
-  const p =
+  const profile =
 
     profiles.find(
 
-      x => x.id === id
+      p =>
+
+        p.id === id
 
     );
 
-  if(!p){
+  if(!profile){
 
     return;
 
   }
 
-  const key =
+  const month =
 
     $('monthPicker').value ||
 
     currentMonthKey();
 
-  let ps =
+  let personShifts =
 
     shifts.filter(
 
-      s =>
+      shift =>
 
-        s.user_id === id &&
+        shift.user_id === id &&
 
-        inMonth(s.date,key)
+        inMonth(
+
+          shift.date,
+
+          month
+
+        )
 
     );
 
   if(!isManager()){
 
-    ps =
+    personShifts =
 
-      ps.filter(
+      personShifts.filter(
 
-        s => s.published
+        shift =>
+
+          shift.published
 
       );
 
@@ -4354,19 +4148,19 @@ function showMonthDetail(id){
 
   const total =
 
-    shiftHours(ps);
+    shiftHours(personShifts);
 
   $('monthDetailTitle')
 
     .textContent =
 
-      `${displayName(p)} — ${key}`;
+      `${displayName(profile)} — ${month}`;
 
   $('monthDetail')
 
     .innerHTML =
 
-      ps.length
+      personShifts.length
 
         ? `
 
@@ -4382,31 +4176,43 @@ function showMonthDetail(id){
 
             </tr>
 
-            ${ps.map(s=>`
+            ${
 
-              <tr>
+              personShifts
 
-                <td>
+                .map(shift=>`
 
-                  ${formatDateFr(s.date)}
+                  <tr>
 
-                </td>
+                    <td>
 
-                <td>
+                      ${formatDateFr(shift.date)}
 
-                  ${timeShort(s.start_time)}–${timeShort(s.end_time)}
+                    </td>
 
-                </td>
+                    <td>
 
-                <td>
+                      ${timeShort(shift.start_time)}
 
-                  ${fmtH(hoursBetweenTimes(s.start_time,s.end_time))}
+                      –
 
-                </td>
+                      ${timeShort(shift.end_time)}
 
-              </tr>
+                    </td>
 
-            `).join('')}
+                    <td>
+
+                      ${fmtH(hoursBetweenTimes(shift.start_time,shift.end_time))}
+
+                    </td>
+
+                  </tr>
+
+                `)
+
+                .join('')
+
+            }
 
             <tr>
 
@@ -4460,17 +4266,19 @@ function renderTeam(){
 
       profiles
 
-        .map(p=>{
+        .map(profile=>{
 
           const isMe =
 
-            p.id === me.id;
+            profile.id === me.id;
 
-          const ps =
+          const personShifts =
 
             shifts.filter(
 
-              s => s.user_id === p.id
+              shift =>
+
+                shift.user_id === profile.id
 
             );
 
@@ -4478,9 +4286,15 @@ function renderTeam(){
 
             shiftHours(
 
-              ps.filter(
+              personShifts.filter(
 
-                s => inCurrentWeek(s.date)
+                shift =>
+
+                  inCurrentWeek(
+
+                    shift.date
+
+                  )
 
               )
 
@@ -4490,9 +4304,15 @@ function renderTeam(){
 
             shiftHours(
 
-              ps.filter(
+              personShifts.filter(
 
-                s => inCurrentMonth(s.date)
+                shift =>
+
+                  inCurrentMonth(
+
+                    shift.date
+
+                  )
 
               )
 
@@ -4504,19 +4324,19 @@ function renderTeam(){
 
               <strong>
 
-                ${esc(displayName(p))}
+                ${esc(displayName(profile))}
 
               </strong>
 
               <span class="pill">
 
-                ${esc(roleLabel(p))}
+                ${esc(roleLabel(profile))}
 
               </span>
 
               ${
 
-                p.active
+                profile.active
 
                   ? '<span class="pill ok">Actif</span>'
 
@@ -4566,7 +4386,7 @@ function renderTeam(){
 
                   class="secondary"
 
-                  onclick="teamHours('${p.id}')"
+                  onclick="teamHours('${profile.id}')"
 
                 >
 
@@ -4578,43 +4398,45 @@ function renderTeam(){
 
                   !isMe
 
-                    ? (
+                    ?
 
-                        p.active
+                    (
 
-                          ? `
+                      profile.active
 
-                            <button
+                        ? `
 
-                              class="danger"
+                          <button
 
-                              onclick="setMemberActive('${p.id}',false)"
+                            class="danger"
 
-                            >
+                            onclick="setMemberActive('${profile.id}',false)"
 
-                              Désactiver
+                          >
 
-                            </button>
+                            Désactiver
 
-                          `
+                          </button>
 
-                          : `
+                        `
 
-                            <button
+                        : `
 
-                              class="okbtn"
+                          <button
 
-                              onclick="setMemberActive('${p.id}',true)"
+                            class="okbtn"
 
-                            >
+                            onclick="setMemberActive('${profile.id}',true)"
 
-                              Activer
+                          >
 
-                            </button>
+                            Activer
 
-                          `
+                          </button>
 
-                      )
+                        `
+
+                    )
 
                     : ''
 
@@ -4630,7 +4452,7 @@ function renderTeam(){
 
                       <select
 
-                        onchange="configureRole('${p.id}',this.value,${p.active})"
+                        onchange="configureRole('${profile.id}',this.value,${profile.active})"
 
                       >
 
@@ -4638,7 +4460,7 @@ function renderTeam(){
 
                           value="employe"
 
-                          ${p.role==='employe'?'selected':''}
+                          ${profile.role==='employe'?'selected':''}
 
                         >
 
@@ -4650,7 +4472,7 @@ function renderTeam(){
 
                           value="responsable"
 
-                          ${p.role==='responsable'?'selected':''}
+                          ${profile.role==='responsable'?'selected':''}
 
                         >
 
@@ -4662,7 +4484,7 @@ function renderTeam(){
 
                           value="patron"
 
-                          ${p.role==='patron'?'selected':''}
+                          ${profile.role==='patron'?'selected':''}
 
                         >
 
@@ -4676,7 +4498,7 @@ function renderTeam(){
 
                         class="danger"
 
-                        onclick="deleteEmployee('${p.id}')"
+                        onclick="deleteEmployee('${profile.id}')"
 
                       >
 
@@ -4702,7 +4524,7 @@ function renderTeam(){
 
         ||
 
-        '<div class="small">Aucun profil.</div>';
+        '<div class="small">Aucun membre.</div>';
 
 }
 
@@ -4718,15 +4540,19 @@ function renderNotifications(){
 
     notifications.filter(
 
-      n => n.user_id === me.id
+      notification =>
+
+        notification.user_id === me.id
 
     );
 
-  const unread =
+  const unreadCount =
 
     mine.filter(
 
-      n => !n.read
+      notification =>
+
+        !notification.read
 
     ).length;
 
@@ -4734,7 +4560,7 @@ function renderNotifications(){
 
     .textContent =
 
-      unread;
+      unreadCount;
 
   $('bellCount')
 
@@ -4744,7 +4570,7 @@ function renderNotifications(){
 
       'hidden',
 
-      unread === 0
+      unreadCount === 0
 
     );
 
@@ -4756,23 +4582,23 @@ function renderNotifications(){
 
         ? mine
 
-            .map(n=>`
+            .map(notification=>`
 
               <div
 
-                class="notification-item ${n.read?'':'unread'}"
+                class="notification-item ${notification.read?'':'unread'}"
 
               >
 
                 <strong>
 
-                  ${esc(n.title)}
+                  ${esc(notification.title)}
 
                 </strong>
 
                 <div style="margin-top:5px">
 
-                  ${esc(n.message)}
+                  ${esc(notification.message)}
 
                 </div>
 
@@ -4786,7 +4612,7 @@ function renderNotifications(){
 
                   ${
 
-                    new Date(n.created_at)
+                    new Date(notification.created_at)
 
                       .toLocaleString('fr-BE')
 
@@ -4796,7 +4622,7 @@ function renderNotifications(){
 
                 ${
 
-                  !n.read
+                  !notification.read
 
                     ? `
 
@@ -4806,7 +4632,7 @@ function renderNotifications(){
 
                         style="margin-top:8px"
 
-                        onclick="markNotificationRead('${n.id}')"
+                        onclick="markNotificationRead('${notification.id}')"
 
                       >
 
@@ -4854,7 +4680,7 @@ async function saveAvailability(){
 
   }
 
-  const user_id =
+  const userId =
 
     isManager()
 
@@ -4864,9 +4690,11 @@ async function saveAvailability(){
 
   const available =
 
-    $('avAvailable').value === 'true';
+    $('avAvailable').value ===
 
-  const start_time =
+    'true';
+
+  const startTime =
 
     available
 
@@ -4874,7 +4702,7 @@ async function saveAvailability(){
 
       : '00:00';
 
-  const end_time =
+  const endTime =
 
     available
 
@@ -4890,13 +4718,13 @@ async function saveAvailability(){
 
       .insert({
 
-        user_id,
+        user_id:userId,
 
         date,
 
-        start_time,
+        start_time:startTime,
 
-        end_time,
+        end_time:endTime,
 
         available,
 
@@ -4928,21 +4756,23 @@ async function acceptAvailability(id){
 
   }
 
-  const a =
+  const availability =
 
     availabilities.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!a){
+  if(!availability){
 
     return;
 
   }
 
-  if(a.available){
+  if(availability.available){
 
     const {error:shiftError} =
 
@@ -4952,13 +4782,21 @@ async function acceptAvailability(id){
 
         .insert({
 
-          user_id:a.user_id,
+          user_id:
 
-          date:a.date,
+            availability.user_id,
 
-          start_time:a.start_time,
+          date:
 
-          end_time:a.end_time,
+            availability.date,
+
+          start_time:
+
+            availability.start_time,
+
+          end_time:
+
+            availability.end_time,
 
           published:true,
 
@@ -4990,11 +4828,19 @@ async function acceptAvailability(id){
 
         status:'accepted',
 
-        updated_at:new Date().toISOString()
+        updated_at:
+
+          new Date().toISOString()
 
       })
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5008,15 +4854,15 @@ async function acceptAvailability(id){
 
   await createNotification(
 
-    a.user_id,
+    availability.user_id,
 
-    a.available
+    availability.available
 
       ? 'Disponibilité acceptée'
 
       : 'Indisponibilité validée',
 
-    a.available
+    availability.available
 
       ? 'Ta disponibilité a été acceptée et ajoutée au planning.'
 
@@ -5038,15 +4884,17 @@ async function refuseAvailability(id){
 
   }
 
-  const a =
+  const availability =
 
     availabilities.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!a){
+  if(!availability){
 
     return;
 
@@ -5054,7 +4902,7 @@ async function refuseAvailability(id){
 
   if(!confirm(
 
-    `Refuser cette demande de ${personName(a.user_id)} ?`
+    `Refuser la demande de ${personName(availability.user_id)} ?`
 
   )){
 
@@ -5072,11 +4920,19 @@ async function refuseAvailability(id){
 
         status:'refused',
 
-        updated_at:new Date().toISOString()
+        updated_at:
+
+          new Date().toISOString()
 
       })
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5090,7 +4946,7 @@ async function refuseAvailability(id){
 
   await createNotification(
 
-    a.user_id,
+    availability.user_id,
 
     'Disponibilité refusée',
 
@@ -5124,7 +4980,13 @@ async function deleteAvailability(id){
 
       .delete()
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5142,7 +5004,7 @@ async function deleteAvailability(id){
 
 /* ============================================================
 
-   ACTIONS SHIFTS
+   ACTIONS PLANNING
 
 ============================================================ */
 
@@ -5228,7 +5090,7 @@ async function addShift(){
 
       'info',
 
-      data?.id
+      data?.id || null
 
     );
 
@@ -5246,15 +5108,17 @@ async function editShift(id){
 
   }
 
-  const s =
+  const shift =
 
     shifts.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!s){
+  if(!shift){
 
     return;
 
@@ -5266,7 +5130,7 @@ async function editShift(id){
 
       'Date AAAA-MM-JJ',
 
-      s.date
+      shift.date
 
     );
 
@@ -5282,7 +5146,7 @@ async function editShift(id){
 
       'Début HH:MM',
 
-      timeShort(s.start_time)
+      timeShort(shift.start_time)
 
     );
 
@@ -5298,7 +5162,7 @@ async function editShift(id){
 
       'Fin HH:MM',
 
-      timeShort(s.end_time)
+      timeShort(shift.end_time)
 
     );
 
@@ -5338,7 +5202,13 @@ async function editShift(id){
 
       })
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5354,7 +5224,7 @@ async function editShift(id){
 
     await createNotification(
 
-      s.user_id,
+      shift.user_id,
 
       'Horaire modifié',
 
@@ -5378,7 +5248,11 @@ async function deleteShift(id){
 
     !isManager() ||
 
-    !confirm('Supprimer ce service ?')
+    !confirm(
+
+      'Supprimer ce service ?'
+
+    )
 
   ){
 
@@ -5394,7 +5268,13 @@ async function deleteShift(id){
 
       .delete()
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5424,21 +5304,27 @@ function openChangeRequest(id){
 
   }
 
-  const s =
+  const shift =
 
     shifts.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!s){
+  if(!shift){
 
     return;
 
   }
 
-  if(pendingRequestForShift(id)){
+  if(
+
+    pendingRequestForShift(id)
+
+  ){
 
     return alert(
 
@@ -5450,21 +5336,47 @@ function openChangeRequest(id){
 
   selectedShiftForChange =
 
-    s;
+    shift;
 
   $('changeCurrent')
 
     .innerHTML =
 
-      `Horaire actuel : <strong>${formatDateFr(s.date)} — ${timeShort(s.start_time)} à ${timeShort(s.end_time)}</strong>`;
+      `
+
+        Horaire actuel :
+
+        <strong>
+
+          ${formatDateFr(shift.date)}
+
+          —
+
+          ${timeShort(shift.start_time)}
+
+          à
+
+          ${timeShort(shift.end_time)}
+
+        </strong>
+
+      `;
 
   $('changeStart').value =
 
-    timeShort(s.start_time);
+    timeShort(
+
+      shift.start_time
+
+    );
 
   $('changeEnd').value =
 
-    timeShort(s.end_time);
+    timeShort(
+
+      shift.end_time
+
+    );
 
   $('changeReason').value =
 
@@ -5512,7 +5424,7 @@ async function sendChangeRequest(){
 
   }
 
-  const s =
+  const shift =
 
     selectedShiftForChange;
 
@@ -5524,17 +5436,29 @@ async function sendChangeRequest(){
 
       .insert({
 
-        shift_id:s.id,
+        shift_id:
 
-        user_id:me.id,
+          shift.id,
 
-        old_start_time:s.start_time,
+        user_id:
 
-        old_end_time:s.end_time,
+          me.id,
 
-        requested_start_time:start,
+        old_start_time:
 
-        requested_end_time:end,
+          shift.start_time,
+
+        old_end_time:
+
+          shift.end_time,
+
+        requested_start_time:
+
+          start,
+
+        requested_end_time:
+
+          end,
 
         reason,
 
@@ -5586,13 +5510,13 @@ async function reviewChange(id,decision){
 
     decision === 'accepted'
 
-      ? 'accepter'
+      ? 'Accepter'
 
-      : 'refuser';
+      : 'Refuser';
 
   if(!confirm(
 
-    `${label.charAt(0).toUpperCase()+label.slice(1)} cette modification ?`
+    `${label} cette modification ?`
 
   )){
 
@@ -5644,15 +5568,17 @@ async function setMemberActive(id,active){
 
   }
 
-  const p =
+  const profile =
 
     profiles.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!p){
+  if(!profile){
 
     return;
 
@@ -5660,7 +5586,7 @@ async function setMemberActive(id,active){
 
   if(!confirm(
 
-    `${active?'Activer':'Désactiver'} le compte de ${displayName(p)} ?`
+    `${active?'Activer':'Désactiver'} le compte de ${displayName(profile)} ?`
 
   )){
 
@@ -5698,7 +5624,15 @@ async function setMemberActive(id,active){
 
 }
 
-async function configureRole(id,role,active){
+async function configureRole(
+
+  id,
+
+  role,
+
+  active
+
+){
 
   if(!isOwner()){
 
@@ -5710,15 +5644,17 @@ async function configureRole(id,role,active){
 
   }
 
-  const p =
+  const profile =
 
     profiles.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!p){
+  if(!profile){
 
     return;
 
@@ -5726,7 +5662,7 @@ async function configureRole(id,role,active){
 
   if(!confirm(
 
-    `Passer ${displayName(p)} en ${roleLabel({role})} ?`
+    `Passer ${displayName(profile)} en ${roleLabel({role})} ?`
 
   )){
 
@@ -5780,15 +5716,17 @@ async function deleteEmployee(id){
 
   }
 
-  const p =
+  const profile =
 
     profiles.find(
 
-      x => x.id === id
+      item =>
+
+        item.id === id
 
     );
 
-  if(!p){
+  if(!profile){
 
     return;
 
@@ -5796,7 +5734,7 @@ async function deleteEmployee(id){
 
   if(!confirm(
 
-    `Supprimer définitivement le compte de ${displayName(p)} ?`
+    `Supprimer définitivement le compte de ${displayName(profile)} ?`
 
   )){
 
@@ -5806,7 +5744,7 @@ async function deleteEmployee(id){
 
   if(!confirm(
 
-    `ATTENTION : cette suppression est définitive.\n\nConfirmer la suppression de ${displayName(p)} ?`
+    `ATTENTION : cette suppression est définitive.\n\nConfirmer ?`
 
   )){
 
@@ -5858,7 +5796,11 @@ function teamHours(id){
 
   setTimeout(
 
-    ()=>showMonthDetail(id),
+    ()=>{
+
+      showMonthDetail(id);
+
+    },
 
     100
 
@@ -5910,9 +5852,13 @@ async function createNotification(
 
         type,
 
-        related_shift_id:shiftId,
+        related_shift_id:
 
-        related_request_id:requestId
+          shiftId,
+
+        related_request_id:
+
+          requestId
 
       });
 
@@ -5944,7 +5890,13 @@ async function markNotificationRead(id){
 
       })
 
-      .eq('id',id);
+      .eq(
+
+        'id',
+
+        id
+
+      );
 
   if(error){
 
@@ -5966,15 +5918,15 @@ async function markAllRead(){
 
     notifications.filter(
 
-      n =>
+      notification =>
 
-        n.user_id === me.id &&
+        notification.user_id === me.id &&
 
-        !n.read
+        !notification.read
 
     );
 
-  for(const n of unread){
+  for(const notification of unread){
 
     await sb
 
@@ -5986,7 +5938,13 @@ async function markAllRead(){
 
       })
 
-      .eq('id',n.id);
+      .eq(
+
+        'id',
+
+        notification.id
+
+      );
 
   }
 
@@ -6006,17 +5964,21 @@ async function refresh(){
 
     await loadAll();
 
-    const current =
+    const currentProfile =
 
       profiles.find(
 
-        p => p.id === me.id
+        profile =>
+
+          profile.id === me.id
 
       );
 
-    if(current){
+    if(currentProfile){
 
-      me = current;
+      me =
+
+        currentProfile;
 
     }
 
@@ -6034,15 +5996,15 @@ async function refresh(){
 
     renderAll();
 
-  }catch(e){
+  }catch(error){
 
-    console.error(e);
+    console.error(error);
 
     alert(
 
       'Erreur : ' +
 
-      e.message
+      error.message
 
     );
 
@@ -6062,7 +6024,11 @@ function scheduleRefresh(){
 
     setTimeout(
 
-      refresh,
+      ()=>{
+
+        refresh();
+
+      },
 
       500
 
@@ -6240,17 +6206,19 @@ function show(id){
 
   document
 
-    .querySelectorAll('.view')
+    .querySelectorAll(
 
-    .forEach(
+      '.view'
 
-      v =>
+    )
 
-        v.classList
+    .forEach(view=>{
 
-          .add('hidden')
+      view.classList
 
-    );
+        .add('hidden');
+
+    });
 
   const target =
 
@@ -6266,23 +6234,25 @@ function show(id){
 
   document
 
-    .querySelectorAll('.tab')
+    .querySelectorAll(
 
-    .forEach(
+      '.tab'
 
-      b =>
+    )
 
-        b.classList
+    .forEach(button=>{
 
-          .toggle(
+      button.classList
 
-            'active',
+        .toggle(
 
-            b.dataset.view === id
+          'active',
 
-          )
+          button.dataset.view === id
 
-    );
+        );
+
+    });
 
   window.scrollTo({
 
@@ -6310,9 +6280,9 @@ $('loginPassword')
 
     'keydown',
 
-    e=>{
+    event=>{
 
-      if(e.key === 'Enter'){
+      if(event.key === 'Enter'){
 
         login();
 
@@ -6398,7 +6368,9 @@ $('closeChangeModal').onclick =
 
   ()=>{
 
-    selectedShiftForChange = null;
+    selectedShiftForChange =
+
+      null;
 
     $('changeModal')
 
@@ -6438,31 +6410,51 @@ $('markAllRead').onclick =
 
 document
 
-  .querySelectorAll('.tab')
+  .querySelectorAll(
 
-  .forEach(
+    '.tab'
 
-    b =>
+  )
 
-      b.onclick =
+  .forEach(button=>{
 
-        ()=>show(b.dataset.view)
+    button.onclick =
 
-  );
+      ()=>{
+
+        show(
+
+          button.dataset.view
+
+        );
+
+      };
+
+  });
 
 document
 
-  .querySelectorAll('[data-go]')
+  .querySelectorAll(
 
-  .forEach(
+    '[data-go]'
 
-    b =>
+  )
 
-      b.onclick =
+  .forEach(button=>{
 
-        ()=>show(b.dataset.go)
+    button.onclick =
 
-  );
+      ()=>{
+
+        show(
+
+          button.dataset.go
+
+        );
+
+      };
+
+  });
 
 /* ============================================================
 
@@ -6524,7 +6516,7 @@ window.markNotificationRead =
 
 /* ============================================================
 
-   DATES DE DEPART
+   DATES
 
 ============================================================ */
 
@@ -6556,7 +6548,13 @@ sb.auth
 
     event=>{
 
-      if(event === 'SIGNED_OUT'){
+      if(
+
+        event ===
+
+        'SIGNED_OUT'
+
+      ){
 
         showLogin();
 
@@ -6572,35 +6570,49 @@ sb.auth
 
 ============================================================ */
 
-if('serviceWorker' in navigator){
+if(
 
-  window.addEventListener(
+  'serviceWorker'
 
-    'load',
+  in navigator
 
-    ()=>{
+){
 
-      navigator.serviceWorker
+  window
 
-        .register('./sw.js')
+    .addEventListener(
 
-        .catch(
+      'load',
 
-          err =>
+      ()=>{
 
-            console.log(
+        navigator
 
-              'Service Worker :',
+          .serviceWorker
 
-              err
+          .register(
 
-            )
+            './sw.js'
 
-        );
+          )
 
-    }
+          .catch(
 
-  );
+            error =>
+
+              console.log(
+
+                'Service Worker :',
+
+                error
+
+              )
+
+          );
+
+      }
+
+    );
 
 }
 
